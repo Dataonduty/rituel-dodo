@@ -285,6 +285,10 @@ button {
   visibility: hidden;
 }
 
+.pause-overlay[hidden] {
+  display: none;
+}
+
 .pause-overlay {
   position: absolute;
   inset: 10% 6%;

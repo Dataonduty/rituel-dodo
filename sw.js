@@ -1,6 +1,6 @@
 // Service worker « Au dodo » — cache-first pour un fonctionnement 100 % hors-ligne.
 // Incrémenter la version du cache à chaque mise à jour de l'app.
-const CACHE = 'dodo-v1';
+const CACHE = 'dodo-v2';
 
 const ASSETS = [
   './',
@@ -15,7 +15,10 @@ const ASSETS = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting())
+    caches.open(CACHE)
+      // cache: 'reload' force le reseau (ignore le cache HTTP) pour remplir le nouveau cache
+      .then((cache) => cache.addAll(ASSETS.map((u) => new Request(u, { cache: 'reload' }))))
+      .then(() => self.skipWaiting())
   );
 });
 

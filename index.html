@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>Au dodo — le rituel du coucher</title>
+  <meta name="description" content="Sablier du rituel du coucher : histoire, biberon, dents, câlin… et au dodo !">
+  <meta name="theme-color" content="#0b1026">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Au dodo">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stars" aria-hidden="true"></div>
+
+  <main class="app">
+
+    <!-- ÉCRAN ACCUEIL -->
+    <section id="screen-home" class="screen active">
+      <header class="home-head">
+        <div class="moon" aria-hidden="true"></div>
+        <h1>Au dodo&nbsp;!</h1>
+        <p class="subtitle">Le rituel du coucher</p>
+      </header>
+      <ul id="homeList" class="phase-list"></ul>
+      <p id="homeTotal" class="total-line"></p>
+      <div class="home-actions">
+        <button id="btnStart" class="btn-primary">🌙&nbsp; Commencer le rituel</button>
+        <button id="btnSettings" class="btn-ghost">⚙️&nbsp; Réglages</button>
+      </div>
+    </section>
+
+    <!-- ÉCRAN RITUEL -->
+    <section id="screen-ritual" class="screen">
+      <div class="banner">
+        <span id="phaseEmoji" aria-hidden="true">📖</span>
+        <div class="banner-text">
+          <span id="phaseLabel">Histoire</span>
+          <span id="phaseTime">5:00</span>
+        </div>
+      </div>
+
+      <div class="hourglass-wrap">
+        <svg id="hourglass" viewBox="0 0 320 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <clipPath id="clipTop">
+              <path d="M72 50 L248 50 Q248 160 166 236 L154 236 Q72 160 72 50 Z"/>
+            </clipPath>
+            <clipPath id="clipBot">
+              <path d="M154 252 Q72 330 72 438 L248 438 Q248 330 166 252 Z"/>
+            </clipPath>
+          </defs>
+
+          <!-- cadre bois -->
+          <rect x="48" y="26" width="7" height="428" rx="3.5" fill="#6f4730" opacity="0.9"/>
+          <rect x="265" y="26" width="7" height="428" rx="3.5" fill="#6f4730" opacity="0.9"/>
+          <rect x="40" y="14" width="240" height="18" rx="9" fill="#8a5a3e"/>
+          <rect x="40" y="448" width="240" height="18" rx="9" fill="#8a5a3e"/>
+
+          <!-- fond du verre -->
+          <path d="M72 50 L248 50 Q248 160 166 236 L154 236 Q72 160 72 50 Z" fill="rgba(255,255,255,0.05)"/>
+          <path d="M154 252 Q72 330 72 438 L248 438 Q248 330 166 252 Z" fill="rgba(255,255,255,0.05)"/>
+
+          <!-- sable -->
+          <g id="sandTop" clip-path="url(#clipTop)"></g>
+          <g id="sandBot" clip-path="url(#clipBot)"></g>
+
+          <!-- filet de sable + grains -->
+          <rect id="stream" x="157.5" y="240" width="5" height="0" rx="2.5" fill="#f6c453" opacity="0.95"/>
+          <g id="particles" fill="#f6c453">
+            <circle class="grain g1" cx="158.5" cy="248" r="2"/>
+            <circle class="grain g2" cx="161" cy="248" r="1.7"/>
+            <circle class="grain g3" cx="159.7" cy="248" r="1.4"/>
+          </g>
+
+          <!-- contours du verre -->
+          <path d="M72 50 L248 50 Q248 160 166 236 L154 236 Q72 160 72 50 Z"
+                fill="none" stroke="rgba(190,210,255,0.45)" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M154 252 Q72 330 72 438 L248 438 Q248 330 166 252 Z"
+                fill="none" stroke="rgba(190,210,255,0.45)" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M154 236 L154 252 M166 236 L166 252" stroke="rgba(190,210,255,0.45)" stroke-width="3"/>
+
+          <!-- reflets -->
+          <path d="M88 66 Q86 130 120 180" stroke="rgba(255,255,255,0.16)" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M94 310 Q86 365 90 420" stroke="rgba(255,255,255,0.12)" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div id="pauseOverlay" class="pause-overlay" hidden>⏸&nbsp;Pause</div>
+      </div>
+
+      <div id="trail" class="trail"></div>
+
+      <div class="controls">
+        <button id="btnPause" class="btn-ctrl" title="Pause">⏸</button>
+        <button id="btnSkip" class="btn-ctrl" title="Phase suivante">⏭</button>
+        <button id="btnStop" class="btn-ctrl danger" title="Arrêter">✕</button>
+      </div>
+    </section>
+
+    <!-- ÉCRAN RÉGLAGES -->
+    <section id="screen-settings" class="screen">
+      <header class="settings-head">
+        <button id="btnBack" class="btn-ghost btn-back">←&nbsp;Retour</button>
+        <h2>Réglages</h2>
+      </header>
+      <div id="settingsList"></div>
+      <label class="srow sound-row">
+        <span class="name">🔔&nbsp; Sons</span>
+        <input type="checkbox" id="soundToggle" class="switch">
+      </label>
+      <p id="settingsTotal" class="total-line"></p>
+      <button id="btnDefaults" class="btn-ghost">Valeurs par défaut</button>
+    </section>
+
+    <!-- ÉCRAN FIN -->
+    <section id="screen-end" class="screen">
+      <div class="end-center">
+        <div class="end-moon" aria-hidden="true"></div>
+        <h1>Au dodo&nbsp;!</h1>
+        <p class="subtitle">Bonne nuit, fais de beaux rêves&nbsp;✨</p>
+      </div>
+      <button id="btnEndHome" class="btn-ghost">Terminer</button>
+    </section>
+
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

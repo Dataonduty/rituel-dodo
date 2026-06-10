@@ -258,6 +258,16 @@ button {
   height: 100%;
   width: auto;
   max-width: 100%;
+  transform-origin: 50% 50%;
+}
+
+#hourglass.flip {
+  transition: transform 0.8s cubic-bezier(0.55, 0.06, 0.35, 1.1);
+  transform: rotate(180deg);
+}
+
+.flipping .grain {
+  visibility: hidden;
 }
 
 .grain {
@@ -307,7 +317,31 @@ button {
   display: flex;
   justify-content: center;
   gap: 12px;
-  padding: 10px 0;
+  padding: 10px 0 8px;
+}
+
+.progress {
+  display: flex;
+  gap: 3px;
+  height: 8px;
+  margin: 0 8px 10px;
+}
+
+.pseg {
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pseg .pfill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0%;
 }
 
 .chip {

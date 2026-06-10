@@ -29,16 +29,18 @@
     return Number.isFinite(s) && s > 0 ? s : 1;
   })();
 
-  // Géométrie du sablier (viewBox 320x480)
+  // Géométrie du sablier (viewBox 320x480, symétrique pour le retournement)
   const SAND = {
     topY: 50,       // haut de l'ampoule supérieure
     neckTopY: 236,  // col, côté supérieur
-    neckBotY: 252,  // col, côté inférieur
-    botY: 438,      // plancher de l'ampoule inférieure
+    neckBotY: 244,  // col, côté inférieur
+    botY: 430,      // plancher de l'ampoule inférieure
     left: 64,
     width: 192,
-    height: 186,    // hauteur utile de sable dans chaque ampoule
+    fillH: 178,     // hauteur de sable d'une étape (léger vide en haut de l'ampoule)
   };
+
+  const FLIP_MS = 800; // durée de l'animation de retournement
 
   // ---------- État ----------
 
@@ -53,11 +55,14 @@
   let wakeLock = null;
   let toastTimer = 0;
 
-  // Éléments de sable créés à chaque rituel
-  let topRects = [];
-  let botRects = [];
+  // Éléments créés à chaque rituel
+  let topSandEl = null;
+  let botSandEl = null;
   let moundEl = null;
   let chipEls = [];
+  let progFills = [];
+  let flipping = false;
+  let flipTimer = 0;
 
   const $ = (id) => document.getElementById(id);
 
@@ -155,6 +160,7 @@
     schedule = buildSchedule(run.phases);
     curIdx = -1;
     lastClockText = '';
+    cancelFlip();
     saveRun();
     buildRitualDom();
     showScreen('ritual');
@@ -172,6 +178,7 @@
     if (vNow() >= schedule.total) { clearRun(); return false; }
     curIdx = -1;
     lastClockText = '';
+    cancelFlip();
     buildRitualDom();
     showScreen('ritual');
     syncPauseUi();
@@ -236,7 +243,12 @@
     em.classList.remove('pop');
     void em.offsetWidth;
     em.classList.add('pop');
-    if (!isStart) chime();
+    if (isStart) {
+      setSandColor(color);
+    } else {
+      chime();
+      startFlip(color);
+    }
   }
 
   function pauseToggle() {
@@ -272,6 +284,7 @@
   function stopRitual() {
     if (!confirm('Arrêter le rituel ?')) return;
     stopLoop();
+    cancelFlip();
     releaseWakeLock();
     clearRun();
     renderHome();
@@ -280,6 +293,7 @@
 
   function finishRitual() {
     stopLoop();
+    cancelFlip();
     releaseWakeLock();
     lullaby();
     clearRun();
@@ -299,19 +313,12 @@
     const bot = $('sandBot');
     top.innerHTML = '';
     bot.innerHTML = '';
-    topRects = [];
-    botRects = [];
-
-    schedule.phases.forEach((p) => {
-      const color = colorOf(p);
-      const rt = svgEl('rect', { x: SAND.left, y: SAND.neckTopY, width: SAND.width, height: 0, fill: color });
-      const rb = svgEl('rect', { x: SAND.left, y: SAND.botY, width: SAND.width, height: 0, fill: color });
-      top.appendChild(rt);
-      bot.appendChild(rb);
-      topRects.push(rt);
-      botRects.push(rb);
-    });
-    moundEl = svgEl('ellipse', { cx: 160, cy: SAND.botY, rx: 40, ry: 9, fill: 'none' });
+    const color = colorOf(schedule.phases[0]);
+    topSandEl = svgEl('rect', { x: SAND.left, y: SAND.neckTopY, width: SAND.width, height: 0, fill: color });
+    botSandEl = svgEl('rect', { x: SAND.left, y: SAND.botY, width: SAND.width, height: 0, fill: color });
+    moundEl = svgEl('ellipse', { cx: 160, cy: SAND.botY, rx: 40, ry: 9, fill: color, opacity: 0 });
+    top.appendChild(topSandEl);
+    bot.appendChild(botSandEl);
     bot.appendChild(moundEl);
 
     const trail = $('trail');
@@ -323,50 +330,79 @@
       trail.appendChild(chip);
       return chip;
     });
+
+    const prog = $('progress');
+    prog.innerHTML = '';
+    progFills = schedule.phases.map((p, i) => {
+      const seg = document.createElement('div');
+      seg.className = 'pseg';
+      seg.style.flexGrow = String(schedule.dur[i]);
+      const fill = document.createElement('div');
+      fill.className = 'pfill';
+      fill.style.background = colorOf(p);
+      seg.appendChild(fill);
+      prog.appendChild(seg);
+      return fill;
+    });
+  }
+
+  function setSandColor(color) {
+    topSandEl.setAttribute('fill', color);
+    botSandEl.setAttribute('fill', color);
+    moundEl.setAttribute('fill', color);
   }
 
   function renderSand(v) {
-    const n = schedule.phases.length;
-    const total = schedule.total;
-
-    // Ampoule du haut : la phase en cours est contre le col et se vide
-    let yTop = SAND.neckTopY;
-    for (let i = 0; i < n; i++) {
-      const rem = clamp(schedule.dur[i] - (v - schedule.cumStart[i]), 0, schedule.dur[i]);
-      const h = (rem / total) * SAND.height;
-      topRects[i].setAttribute('y', yTop - h);
-      topRects[i].setAttribute('height', h);
-      yTop -= h;
+    // Barre de progression globale (un segment par étape)
+    for (let i = 0; i < schedule.phases.length; i++) {
+      const pct = clamp((v - schedule.cumStart[i]) / schedule.dur[i], 0, 1) * 100;
+      progFills[i].style.width = pct + '%';
     }
 
-    // Ampoule du bas : les phases s'empilent dans l'ordre d'achèvement
-    let yBot = SAND.botY;
-    let topColor = null;
-    for (let i = 0; i < n; i++) {
-      const el = clamp(v - schedule.cumStart[i], 0, schedule.dur[i]);
-      const h = (el / total) * SAND.height;
-      botRects[i].setAttribute('y', yBot - h);
-      botRects[i].setAttribute('height', h);
-      if (h > 0.5) topColor = colorOf(schedule.phases[i]);
-      yBot -= h;
-    }
+    if (flipping) return; // le sablier en rotation garde l'état de l'étape finie
 
-    // Petit monticule au sommet du sable du bas
-    if (topColor) {
-      moundEl.setAttribute('fill', topColor);
-      moundEl.setAttribute('cy', yBot);
-    } else {
-      moundEl.setAttribute('fill', 'none');
-    }
+    // Le sablier représente l'étape en cours : il se vide entièrement pendant l'étape
+    const frac = clamp((v - schedule.cumStart[curIdx]) / schedule.dur[curIdx], 0, 1);
+    const topH = (1 - frac) * SAND.fillH;
+    const botH = frac * SAND.fillH;
+    topSandEl.setAttribute('y', SAND.neckTopY - topH);
+    topSandEl.setAttribute('height', topH);
+    botSandEl.setAttribute('y', SAND.botY - botH);
+    botSandEl.setAttribute('height', botH);
+    moundEl.setAttribute('cy', SAND.botY - botH);
+    moundEl.setAttribute('opacity', Math.min(1, botH / 10).toFixed(2));
 
-    // Filet de sable
+    // Filet de sable, du col au sommet du tas
     const stream = $('stream');
-    if (v < total) {
-      stream.setAttribute('y', SAND.neckTopY + 4);
-      stream.setAttribute('height', Math.max(0, yBot - SAND.neckTopY - 4));
+    if (topH > 0.5 && v < schedule.total) {
+      stream.setAttribute('y', SAND.neckTopY + 2);
+      stream.setAttribute('height', Math.max(0, SAND.botY - botH - SAND.neckTopY - 2));
     } else {
       stream.setAttribute('height', 0);
     }
+  }
+
+  function startFlip(newColor) {
+    flipping = true;
+    $('screen-ritual').classList.add('flipping');
+    $('stream').setAttribute('height', 0);
+    const hg = $('hourglass');
+    hg.classList.add('flip');
+    clearTimeout(flipTimer);
+    flipTimer = setTimeout(() => {
+      hg.classList.remove('flip'); // retour instantané à 0° : silhouette identique (symétrie)
+      $('screen-ritual').classList.remove('flipping');
+      setSandColor(newColor);
+      flipping = false;
+      if (run) renderSand(Math.max(0, vNow()));
+    }, FLIP_MS + 50);
+  }
+
+  function cancelFlip() {
+    clearTimeout(flipTimer);
+    flipping = false;
+    $('hourglass').classList.remove('flip');
+    $('screen-ritual').classList.remove('flipping');
   }
 
   function renderClock(v) {

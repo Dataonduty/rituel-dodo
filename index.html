@@ -52,26 +52,26 @@
               <path d="M72 50 L248 50 Q248 160 166 236 L154 236 Q72 160 72 50 Z"/>
             </clipPath>
             <clipPath id="clipBot">
-              <path d="M154 252 Q72 330 72 438 L248 438 Q248 330 166 252 Z"/>
+              <path d="M154 244 Q72 320 72 430 L248 430 Q248 320 166 244 Z"/>
             </clipPath>
           </defs>
 
           <!-- cadre bois -->
           <rect x="48" y="26" width="7" height="428" rx="3.5" fill="#6f4730" opacity="0.9"/>
           <rect x="265" y="26" width="7" height="428" rx="3.5" fill="#6f4730" opacity="0.9"/>
-          <rect x="40" y="14" width="240" height="18" rx="9" fill="#8a5a3e"/>
-          <rect x="40" y="448" width="240" height="18" rx="9" fill="#8a5a3e"/>
+          <rect x="40" y="22" width="240" height="18" rx="9" fill="#8a5a3e"/>
+          <rect x="40" y="440" width="240" height="18" rx="9" fill="#8a5a3e"/>
 
           <!-- fond du verre -->
           <path d="M72 50 L248 50 Q248 160 166 236 L154 236 Q72 160 72 50 Z" fill="rgba(255,255,255,0.05)"/>
-          <path d="M154 252 Q72 330 72 438 L248 438 Q248 330 166 252 Z" fill="rgba(255,255,255,0.05)"/>
+          <path d="M154 244 Q72 320 72 430 L248 430 Q248 320 166 244 Z" fill="rgba(255,255,255,0.05)"/>
 
           <!-- sable -->
           <g id="sandTop" clip-path="url(#clipTop)"></g>
           <g id="sandBot" clip-path="url(#clipBot)"></g>
 
           <!-- filet de sable + grains -->
-          <rect id="stream" x="157.5" y="240" width="5" height="0" rx="2.5" fill="#f6c453" opacity="0.95"/>
+          <rect id="stream" x="157.5" y="238" width="5" height="0" rx="2.5" fill="#f6c453" opacity="0.95"/>
           <g id="particles" fill="#f6c453">
             <circle class="grain g1" cx="158.5" cy="248" r="2"/>
             <circle class="grain g2" cx="161" cy="248" r="1.7"/>
@@ -81,18 +81,19 @@
           <!-- contours du verre -->
           <path d="M72 50 L248 50 Q248 160 166 236 L154 236 Q72 160 72 50 Z"
                 fill="none" stroke="rgba(190,210,255,0.45)" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M154 252 Q72 330 72 438 L248 438 Q248 330 166 252 Z"
+          <path d="M154 244 Q72 320 72 430 L248 430 Q248 320 166 244 Z"
                 fill="none" stroke="rgba(190,210,255,0.45)" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M154 236 L154 252 M166 236 L166 252" stroke="rgba(190,210,255,0.45)" stroke-width="3"/>
+          <path d="M154 236 L154 244 M166 236 L166 244" stroke="rgba(190,210,255,0.45)" stroke-width="3"/>
 
           <!-- reflets -->
           <path d="M88 66 Q86 130 120 180" stroke="rgba(255,255,255,0.16)" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <path d="M94 310 Q86 365 90 420" stroke="rgba(255,255,255,0.12)" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M94 300 Q86 355 90 412" stroke="rgba(255,255,255,0.12)" stroke-width="6" fill="none" stroke-linecap="round"/>
         </svg>
         <div id="pauseOverlay" class="pause-overlay" hidden>⏸&nbsp;Pause</div>
       </div>
 
       <div id="trail" class="trail"></div>
+      <div id="progress" class="progress" aria-hidden="true"></div>
 
       <div class="controls">
         <button id="btnPause" class="btn-ctrl" title="Pause">⏸</button>

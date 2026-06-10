@@ -5,6 +5,7 @@
   // ---------- Constantes ----------
 
   const COLORS = {
+    pyjama: '#b9a7f2',
     histoire: '#f6c453',
     biberon: '#f3e9d2',
     dents: '#7fd8c8',
@@ -13,6 +14,7 @@
   const FALLBACK_COLOR = '#cbd5ff';
 
   const DEFAULT_PHASES = [
+    { id: 'pyjama', emoji: '👕', label: 'Pyjama', minutes: 5, enabled: true },
     { id: 'histoire', emoji: '📖', label: 'Histoire', minutes: 5, enabled: true },
     { id: 'biberon', emoji: '🍼', label: 'Biberon', minutes: 15, enabled: true },
     { id: 'dents', emoji: '🪥', label: 'Dents', minutes: 5, enabled: true },
@@ -63,6 +65,8 @@
   let progFills = [];
   let flipping = false;
   let flipTimer = 0;
+  let flipStartedAt = 0;
+  let flipNewColor = null;
 
   const $ = (id) => document.getElementById(id);
 
@@ -80,9 +84,10 @@
       const phases = raw.phases
         .filter((p) => p && byId[p.id])
         .map((p) => ({ ...byId[p.id], minutes: clampMin(p.minutes), enabled: p.enabled !== false }));
-      for (const d of DEFAULT_PHASES) {
-        if (!phases.some((p) => p.id === d.id)) phases.push({ ...d });
-      }
+      // Les nouvelles étapes par défaut s'insèrent à leur position d'origine
+      DEFAULT_PHASES.forEach((d, idx) => {
+        if (!phases.some((p) => p.id === d.id)) phases.splice(Math.min(idx, phases.length), 0, { ...d });
+      });
       if (!phases.some((p) => p.enabled)) phases[0].enabled = true;
       return { phases, soundOn: raw.soundOn !== false };
     } catch {
@@ -196,10 +201,11 @@
       return;
     }
     if (idx !== curIdx) {
-      const isStart = curIdx === -1;
+      const prevIdx = curIdx;
       curIdx = idx;
-      onPhaseChange(isStart);
+      onPhaseChange(prevIdx === -1, prevIdx !== -1 && idx < prevIdx);
     }
+    if (flipping && Date.now() - flipStartedAt > FLIP_MS + 300) endFlip();
     renderSand(v);
     renderClock(v);
     if (Date.now() - run.updatedAt > 10000) saveRun();
@@ -227,7 +233,7 @@
     clearInterval(watchdogId);
   }
 
-  function onPhaseChange(isStart) {
+  function onPhaseChange(isStart, backward) {
     const p = schedule.phases[curIdx];
     const color = colorOf(p);
     $('phaseEmoji').textContent = p.emoji;
@@ -247,7 +253,7 @@
       setSandColor(color);
     } else {
       chime();
-      startFlip(color);
+      startFlip(color, backward);
     }
   }
 
@@ -279,6 +285,19 @@
     const end = schedule.cumStart[curIdx] + schedule.dur[curIdx];
     run.skipOffset += Math.max(0, end - v);
     saveRun();
+  }
+
+  function prevPhase() {
+    if (!run || curIdx < 0) return;
+    const v = vNow();
+    const targetIdx = Math.max(0, curIdx - 1);
+    run.skipOffset -= v - schedule.cumStart[targetIdx];
+    saveRun();
+    if (targetIdx === curIdx) {
+      // Déjà sur la première étape : on la redémarre
+      chime();
+      startFlip(colorOf(schedule.phases[curIdx]), true);
+    }
   }
 
   function stopRitual() {
@@ -382,26 +401,37 @@
     }
   }
 
-  function startFlip(newColor) {
+  function startFlip(newColor, backward) {
     flipping = true;
+    flipStartedAt = Date.now();
+    flipNewColor = newColor;
     $('screen-ritual').classList.add('flipping');
     $('stream').setAttribute('height', 0);
     const hg = $('hourglass');
-    hg.classList.add('flip');
+    hg.classList.remove('flip', 'flip-back');
+    void hg.getBoundingClientRect(); // force le redémarrage de la transition
+    hg.classList.add(backward ? 'flip-back' : 'flip');
     clearTimeout(flipTimer);
-    flipTimer = setTimeout(() => {
-      hg.classList.remove('flip'); // retour instantané à 0° : silhouette identique (symétrie)
-      $('screen-ritual').classList.remove('flipping');
-      setSandColor(newColor);
-      flipping = false;
-      if (run) renderSand(Math.max(0, vNow()));
-    }, FLIP_MS + 50);
+    flipTimer = setTimeout(endFlip, FLIP_MS + 50);
+  }
+
+  // Fin de rotation : appelée par le timer, ou par la boucle de tick si le
+  // timer a été étranglé (page cachée, téléphone verrouillé pendant le flip).
+  function endFlip() {
+    if (!flipping) return;
+    clearTimeout(flipTimer);
+    $('hourglass').classList.remove('flip', 'flip-back'); // retour instantané à 0° : silhouette identique (symétrie)
+    $('screen-ritual').classList.remove('flipping');
+    if (flipNewColor) setSandColor(flipNewColor);
+    flipping = false;
+    if (run) renderSand(Math.max(0, vNow()));
   }
 
   function cancelFlip() {
     clearTimeout(flipTimer);
     flipping = false;
-    $('hourglass').classList.remove('flip');
+    flipNewColor = null;
+    $('hourglass').classList.remove('flip', 'flip-back');
     $('screen-ritual').classList.remove('flipping');
   }
 
@@ -639,6 +669,7 @@
       saveSettings();
     });
     $('btnPause').addEventListener('click', pauseToggle);
+    $('btnPrev').addEventListener('click', prevPhase);
     $('btnSkip').addEventListener('click', skipPhase);
     $('btnStop').addEventListener('click', stopRitual);
     $('btnEndHome').addEventListener('click', () => { renderHome(); showScreen('home'); });
@@ -651,7 +682,11 @@
       navigator.serviceWorker.register('./sw.js').catch(() => {});
     }
 
-    if (SPEED !== 1) console.log('[dodo] mode test : vitesse x' + SPEED);
+    if (SPEED !== 1) {
+      // Hook de test : permet de forcer un tick quand les timers sont étranglés
+      window.__dodo = { tick: tickOnce, endFlip };
+      console.log('[dodo] mode test : vitesse x' + SPEED);
+    }
   }
 
   init();

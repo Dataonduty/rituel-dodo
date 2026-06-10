@@ -266,6 +266,11 @@ button {
   transform: rotate(180deg);
 }
 
+#hourglass.flip-back {
+  transition: transform 0.8s cubic-bezier(0.55, 0.06, 0.35, 1.1);
+  transform: rotate(-180deg);
+}
+
 .flipping .grain {
   visibility: hidden;
 }

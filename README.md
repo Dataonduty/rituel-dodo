@@ -1,7 +1,7 @@
 # Au dodo 🌙 — le sablier du rituel du coucher
 
 PWA toute simple (HTML/CSS/JS, zéro dépendance) pour accompagner le rituel du coucher d'un petit :
-un grand sablier se vide pendant chaque étape — 📖 Histoire, 🍼 Biberon, 🪥 Dents, 🤗 Câlin — et se
+un grand sablier se vide pendant chaque étape — 👕 Pyjama, 📖 Histoire, 🍼 Biberon, 🪥 Dents, 🤗 Câlin — et se
 retourne à chaque changement, le sable prenant la couleur de l'étape. Une barre de progression
 colorée (un segment par étape) montre l'avancée du rituel complet… puis au dodo !
 

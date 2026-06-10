@@ -27,11 +27,21 @@ powershell -ExecutionPolicy Bypass -File tools\make-icons.ps1
 
 ## Déploiement (GitHub Pages)
 
-1. Pousser le repo sur GitHub, activer Pages (Settings → Pages → branche `main`, dossier `/`).
-2. À chaque mise à jour de l'app, **incrémenter la version du cache** dans `sw.js` (`dodo-v1` → `dodo-v2`).
+App en ligne : **https://dataonduty.github.io/rituel-dodo/**
+(repo `Dataonduty/rituel-dodo`, Pages servi depuis la branche `gh-pages`)
+
+À chaque mise à jour :
+
+1. **Incrémenter la version du cache** dans `sw.js` (`dodo-v1` → `dodo-v2`).
+2. Pousser sur les deux branches :
+
+```
+git push origin main
+git push origin main:gh-pages
+```
 
 ## Installation sur iPhone
 
-1. Ouvrir l'URL GitHub Pages dans **Safari**.
+1. Ouvrir https://dataonduty.github.io/rituel-dodo/ dans **Safari**.
 2. Bouton **Partager** → **« Sur l'écran d'accueil »**.
 3. Lancer l'app depuis son icône : plein écran, hors-ligne, écran maintenu allumé pendant le rituel.

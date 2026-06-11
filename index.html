@@ -24,8 +24,8 @@
     <section id="screen-home" class="screen active">
       <header class="home-head">
         <div class="moon" aria-hidden="true"></div>
-        <h1>Au dodo&nbsp;!</h1>
-        <p class="subtitle">Le rituel du coucher</p>
+        <h1 id="homeTitle">Au dodo&nbsp;!</h1>
+        <p id="homeSub" class="subtitle">Le rituel du coucher</p>
       </header>
       <ul id="homeList" class="phase-list"></ul>
       <p id="homeTotal" class="total-line"></p>
@@ -107,12 +107,20 @@
     <section id="screen-settings" class="screen">
       <header class="settings-head">
         <button id="btnBack" class="btn-ghost btn-back">←&nbsp;Retour</button>
-        <h2>Réglages</h2>
+        <h2 id="settingsTitle">Réglages</h2>
       </header>
       <div id="settingsList"></div>
       <label class="srow sound-row">
-        <span class="name">🔔&nbsp; Sons</span>
+        <span class="name">🔔&nbsp; <span id="lblSounds">Sons</span></span>
         <input type="checkbox" id="soundToggle" class="switch">
+      </label>
+      <label class="srow">
+        <span class="name">🎬&nbsp; <span id="lblIntro">Animation de départ</span></span>
+        <input type="checkbox" id="introToggle" class="switch">
+      </label>
+      <label class="srow">
+        <span class="name">🌐&nbsp; <span id="lblLang">Langue</span></span>
+        <select id="langSelect" class="select"></select>
       </label>
       <p id="settingsTotal" class="total-line"></p>
       <button id="btnDefaults" class="btn-ghost">Valeurs par défaut</button>
@@ -122,13 +130,22 @@
     <section id="screen-end" class="screen">
       <div class="end-center">
         <div class="end-moon" aria-hidden="true"></div>
-        <h1>Au dodo&nbsp;!</h1>
-        <p class="subtitle">Bonne nuit, fais de beaux rêves&nbsp;✨</p>
+        <h1 id="endTitle">Au dodo&nbsp;!</h1>
+        <p id="endMsg" class="subtitle">Bonne nuit, fais de beaux rêves&nbsp;✨</p>
       </div>
       <button id="btnEndHome" class="btn-ghost">Terminer</button>
     </section>
 
   </main>
+
+  <div id="intro" class="intro" hidden>
+    <div id="introCard" class="intro-card">
+      <span id="introEmoji" class="intro-emoji" aria-hidden="true">🌙</span>
+      <span id="introLabel" class="intro-label"></span>
+    </div>
+    <div id="introDots" class="intro-dots" aria-hidden="true"></div>
+    <p id="introHint" class="intro-hint"></p>
+  </div>
 
   <div id="toast" class="toast" hidden></div>
   <script src="app.js"></script>

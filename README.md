@@ -6,6 +6,9 @@ retourne à chaque changement, le sable prenant la couleur de l'étape. Une barr
 colorée (un segment par étape) montre l'avancée du rituel complet… puis au dodo !
 
 - Durée et ordre des étapes configurables (réglages persistés sur le téléphone, rien ne sort).
+- Intro animée au lancement qui récapitule les étapes jusqu'au dodo (désactivable dans les réglages).
+- 10 langues : français, anglais, mandarin, hindi, espagnol, arabe, bengali, portugais, russe, ourdou
+  (gestion droite-à-gauche incluse pour l'arabe et l'ourdou).
 - Carillon doux à chaque changement d'étape, berceuse à la fin (sons générés, aucun fichier audio).
 - L'écran reste allumé pendant le rituel (Wake Lock, iOS ≥ 16.4).
 - Fonctionne hors-ligne une fois installée (service worker).

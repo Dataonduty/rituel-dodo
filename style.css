@@ -563,6 +563,118 @@ button {
   to   { transform: translateY(-10px); }
 }
 
+/* ---------- Sélecteur de langue ---------- */
+
+.select {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 8px 10px;
+  max-width: 150px;
+}
+
+.select option {
+  background: #141a3a;
+  color: var(--text);
+}
+
+/* ---------- Intro animée ---------- */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background: radial-gradient(120% 90% at 50% -10%, #1c2456 0%, #0b1026 55%, #070b1c 100%);
+}
+
+.intro[hidden] {
+  display: none;
+}
+
+.intro.out {
+  animation: introFadeOut 0.25s ease forwards;
+}
+
+@keyframes introFadeOut {
+  to { opacity: 0; }
+}
+
+.intro-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: 230px;
+  justify-content: center;
+}
+
+.intro-emoji {
+  font-size: 110px;
+  line-height: 1;
+}
+
+.intro-label {
+  font-size: 31px;
+  font-weight: 700;
+}
+
+.intro-card.pop .intro-emoji {
+  animation: introPop 0.6s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+
+.intro-card.pop .intro-label {
+  animation: introUp 0.5s ease 0.1s backwards;
+}
+
+@keyframes introPop {
+  from { transform: scale(0.2); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes introUp {
+  from { transform: translateY(14px); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+.intro-dots {
+  display: flex;
+  gap: 9px;
+}
+
+.intro-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  transition: background 0.25s, transform 0.25s;
+}
+
+.intro-dots span.on {
+  background: #fff;
+  transform: scale(1.25);
+}
+
+.intro-dots span.past {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.intro-hint {
+  position: absolute;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 26px);
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
 /* ---------- Toast ---------- */
 
 .toast {

@@ -21,6 +21,121 @@
     { id: 'calin', emoji: '🤗', label: 'Câlin', minutes: 5, enabled: true },
   ];
 
+  // ---------- Traductions (10 langues les plus parlées) ----------
+
+  const I18N = {
+    fr: { name: 'Français', dir: 'ltr', s: {
+      appTitle: 'Au dodo !', subtitle: 'Le rituel du coucher', start: 'Commencer le rituel',
+      settings: 'Réglages', back: 'Retour', sounds: 'Sons', introAnim: 'Animation de départ',
+      language: 'Langue', defaults: 'Valeurs par défaut', defaultsConfirm: 'Remettre les réglages par défaut ?',
+      defaultsDone: 'Réglages réinitialisés', needOneStep: 'Il faut au moins une étape active',
+      total: 'Durée totale : {n} min', minUnit: 'min', pause: 'Pause', resume: 'Reprendre',
+      prevStep: 'Phase précédente', nextStep: 'Phase suivante', stop: 'Arrêter',
+      stopConfirm: 'Arrêter le rituel ?', endTitle: 'Au dodo !', endMsg: 'Bonne nuit, fais de beaux rêves ✨',
+      finish: 'Terminer', sleep: 'Au dodo !', tapSkip: "Touche l'écran pour passer",
+      p_pyjama: 'Pyjama', p_histoire: 'Histoire', p_biberon: 'Biberon', p_dents: 'Dents', p_calin: 'Câlin',
+    } },
+    en: { name: 'English', dir: 'ltr', s: {
+      appTitle: 'Bedtime!', subtitle: 'The bedtime routine', start: 'Start the routine',
+      settings: 'Settings', back: 'Back', sounds: 'Sounds', introAnim: 'Opening animation',
+      language: 'Language', defaults: 'Reset to defaults', defaultsConfirm: 'Reset all settings to defaults?',
+      defaultsDone: 'Settings reset', needOneStep: 'At least one step must be active',
+      total: 'Total time: {n} min', minUnit: 'min', pause: 'Pause', resume: 'Resume',
+      prevStep: 'Previous step', nextStep: 'Next step', stop: 'Stop',
+      stopConfirm: 'Stop the routine?', endTitle: 'Bedtime!', endMsg: 'Good night, sweet dreams ✨',
+      finish: 'Done', sleep: 'Bedtime!', tapSkip: 'Tap to skip',
+      p_pyjama: 'Pajamas', p_histoire: 'Story', p_biberon: 'Bottle', p_dents: 'Teeth', p_calin: 'Cuddle',
+    } },
+    zh: { name: '中文', dir: 'ltr', s: {
+      appTitle: '睡觉啦！', subtitle: '睡前小仪式', start: '开始仪式',
+      settings: '设置', back: '返回', sounds: '声音', introAnim: '开场动画',
+      language: '语言', defaults: '恢复默认', defaultsConfirm: '要恢复默认设置吗？',
+      defaultsDone: '已恢复默认设置', needOneStep: '至少要保留一个步骤',
+      total: '总时长：{n} 分钟', minUnit: '分钟', pause: '暂停', resume: '继续',
+      prevStep: '上一步', nextStep: '下一步', stop: '停止',
+      stopConfirm: '要停止仪式吗？', endTitle: '睡觉啦！', endMsg: '晚安，做个好梦 ✨',
+      finish: '完成', sleep: '睡觉啦！', tapSkip: '点击屏幕跳过',
+      p_pyjama: '睡衣', p_histoire: '故事', p_biberon: '奶瓶', p_dents: '刷牙', p_calin: '抱抱',
+    } },
+    hi: { name: 'हिन्दी', dir: 'ltr', s: {
+      appTitle: 'सोने का समय!', subtitle: 'सोने से पहले की रस्म', start: 'रस्म शुरू करें',
+      settings: 'सेटिंग्स', back: 'वापस', sounds: 'आवाज़ें', introAnim: 'शुरुआती एनीमेशन',
+      language: 'भाषा', defaults: 'डिफ़ॉल्ट सेटिंग्स', defaultsConfirm: 'सेटिंग्स डिफ़ॉल्ट पर वापस करें?',
+      defaultsDone: 'सेटिंग्स रीसेट हो गईं', needOneStep: 'कम से कम एक चरण चालू होना चाहिए',
+      total: 'कुल समय: {n} मिनट', minUnit: 'मिनट', pause: 'विराम', resume: 'जारी रखें',
+      prevStep: 'पिछला चरण', nextStep: 'अगला चरण', stop: 'बंद करें',
+      stopConfirm: 'रस्म बंद करें?', endTitle: 'सोने का समय!', endMsg: 'शुभ रात्रि, मीठे सपने ✨',
+      finish: 'पूरा हुआ', sleep: 'सोने का समय!', tapSkip: 'छोड़ने के लिए स्क्रीन छुएँ',
+      p_pyjama: 'पजामा', p_histoire: 'कहानी', p_biberon: 'दूध की बोतल', p_dents: 'दाँत', p_calin: 'झप्पी',
+    } },
+    es: { name: 'Español', dir: 'ltr', s: {
+      appTitle: '¡A dormir!', subtitle: 'La rutina para ir a dormir', start: 'Empezar la rutina',
+      settings: 'Ajustes', back: 'Volver', sounds: 'Sonidos', introAnim: 'Animación inicial',
+      language: 'Idioma', defaults: 'Valores por defecto', defaultsConfirm: '¿Restablecer los ajustes?',
+      defaultsDone: 'Ajustes restablecidos', needOneStep: 'Debe haber al menos una etapa activa',
+      total: 'Duración total: {n} min', minUnit: 'min', pause: 'Pausa', resume: 'Reanudar',
+      prevStep: 'Etapa anterior', nextStep: 'Etapa siguiente', stop: 'Detener',
+      stopConfirm: '¿Detener la rutina?', endTitle: '¡A dormir!', endMsg: 'Buenas noches, dulces sueños ✨',
+      finish: 'Terminar', sleep: '¡A dormir!', tapSkip: 'Toca la pantalla para saltar',
+      p_pyjama: 'Pijama', p_histoire: 'Cuento', p_biberon: 'Biberón', p_dents: 'Dientes', p_calin: 'Mimos',
+    } },
+    ar: { name: 'العربية', dir: 'rtl', s: {
+      appTitle: 'وقت النوم!', subtitle: 'روتين النوم', start: 'ابدأ الروتين',
+      settings: 'الإعدادات', back: 'رجوع', sounds: 'الأصوات', introAnim: 'مقدمة متحركة',
+      language: 'اللغة', defaults: 'استعادة الإعدادات الافتراضية', defaultsConfirm: 'هل تريد استعادة الإعدادات الافتراضية؟',
+      defaultsDone: 'تمت استعادة الإعدادات', needOneStep: 'يجب أن تبقى خطوة واحدة مفعّلة على الأقل',
+      total: 'المدة الكلية: {n} دقيقة', minUnit: 'دقيقة', pause: 'إيقاف مؤقت', resume: 'متابعة',
+      prevStep: 'الخطوة السابقة', nextStep: 'الخطوة التالية', stop: 'إنهاء',
+      stopConfirm: 'هل تريد إنهاء الروتين؟', endTitle: 'وقت النوم!', endMsg: 'تصبح على خير، أحلامًا سعيدة ✨',
+      finish: 'تم', sleep: 'وقت النوم!', tapSkip: 'المس الشاشة للتخطي',
+      p_pyjama: 'البيجاما', p_histoire: 'قصة', p_biberon: 'الرضّاعة', p_dents: 'الأسنان', p_calin: 'حضن',
+    } },
+    bn: { name: 'বাংলা', dir: 'ltr', s: {
+      appTitle: 'ঘুমের সময়!', subtitle: 'ঘুমানোর আগের রুটিন', start: 'রুটিন শুরু করুন',
+      settings: 'সেটিংস', back: 'ফিরে যান', sounds: 'শব্দ', introAnim: 'শুরুর অ্যানিমেশন',
+      language: 'ভাষা', defaults: 'ডিফল্ট সেটিংস', defaultsConfirm: 'সেটিংস ডিফল্টে ফেরাবেন?',
+      defaultsDone: 'সেটিংস রিসেট হয়েছে', needOneStep: 'অন্তত একটি ধাপ চালু থাকতে হবে',
+      total: 'মোট সময়: {n} মিনিট', minUnit: 'মিনিট', pause: 'বিরতি', resume: 'চালিয়ে যান',
+      prevStep: 'আগের ধাপ', nextStep: 'পরের ধাপ', stop: 'বন্ধ করুন',
+      stopConfirm: 'রুটিন বন্ধ করবেন?', endTitle: 'ঘুমের সময়!', endMsg: 'শুভ রাত্রি, মিষ্টি স্বপ্ন ✨',
+      finish: 'শেষ', sleep: 'ঘুমের সময়!', tapSkip: 'এড়িয়ে যেতে স্ক্রিনে চাপ দিন',
+      p_pyjama: 'পায়জামা', p_histoire: 'গল্প', p_biberon: 'দুধের বোতল', p_dents: 'দাঁত', p_calin: 'আদর',
+    } },
+    pt: { name: 'Português', dir: 'ltr', s: {
+      appTitle: 'Hora de dormir!', subtitle: 'A rotina de dormir', start: 'Começar a rotina',
+      settings: 'Configurações', back: 'Voltar', sounds: 'Sons', introAnim: 'Animação inicial',
+      language: 'Idioma', defaults: 'Restaurar padrões', defaultsConfirm: 'Restaurar as configurações padrão?',
+      defaultsDone: 'Configurações restauradas', needOneStep: 'É preciso pelo menos uma etapa ativa',
+      total: 'Duração total: {n} min', minUnit: 'min', pause: 'Pausa', resume: 'Retomar',
+      prevStep: 'Etapa anterior', nextStep: 'Próxima etapa', stop: 'Parar',
+      stopConfirm: 'Parar a rotina?', endTitle: 'Hora de dormir!', endMsg: 'Boa noite, bons sonhos ✨',
+      finish: 'Concluir', sleep: 'Hora de dormir!', tapSkip: 'Toque na tela para pular',
+      p_pyjama: 'Pijama', p_histoire: 'História', p_biberon: 'Mamadeira', p_dents: 'Dentes', p_calin: 'Carinho',
+    } },
+    ru: { name: 'Русский', dir: 'ltr', s: {
+      appTitle: 'Пора спать!', subtitle: 'Вечерний ритуал', start: 'Начать ритуал',
+      settings: 'Настройки', back: 'Назад', sounds: 'Звуки', introAnim: 'Анимация в начале',
+      language: 'Язык', defaults: 'Сбросить настройки', defaultsConfirm: 'Вернуть настройки по умолчанию?',
+      defaultsDone: 'Настройки сброшены', needOneStep: 'Нужен хотя бы один активный этап',
+      total: 'Общее время: {n} мин', minUnit: 'мин', pause: 'Пауза', resume: 'Продолжить',
+      prevStep: 'Предыдущий этап', nextStep: 'Следующий этап', stop: 'Стоп',
+      stopConfirm: 'Завершить ритуал?', endTitle: 'Пора спать!', endMsg: 'Спокойной ночи, сладких снов ✨',
+      finish: 'Готово', sleep: 'Пора спать!', tapSkip: 'Коснитесь экрана, чтобы пропустить',
+      p_pyjama: 'Пижама', p_histoire: 'Сказка', p_biberon: 'Бутылочка', p_dents: 'Зубки', p_calin: 'Обнимашки',
+    } },
+    ur: { name: 'اردو', dir: 'rtl', s: {
+      appTitle: 'سونے کا وقت!', subtitle: 'سونے کا معمول', start: 'معمول شروع کریں',
+      settings: 'ترتیبات', back: 'واپس', sounds: 'آوازیں', introAnim: 'شروع کی اینیمیشن',
+      language: 'زبان', defaults: 'ڈیفالٹ ترتیبات', defaultsConfirm: 'ترتیبات ڈیفالٹ پر واپس کریں؟',
+      defaultsDone: 'ترتیبات ری سیٹ ہو گئیں', needOneStep: 'کم از کم ایک مرحلہ فعال ہونا چاہیے',
+      total: 'کل وقت: {n} منٹ', minUnit: 'منٹ', pause: 'وقفہ', resume: 'جاری رکھیں',
+      prevStep: 'پچھلا مرحلہ', nextStep: 'اگلا مرحلہ', stop: 'بند کریں',
+      stopConfirm: 'معمول بند کریں؟', endTitle: 'سونے کا وقت!', endMsg: 'شب بخیر، میٹھے خواب ✨',
+      finish: 'مکمل', sleep: 'سونے کا وقت!', tapSkip: 'چھوڑنے کے لیے اسکرین چھوئیں',
+      p_pyjama: 'پاجامہ', p_histoire: 'کہانی', p_biberon: 'فیڈر', p_dents: 'دانت', p_calin: 'پیار',
+    } },
+  };
+
   const SETTINGS_KEY = 'dodo.settings';
   const RUN_KEY = 'dodo.run';
   const STALE_MS = 3 * 60 * 60 * 1000; // rituel abandonné depuis > 3 h
@@ -70,6 +185,20 @@
 
   const $ = (id) => document.getElementById(id);
 
+  // ---------- i18n ----------
+
+  function t(key) {
+    const pack = I18N[settings && settings.lang] || I18N.fr;
+    const v = pack.s[key];
+    return v != null ? v : (I18N.fr.s[key] != null ? I18N.fr.s[key] : key);
+  }
+
+  const phaseLabel = (p) => t('p_' + p.id) !== 'p_' + p.id ? t('p_' + p.id) : p.label;
+
+  function soundEnabled() {
+    return run ? run.soundOn !== false : settings.soundOn !== false;
+  }
+
   // ---------- Stockage ----------
 
   function clampMin(m) {
@@ -89,9 +218,14 @@
         if (!phases.some((p) => p.id === d.id)) phases.splice(Math.min(idx, phases.length), 0, { ...d });
       });
       if (!phases.some((p) => p.enabled)) phases[0].enabled = true;
-      return { phases, soundOn: raw.soundOn !== false };
+      return {
+        phases,
+        soundOn: raw.soundOn !== false,
+        introOn: raw.introOn !== false,
+        lang: I18N[raw.lang] ? raw.lang : 'fr',
+      };
     } catch {
-      return { phases: DEFAULT_PHASES.map((p) => ({ ...p })), soundOn: true };
+      return { phases: DEFAULT_PHASES.map((p) => ({ ...p })), soundOn: true, introOn: true, lang: 'fr' };
     }
   }
 
@@ -151,8 +285,69 @@
 
   function startRitual() {
     const active = settings.phases.filter((p) => p.enabled);
-    if (!active.length) { toast('Active au moins une étape dans les réglages'); return; }
+    if (!active.length) { toast(t('needOneStep')); return; }
     ensureAudio();
+    if (settings.introOn) playIntro(active, beginRun);
+    else beginRun();
+  }
+
+  // ---------- Intro animée : récapitule les étapes jusqu'au dodo ----------
+
+  let introTimer = 0;
+  let introDone = null;
+
+  function playIntro(phases, done) {
+    const steps = phases
+      .map((p) => ({ emoji: p.emoji, label: phaseLabel(p), color: colorOf(p) }))
+      .concat([{ emoji: '🌙', label: t('sleep'), color: '#f6e7b0' }]);
+
+    const ov = $('intro');
+    const dots = $('introDots');
+    dots.innerHTML = '';
+    steps.forEach(() => dots.appendChild(document.createElement('span')));
+    $('introHint').textContent = t('tapSkip');
+    ov.classList.remove('out');
+    ov.hidden = false;
+    introDone = done;
+
+    let i = -1;
+    const NOTES = [523.25, 587.33, 659.25, 783.99, 880, 1046.5];
+    const showStep = () => {
+      i++;
+      if (i >= steps.length) { closeIntro(); return; }
+      const s = steps[i];
+      $('introEmoji').textContent = s.emoji;
+      $('introLabel').textContent = s.label;
+      $('introLabel').style.color = s.color;
+      const card = $('introCard');
+      card.classList.remove('pop');
+      void card.offsetWidth;
+      card.classList.add('pop');
+      [...dots.children].forEach((d, j) => {
+        d.classList.toggle('on', j === i);
+        d.classList.toggle('past', j < i);
+      });
+      if (soundEnabled()) tone(NOTES[i % NOTES.length], 0, 0.6, 0.11);
+      clearTimeout(introTimer);
+      introTimer = setTimeout(showStep, i === steps.length - 1 ? 2100 : 1500);
+    };
+    showStep();
+  }
+
+  function closeIntro() {
+    clearTimeout(introTimer);
+    const done = introDone;
+    introDone = null;
+    const ov = $('intro');
+    if (ov.hidden) return;
+    ov.classList.add('out');
+    setTimeout(() => { ov.hidden = true; ov.classList.remove('out'); }, 240);
+    if (done) done();
+  }
+
+  function beginRun() {
+    const active = settings.phases.filter((p) => p.enabled);
+    if (!active.length) return;
     run = {
       startedAt: Date.now(),
       totalPaused: 0,
@@ -237,7 +432,7 @@
     const p = schedule.phases[curIdx];
     const color = colorOf(p);
     $('phaseEmoji').textContent = p.emoji;
-    $('phaseLabel').textContent = p.label;
+    $('phaseLabel').textContent = phaseLabel(p);
     document.body.style.setProperty('--accent', color);
     $('stream').setAttribute('fill', color);
     $('particles').setAttribute('fill', color);
@@ -276,7 +471,7 @@
     $('screen-ritual').classList.toggle('paused', paused);
     $('pauseOverlay').hidden = !paused;
     $('btnPause').textContent = paused ? '▶' : '⏸';
-    $('btnPause').title = paused ? 'Reprendre' : 'Pause';
+    $('btnPause').title = paused ? t('resume') : t('pause');
   }
 
   function skipPhase() {
@@ -301,7 +496,7 @@
   }
 
   function stopRitual() {
-    if (!confirm('Arrêter le rituel ?')) return;
+    if (!confirm(t('stopConfirm'))) return;
     stopLoop();
     cancelFlip();
     releaseWakeLock();
@@ -473,14 +668,14 @@
   }
 
   function chime() {
-    if (!run || !run.soundOn) return;
+    if (!soundEnabled()) return;
     ensureAudio();
     tone(659.25, 0, 1.1, 0.15);   // mi5
     tone(783.99, 0.22, 1.3, 0.12); // sol5
   }
 
   function lullaby() {
-    if (!run || !run.soundOn) return;
+    if (!soundEnabled()) return;
     ensureAudio();
     const notes = [[783.99, 0], [659.25, 0.4], [587.33, 0.8], [523.25, 1.2]];
     notes.forEach(([f, w], i) => tone(f, w, i === notes.length - 1 ? 2.2 : 1.0, 0.13));
@@ -530,14 +725,41 @@
       emoji.textContent = p.emoji;
       const label = document.createElement('span');
       label.className = 'pl-label';
-      label.textContent = p.label;
+      label.textContent = phaseLabel(p);
       const min = document.createElement('span');
       min.className = 'pl-min';
-      min.textContent = p.minutes + ' min';
+      min.textContent = p.minutes + ' ' + t('minUnit');
       li.append(dot, emoji, label, min);
       list.appendChild(li);
     });
-    $('homeTotal').textContent = 'Durée totale : ' + totalMinutes() + ' min';
+    $('homeTotal').textContent = t('total').replace('{n}', totalMinutes());
+  }
+
+  function applyLang() {
+    const pack = I18N[settings.lang] || I18N.fr;
+    document.documentElement.lang = settings.lang;
+    document.documentElement.dir = pack.dir;
+    document.title = t('appTitle') + ' — ' + t('subtitle');
+    $('homeTitle').textContent = t('appTitle');
+    $('homeSub').textContent = t('subtitle');
+    $('btnStart').textContent = '🌙  ' + t('start');
+    $('btnSettings').textContent = '⚙️  ' + t('settings');
+    $('settingsTitle').textContent = t('settings');
+    $('btnBack').textContent = (pack.dir === 'rtl' ? '→ ' : '← ') + t('back');
+    $('lblSounds').textContent = t('sounds');
+    $('lblIntro').textContent = t('introAnim');
+    $('lblLang').textContent = t('language');
+    $('btnDefaults').textContent = t('defaults');
+    $('endTitle').textContent = t('endTitle');
+    $('endMsg').textContent = t('endMsg');
+    $('btnEndHome').textContent = t('finish');
+    $('pauseOverlay').textContent = '⏸ ' + t('pause');
+    $('btnPrev').title = t('prevStep');
+    $('btnSkip').title = t('nextStep');
+    $('btnStop').title = t('stop');
+    $('langSelect').value = settings.lang;
+    renderHome();
+    renderSettings();
   }
 
   // ---------- Réglages ----------
@@ -557,13 +779,13 @@
 
       const name = document.createElement('span');
       name.className = 'name';
-      name.textContent = p.emoji + '  ' + p.label;
+      name.textContent = p.emoji + '  ' + phaseLabel(p);
 
       const dur = document.createElement('div');
       dur.className = 'dur';
       const minus = miniBtn('−', p.minutes <= 1, () => changeMinutes(i, -1));
       const val = document.createElement('b');
-      val.textContent = p.minutes + ' min';
+      val.textContent = p.minutes + ' ' + t('minUnit');
       const plus = miniBtn('+', p.minutes >= 60, () => changeMinutes(i, 1));
       dur.append(minus, val, plus);
 
@@ -577,7 +799,8 @@
       wrap.appendChild(row);
     });
     $('soundToggle').checked = settings.soundOn;
-    $('settingsTotal').textContent = 'Durée totale : ' + totalMinutes() + ' min';
+    $('introToggle').checked = settings.introOn;
+    $('settingsTotal').textContent = t('total').replace('{n}', totalMinutes());
   }
 
   function miniBtn(label, disabled, onTap) {
@@ -610,7 +833,7 @@
     const p = settings.phases[i];
     if (p.enabled && settings.phases.filter((x) => x.enabled).length === 1) {
       input.checked = true;
-      toast('Il faut au moins une étape active');
+      toast(t('needOneStep'));
       return;
     }
     p.enabled = !p.enabled;
@@ -657,24 +880,41 @@
     $('btnSettings').addEventListener('click', () => { renderSettings(); showScreen('settings'); });
     $('btnBack').addEventListener('click', () => { renderHome(); showScreen('home'); });
     $('btnDefaults').addEventListener('click', () => {
-      if (!confirm('Remettre les réglages par défaut ?')) return;
-      settings = { phases: DEFAULT_PHASES.map((p) => ({ ...p })), soundOn: true };
+      if (!confirm(t('defaultsConfirm'))) return;
+      settings = { phases: DEFAULT_PHASES.map((p) => ({ ...p })), soundOn: true, introOn: true, lang: settings.lang };
       saveSettings();
       renderSettings();
       renderHome();
-      toast('Réglages réinitialisés');
+      toast(t('defaultsDone'));
     });
     $('soundToggle').addEventListener('change', (e) => {
       settings.soundOn = e.target.checked;
       saveSettings();
     });
+    $('introToggle').addEventListener('change', (e) => {
+      settings.introOn = e.target.checked;
+      saveSettings();
+    });
+    const sel = $('langSelect');
+    Object.keys(I18N).forEach((code) => {
+      const opt = document.createElement('option');
+      opt.value = code;
+      opt.textContent = I18N[code].name;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', () => {
+      settings.lang = I18N[sel.value] ? sel.value : 'fr';
+      saveSettings();
+      applyLang();
+    });
+    $('intro').addEventListener('click', closeIntro);
     $('btnPause').addEventListener('click', pauseToggle);
     $('btnPrev').addEventListener('click', prevPhase);
     $('btnSkip').addEventListener('click', skipPhase);
     $('btnStop').addEventListener('click', stopRitual);
     $('btnEndHome').addEventListener('click', () => { renderHome(); showScreen('home'); });
 
-    renderHome();
+    applyLang();
 
     if (!resumeFromStorage()) showScreen('home');
 
@@ -684,7 +924,7 @@
 
     if (SPEED !== 1) {
       // Hook de test : permet de forcer un tick quand les timers sont étranglés
-      window.__dodo = { tick: tickOnce, endFlip };
+      window.__dodo = { tick: tickOnce, endFlip, closeIntro };
       console.log('[dodo] mode test : vitesse x' + SPEED);
     }
   }

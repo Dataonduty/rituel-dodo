@@ -134,6 +134,193 @@
       finish: 'مکمل', sleep: 'سونے کا وقت!', tapSkip: 'چھوڑنے کے لیے اسکرین چھوئیں',
       p_pyjama: 'پاجامہ', p_histoire: 'کہانی', p_biberon: 'فیڈر', p_dents: 'دانت', p_calin: 'پیار',
     } },
+    id: { name: 'Bahasa Indonesia', dir: 'ltr', s: {
+      appTitle: 'Waktunya tidur!', subtitle: 'Rutinitas sebelum tidur', start: 'Mulai rutinitas',
+      settings: 'Pengaturan', back: 'Kembali', sounds: 'Suara', introAnim: 'Animasi pembuka',
+      language: 'Bahasa', defaults: 'Pengaturan awal', defaultsConfirm: 'Kembalikan pengaturan ke awal?',
+      defaultsDone: 'Pengaturan dikembalikan', needOneStep: 'Minimal satu langkah harus aktif',
+      total: 'Total waktu: {n} mnt', minUnit: 'mnt', pause: 'Jeda', resume: 'Lanjutkan',
+      prevStep: 'Langkah sebelumnya', nextStep: 'Langkah berikutnya', stop: 'Berhenti',
+      stopConfirm: 'Hentikan rutinitas?', endTitle: 'Waktunya tidur!', endMsg: 'Selamat tidur, mimpi indah ✨',
+      finish: 'Selesai', sleep: 'Waktunya tidur!', tapSkip: 'Ketuk layar untuk melewati',
+      p_pyjama: 'Piyama', p_histoire: 'Cerita', p_biberon: 'Botol susu', p_dents: 'Gigi', p_calin: 'Pelukan',
+    } },
+    de: { name: 'Deutsch', dir: 'ltr', s: {
+      appTitle: 'Schlafenszeit!', subtitle: 'Das Abendritual', start: 'Ritual starten',
+      settings: 'Einstellungen', back: 'Zurück', sounds: 'Töne', introAnim: 'Startanimation',
+      language: 'Sprache', defaults: 'Zurücksetzen', defaultsConfirm: 'Einstellungen zurücksetzen?',
+      defaultsDone: 'Einstellungen zurückgesetzt', needOneStep: 'Mindestens ein Schritt muss aktiv sein',
+      total: 'Gesamtdauer: {n} Min.', minUnit: 'Min.', pause: 'Pause', resume: 'Weiter',
+      prevStep: 'Vorheriger Schritt', nextStep: 'Nächster Schritt', stop: 'Beenden',
+      stopConfirm: 'Ritual beenden?', endTitle: 'Schlafenszeit!', endMsg: 'Gute Nacht, träum süß ✨',
+      finish: 'Fertig', sleep: 'Schlafenszeit!', tapSkip: 'Zum Überspringen tippen',
+      p_pyjama: 'Schlafanzug', p_histoire: 'Geschichte', p_biberon: 'Fläschchen', p_dents: 'Zähne', p_calin: 'Kuscheln',
+    } },
+    ja: { name: '日本語', dir: 'ltr', s: {
+      appTitle: 'ねんねの時間！', subtitle: 'おやすみ前のルーティン', start: 'ルーティンをはじめる',
+      settings: '設定', back: '戻る', sounds: 'サウンド', introAnim: 'オープニングアニメ',
+      language: '言語', defaults: '初期設定に戻す', defaultsConfirm: '設定を初期状態に戻しますか？',
+      defaultsDone: '設定をリセットしました', needOneStep: '少なくとも1つのステップが必要です',
+      total: '合計時間：{n} 分', minUnit: '分', pause: '一時停止', resume: '再開',
+      prevStep: '前のステップ', nextStep: '次のステップ', stop: '終了',
+      stopConfirm: 'ルーティンを終了しますか？', endTitle: 'ねんねの時間！', endMsg: 'おやすみなさい、いい夢を ✨',
+      finish: '完了', sleep: 'ねんね！', tapSkip: '画面をタップでスキップ',
+      p_pyjama: 'パジャマ', p_histoire: 'えほん', p_biberon: 'ミルク', p_dents: 'はみがき', p_calin: 'ぎゅー',
+    } },
+    sw: { name: 'Kiswahili', dir: 'ltr', s: {
+      appTitle: 'Wakati wa kulala!', subtitle: 'Utaratibu wa kulala', start: 'Anza utaratibu',
+      settings: 'Mipangilio', back: 'Rudi', sounds: 'Sauti', introAnim: 'Uhuishaji wa mwanzo',
+      language: 'Lugha', defaults: 'Rejesha chaguo-msingi', defaultsConfirm: 'Urejeshe mipangilio ya awali?',
+      defaultsDone: 'Mipangilio imerejeshwa', needOneStep: 'Lazima angalau hatua moja iwe imewashwa',
+      total: 'Muda wote: {n} dak', minUnit: 'dak', pause: 'Sitisha', resume: 'Endelea',
+      prevStep: 'Hatua iliyopita', nextStep: 'Hatua inayofuata', stop: 'Simamisha',
+      stopConfirm: 'Usimamishe utaratibu?', endTitle: 'Wakati wa kulala!', endMsg: 'Usiku mwema, ndoto njema ✨',
+      finish: 'Maliza', sleep: 'Wakati wa kulala!', tapSkip: 'Gusa skrini kuruka',
+      p_pyjama: 'Pajama', p_histoire: 'Hadithi', p_biberon: 'Chupa ya maziwa', p_dents: 'Meno', p_calin: 'Kumbatio',
+    } },
+    mr: { name: 'मराठी', dir: 'ltr', s: {
+      appTitle: 'झोपेची वेळ!', subtitle: 'झोपण्यापूर्वीची दिनचर्या', start: 'दिनचर्या सुरू करा',
+      settings: 'सेटिंग्ज', back: 'मागे', sounds: 'आवाज', introAnim: 'सुरुवातीचे अ‍ॅनिमेशन',
+      language: 'भाषा', defaults: 'डीफॉल्ट सेटिंग्ज', defaultsConfirm: 'सेटिंग्ज डीफॉल्टवर परत आणायच्या?',
+      defaultsDone: 'सेटिंग्ज रीसेट झाल्या', needOneStep: 'किमान एक टप्पा सुरू असावा',
+      total: 'एकूण वेळ: {n} मिनिटे', minUnit: 'मिनिटे', pause: 'विराम', resume: 'पुढे चालू ठेवा',
+      prevStep: 'मागील टप्पा', nextStep: 'पुढील टप्पा', stop: 'थांबवा',
+      stopConfirm: 'दिनचर्या थांबवायची?', endTitle: 'झोपेची वेळ!', endMsg: 'शुभ रात्री, गोड स्वप्ने ✨',
+      finish: 'झाले', sleep: 'झोपेची वेळ!', tapSkip: 'वगळण्यासाठी स्क्रीनला स्पर्श करा',
+      p_pyjama: 'पायजमा', p_histoire: 'गोष्ट', p_biberon: 'दुधाची बाटली', p_dents: 'दात', p_calin: 'मिठी',
+    } },
+    te: { name: 'తెలుగు', dir: 'ltr', s: {
+      appTitle: 'నిద్ర వేళ!', subtitle: 'నిద్రకు ముందు దినచర్య', start: 'దినచర్య ప్రారంభించండి',
+      settings: 'సెట్టింగ్‌లు', back: 'వెనుకకు', sounds: 'శబ్దాలు', introAnim: 'ప్రారంభ యానిమేషన్',
+      language: 'భాష', defaults: 'డిఫాల్ట్ సెట్టింగ్‌లు', defaultsConfirm: 'సెట్టింగ్‌లను డిఫాల్ట్‌కు మార్చాలా?',
+      defaultsDone: 'సెట్టింగ్‌లు రీసెట్ అయ్యాయి', needOneStep: 'కనీసం ఒక దశ యాక్టివ్‌గా ఉండాలి',
+      total: 'మొత్తం సమయం: {n} నిమి.', minUnit: 'నిమి.', pause: 'విరామం', resume: 'కొనసాగించండి',
+      prevStep: 'మునుపటి దశ', nextStep: 'తర్వాతి దశ', stop: 'ఆపండి',
+      stopConfirm: 'దినచర్యను ఆపాలా?', endTitle: 'నిద్ర వేళ!', endMsg: 'శుభరాత్రి, తీపి కలలు ✨',
+      finish: 'అయిపోయింది', sleep: 'నిద్ర వేళ!', tapSkip: 'దాటవేయడానికి స్క్రీన్‌ను తాకండి',
+      p_pyjama: 'పైజామా', p_histoire: 'కథ', p_biberon: 'పాల సీసా', p_dents: 'పళ్ళు', p_calin: 'కౌగిలి',
+    } },
+    tr: { name: 'Türkçe', dir: 'ltr', s: {
+      appTitle: 'Uyku vakti!', subtitle: 'Uyku öncesi rutini', start: 'Rutini başlat',
+      settings: 'Ayarlar', back: 'Geri', sounds: 'Sesler', introAnim: 'Açılış animasyonu',
+      language: 'Dil', defaults: 'Varsayılanlara dön', defaultsConfirm: 'Ayarlar varsayılana dönsün mü?',
+      defaultsDone: 'Ayarlar sıfırlandı', needOneStep: 'En az bir adım etkin olmalı',
+      total: 'Toplam süre: {n} dk', minUnit: 'dk', pause: 'Duraklat', resume: 'Devam et',
+      prevStep: 'Önceki adım', nextStep: 'Sonraki adım', stop: 'Bitir',
+      stopConfirm: 'Rutin bitirilsin mi?', endTitle: 'Uyku vakti!', endMsg: 'İyi geceler, tatlı rüyalar ✨',
+      finish: 'Bitti', sleep: 'Uyku vakti!', tapSkip: 'Atlamak için ekrana dokun',
+      p_pyjama: 'Pijama', p_histoire: 'Masal', p_biberon: 'Biberon', p_dents: 'Dişler', p_calin: 'Sarılma',
+    } },
+    ta: { name: 'தமிழ்', dir: 'ltr', s: {
+      appTitle: 'தூங்கும் நேரம்!', subtitle: 'தூக்கத்திற்கு முந்தைய வழக்கம்', start: 'வழக்கத்தைத் தொடங்கு',
+      settings: 'அமைப்புகள்', back: 'பின்செல்', sounds: 'ஒலிகள்', introAnim: 'தொடக்க அனிமேஷன்',
+      language: 'மொழி', defaults: 'இயல்புநிலை அமைப்புகள்', defaultsConfirm: 'அமைப்புகளை இயல்புநிலைக்கு மாற்றவா?',
+      defaultsDone: 'அமைப்புகள் மீட்டமைக்கப்பட்டன', needOneStep: 'குறைந்தது ஒரு படி இயக்கத்தில் இருக்க வேண்டும்',
+      total: 'மொத்த நேரம்: {n} நிமி.', minUnit: 'நிமி.', pause: 'இடைநிறுத்து', resume: 'தொடரு',
+      prevStep: 'முந்தைய படி', nextStep: 'அடுத்த படி', stop: 'நிறுத்து',
+      stopConfirm: 'வழக்கத்தை நிறுத்தவா?', endTitle: 'தூங்கும் நேரம்!', endMsg: 'இனிய இரவு, இனிய கனவுகள் ✨',
+      finish: 'முடிந்தது', sleep: 'தூங்கும் நேரம்!', tapSkip: 'தவிர்க்க திரையைத் தொடவும்',
+      p_pyjama: 'பைஜாமா', p_histoire: 'கதை', p_biberon: 'பால் புட்டி', p_dents: 'பற்கள்', p_calin: 'அணைப்பு',
+    } },
+    vi: { name: 'Tiếng Việt', dir: 'ltr', s: {
+      appTitle: 'Đến giờ đi ngủ!', subtitle: 'Thói quen trước khi ngủ', start: 'Bắt đầu thói quen',
+      settings: 'Cài đặt', back: 'Quay lại', sounds: 'Âm thanh', introAnim: 'Hoạt ảnh mở đầu',
+      language: 'Ngôn ngữ', defaults: 'Khôi phục mặc định', defaultsConfirm: 'Khôi phục cài đặt mặc định?',
+      defaultsDone: 'Đã khôi phục cài đặt', needOneStep: 'Phải có ít nhất một bước được bật',
+      total: 'Tổng thời gian: {n} phút', minUnit: 'phút', pause: 'Tạm dừng', resume: 'Tiếp tục',
+      prevStep: 'Bước trước', nextStep: 'Bước tiếp theo', stop: 'Dừng',
+      stopConfirm: 'Dừng thói quen?', endTitle: 'Đến giờ đi ngủ!', endMsg: 'Chúc bé ngủ ngon, mơ đẹp ✨',
+      finish: 'Xong', sleep: 'Đi ngủ thôi!', tapSkip: 'Chạm màn hình để bỏ qua',
+      p_pyjama: 'Đồ ngủ', p_histoire: 'Truyện', p_biberon: 'Bình sữa', p_dents: 'Đánh răng', p_calin: 'Ôm',
+    } },
+    ko: { name: '한국어', dir: 'ltr', s: {
+      appTitle: '잘 시간이야!', subtitle: '잠자기 전 루틴', start: '루틴 시작',
+      settings: '설정', back: '뒤로', sounds: '소리', introAnim: '시작 애니메이션',
+      language: '언어', defaults: '기본값으로 재설정', defaultsConfirm: '설정을 기본값으로 되돌릴까요?',
+      defaultsDone: '설정이 초기화되었습니다', needOneStep: '최소 한 단계는 켜져 있어야 해요',
+      total: '총 시간: {n}분', minUnit: '분', pause: '일시정지', resume: '계속',
+      prevStep: '이전 단계', nextStep: '다음 단계', stop: '종료',
+      stopConfirm: '루틴을 종료할까요?', endTitle: '잘 시간이야!', endMsg: '잘 자, 좋은 꿈 꿔 ✨',
+      finish: '완료', sleep: '코 자자!', tapSkip: '화면을 누르면 건너뛰어요',
+      p_pyjama: '잠옷', p_histoire: '동화', p_biberon: '젖병', p_dents: '양치', p_calin: '안아주기',
+    } },
+    tl: { name: 'Filipino', dir: 'ltr', s: {
+      appTitle: 'Tulog na!', subtitle: 'Rutina bago matulog', start: 'Simulan ang rutina',
+      settings: 'Mga setting', back: 'Bumalik', sounds: 'Mga tunog', introAnim: 'Panimulang animation',
+      language: 'Wika', defaults: 'Ibalik sa default', defaultsConfirm: 'Ibalik ang mga setting sa default?',
+      defaultsDone: 'Na-reset ang mga setting', needOneStep: 'Kailangan ng kahit isang aktibong hakbang',
+      total: 'Kabuuang oras: {n} min', minUnit: 'min', pause: 'I-pause', resume: 'Ituloy',
+      prevStep: 'Nakaraang hakbang', nextStep: 'Susunod na hakbang', stop: 'Itigil',
+      stopConfirm: 'Itigil ang rutina?', endTitle: 'Tulog na!', endMsg: 'Magandang gabi, matamis na panaginip ✨',
+      finish: 'Tapos na', sleep: 'Tulog na!', tapSkip: 'I-tap ang screen para laktawan',
+      p_pyjama: 'Pajama', p_histoire: 'Kuwento', p_biberon: 'Bote ng gatas', p_dents: 'Ngipin', p_calin: 'Yakap',
+    } },
+    fa: { name: 'فارسی', dir: 'rtl', s: {
+      appTitle: 'وقت خوابه!', subtitle: 'روتین قبل از خواب', start: 'شروع روتین',
+      settings: 'تنظیمات', back: 'بازگشت', sounds: 'صداها', introAnim: 'انیمیشن شروع',
+      language: 'زبان', defaults: 'بازگردانی به پیش‌فرض', defaultsConfirm: 'تنظیمات به پیش‌فرض برگردد؟',
+      defaultsDone: 'تنظیمات بازنشانی شد', needOneStep: 'حداقل یک مرحله باید فعال باشد',
+      total: 'مدت کل: {n} دقیقه', minUnit: 'دقیقه', pause: 'توقف موقت', resume: 'ادامه',
+      prevStep: 'مرحله قبلی', nextStep: 'مرحله بعدی', stop: 'پایان',
+      stopConfirm: 'روتین تمام شود؟', endTitle: 'وقت خوابه!', endMsg: 'شب بخیر، خواب‌های شیرین ✨',
+      finish: 'تمام', sleep: 'وقت خوابه!', tapSkip: 'برای رد شدن صفحه را لمس کنید',
+      p_pyjama: 'پیژامه', p_histoire: 'قصه', p_biberon: 'شیشه شیر', p_dents: 'دندان‌ها', p_calin: 'بغل',
+    } },
+    it: { name: 'Italiano', dir: 'ltr', s: {
+      appTitle: 'A nanna!', subtitle: 'La routine della nanna', start: 'Inizia la routine',
+      settings: 'Impostazioni', back: 'Indietro', sounds: 'Suoni', introAnim: 'Animazione iniziale',
+      language: 'Lingua', defaults: 'Ripristina predefiniti', defaultsConfirm: 'Ripristinare le impostazioni predefinite?',
+      defaultsDone: 'Impostazioni ripristinate', needOneStep: 'Almeno una tappa deve essere attiva',
+      total: 'Durata totale: {n} min', minUnit: 'min', pause: 'Pausa', resume: 'Riprendi',
+      prevStep: 'Tappa precedente', nextStep: 'Tappa successiva', stop: 'Termina',
+      stopConfirm: 'Terminare la routine?', endTitle: 'A nanna!', endMsg: 'Buonanotte, sogni d\'oro ✨',
+      finish: 'Fine', sleep: 'A nanna!', tapSkip: 'Tocca lo schermo per saltare',
+      p_pyjama: 'Pigiama', p_histoire: 'Favola', p_biberon: 'Biberon', p_dents: 'Dentini', p_calin: 'Coccole',
+    } },
+    th: { name: 'ไทย', dir: 'ltr', s: {
+      appTitle: 'ได้เวลานอนแล้ว!', subtitle: 'กิจวัตรก่อนนอน', start: 'เริ่มกิจวัตร',
+      settings: 'การตั้งค่า', back: 'กลับ', sounds: 'เสียง', introAnim: 'แอนิเมชันเปิด',
+      language: 'ภาษา', defaults: 'คืนค่าเริ่มต้น', defaultsConfirm: 'คืนการตั้งค่าเป็นค่าเริ่มต้น?',
+      defaultsDone: 'รีเซ็ตการตั้งค่าแล้ว', needOneStep: 'ต้องเปิดอย่างน้อยหนึ่งขั้นตอน',
+      total: 'เวลารวม: {n} นาที', minUnit: 'นาที', pause: 'หยุดชั่วคราว', resume: 'ทำต่อ',
+      prevStep: 'ขั้นตอนก่อนหน้า', nextStep: 'ขั้นตอนถัดไป', stop: 'หยุด',
+      stopConfirm: 'หยุดกิจวัตรไหม?', endTitle: 'ได้เวลานอนแล้ว!', endMsg: 'ฝันดีนะ หลับฝันหวาน ✨',
+      finish: 'เสร็จแล้ว', sleep: 'นอนกันเถอะ!', tapSkip: 'แตะหน้าจอเพื่อข้าม',
+      p_pyjama: 'ชุดนอน', p_histoire: 'นิทาน', p_biberon: 'ขวดนม', p_dents: 'แปรงฟัน', p_calin: 'กอด',
+    } },
+    pa: { name: 'ਪੰਜਾਬੀ', dir: 'ltr', s: {
+      appTitle: 'ਸੌਣ ਦਾ ਵੇਲਾ!', subtitle: 'ਸੌਣ ਤੋਂ ਪਹਿਲਾਂ ਦੀ ਰੁਟੀਨ', start: 'ਰੁਟੀਨ ਸ਼ੁਰੂ ਕਰੋ',
+      settings: 'ਸੈਟਿੰਗਾਂ', back: 'ਵਾਪਸ', sounds: 'ਆਵਾਜ਼ਾਂ', introAnim: 'ਸ਼ੁਰੂਆਤੀ ਐਨੀਮੇਸ਼ਨ',
+      language: 'ਭਾਸ਼ਾ', defaults: 'ਡਿਫਾਲਟ ਸੈਟਿੰਗਾਂ', defaultsConfirm: 'ਸੈਟਿੰਗਾਂ ਡਿਫਾਲਟ ਤੇ ਵਾਪਸ ਕਰੀਏ?',
+      defaultsDone: 'ਸੈਟਿੰਗਾਂ ਰੀਸੈੱਟ ਹੋ ਗਈਆਂ', needOneStep: 'ਘੱਟੋ-ਘੱਟ ਇੱਕ ਕਦਮ ਚਾਲੂ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ',
+      total: 'ਕੁੱਲ ਸਮਾਂ: {n} ਮਿੰਟ', minUnit: 'ਮਿੰਟ', pause: 'ਠਹਿਰਾਓ', resume: 'ਜਾਰੀ ਰੱਖੋ',
+      prevStep: 'ਪਿਛਲਾ ਕਦਮ', nextStep: 'ਅਗਲਾ ਕਦਮ', stop: 'ਬੰਦ ਕਰੋ',
+      stopConfirm: 'ਰੁਟੀਨ ਬੰਦ ਕਰੀਏ?', endTitle: 'ਸੌਣ ਦਾ ਵੇਲਾ!', endMsg: 'ਸ਼ੁਭ ਰਾਤ, ਮਿੱਠੇ ਸੁਪਨੇ ✨',
+      finish: 'ਹੋ ਗਿਆ', sleep: 'ਸੌਣ ਦਾ ਵੇਲਾ!', tapSkip: 'ਛੱਡਣ ਲਈ ਸਕ੍ਰੀਨ ਛੂਹੋ',
+      p_pyjama: 'ਪਜਾਮਾ', p_histoire: 'ਕਹਾਣੀ', p_biberon: 'ਦੁੱਧ ਦੀ ਬੋਤਲ', p_dents: 'ਦੰਦ', p_calin: 'ਜੱਫੀ',
+    } },
+    pl: { name: 'Polski', dir: 'ltr', s: {
+      appTitle: 'Pora spać!', subtitle: 'Wieczorny rytuał', start: 'Rozpocznij rytuał',
+      settings: 'Ustawienia', back: 'Wstecz', sounds: 'Dźwięki', introAnim: 'Animacja początkowa',
+      language: 'Język', defaults: 'Przywróć domyślne', defaultsConfirm: 'Przywrócić ustawienia domyślne?',
+      defaultsDone: 'Ustawienia przywrócone', needOneStep: 'Przynajmniej jeden etap musi być włączony',
+      total: 'Łączny czas: {n} min', minUnit: 'min', pause: 'Pauza', resume: 'Wznów',
+      prevStep: 'Poprzedni etap', nextStep: 'Następny etap', stop: 'Zakończ',
+      stopConfirm: 'Zakończyć rytuał?', endTitle: 'Pora spać!', endMsg: 'Dobranoc, kolorowych snów ✨',
+      finish: 'Gotowe', sleep: 'Pora spać!', tapSkip: 'Dotknij ekranu, aby pominąć',
+      p_pyjama: 'Piżama', p_histoire: 'Bajka', p_biberon: 'Butelka', p_dents: 'Ząbki', p_calin: 'Przytulanie',
+    } },
+    uk: { name: 'Українська', dir: 'ltr', s: {
+      appTitle: 'Час спати!', subtitle: 'Вечірній ритуал', start: 'Почати ритуал',
+      settings: 'Налаштування', back: 'Назад', sounds: 'Звуки', introAnim: 'Початкова анімація',
+      language: 'Мова', defaults: 'Скинути налаштування', defaultsConfirm: 'Повернути налаштування за замовчуванням?',
+      defaultsDone: 'Налаштування скинуто', needOneStep: 'Потрібен хоча б один активний етап',
+      total: 'Загальний час: {n} хв', minUnit: 'хв', pause: 'Пауза', resume: 'Продовжити',
+      prevStep: 'Попередній етап', nextStep: 'Наступний етап', stop: 'Стоп',
+      stopConfirm: 'Завершити ритуал?', endTitle: 'Час спати!', endMsg: 'На добраніч, солодких снів ✨',
+      finish: 'Готово', sleep: 'Час спати!', tapSkip: 'Торкніться екрана, щоб пропустити',
+      p_pyjama: 'Піжама', p_histoire: 'Казка', p_biberon: 'Пляшечка', p_dents: 'Зубки', p_calin: 'Обійми',
+    } },
   };
 
   const SETTINGS_KEY = 'dodo.settings';
@@ -205,6 +392,16 @@
     return Math.min(60, Math.max(1, Math.round(Number(m) || 1)));
   }
 
+  // Langue de l'appareil si on l'a, sinon anglais
+  function detectLang() {
+    const codes = (navigator.languages || [navigator.language || 'en']).map((c) => String(c).toLowerCase());
+    for (const c of codes) {
+      const two = c.slice(0, 2);
+      if (I18N[two]) return two;
+    }
+    return 'en';
+  }
+
   function loadSettings() {
     try {
       const raw = JSON.parse(localStorage.getItem(SETTINGS_KEY));
@@ -222,10 +419,10 @@
         phases,
         soundOn: raw.soundOn !== false,
         introOn: raw.introOn !== false,
-        lang: I18N[raw.lang] ? raw.lang : 'fr',
+        lang: I18N[raw.lang] ? raw.lang : detectLang(),
       };
     } catch {
-      return { phases: DEFAULT_PHASES.map((p) => ({ ...p })), soundOn: true, introOn: true, lang: 'fr' };
+      return { phases: DEFAULT_PHASES.map((p) => ({ ...p })), soundOn: true, introOn: true, lang: detectLang() };
     }
   }
 

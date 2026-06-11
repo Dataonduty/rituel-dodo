@@ -1,6 +1,6 @@
 // Service worker « Au dodo » — cache-first pour un fonctionnement 100 % hors-ligne.
 // Incrémenter la version du cache à chaque mise à jour de l'app.
-const CACHE = 'dodo-v5';
+const CACHE = 'dodo-v6';
 
 const ASSETS = [
   './',

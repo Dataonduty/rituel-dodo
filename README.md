@@ -7,8 +7,10 @@ colorée (un segment par étape) montre l'avancée du rituel complet… puis au 
 
 - Durée et ordre des étapes configurables (réglages persistés sur le téléphone, rien ne sort).
 - Intro animée au lancement qui récapitule les étapes jusqu'au dodo (désactivable dans les réglages).
-- 10 langues : français, anglais, mandarin, hindi, espagnol, arabe, bengali, portugais, russe, ourdou
-  (gestion droite-à-gauche incluse pour l'arabe et l'ourdou).
+- 27 langues (français, anglais, mandarin, hindi, espagnol, arabe, bengali, portugais, russe, ourdou,
+  indonésien, allemand, japonais, swahili, marathi, télougou, turc, tamoul, vietnamien, coréen,
+  filipino, persan, italien, thaï, pendjabi, polonais, ukrainien), détection automatique de la langue
+  de l'appareil au premier lancement, droite-à-gauche pour l'arabe, l'ourdou et le persan.
 - Carillon doux à chaque changement d'étape, berceuse à la fin (sons générés, aucun fichier audio).
 - L'écran reste allumé pendant le rituel (Wake Lock, iOS ≥ 16.4).
 - Fonctionne hors-ligne une fois installée (service worker).

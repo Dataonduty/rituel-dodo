@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Proposition 2 — Le chemin vers la lune</title>
+<style>
+html, body { height: 100%; margin: 0; }
+body {
+  background: #0b1026; color: #eef0ff; overflow: hidden;
+  font-family: ui-rounded, -apple-system, system-ui, sans-serif;
+  -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.hdr {
+  position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 5;
+  text-align: center; font-size: 13px; color: #9aa3d0; padding: 10px;
+}
+#fit { position: fixed; left: 50%; top: 50%; width: 320px; height: 570px; transform-origin: center; }
+.st { position: absolute; border-radius: 50%; background: #fff; animation: tw 2.4s ease-in-out infinite alternate; }
+@keyframes tw { from { opacity: .12; } to { opacity: .8; } }
+@keyframes hop { 0% { transform: translateY(0); } 45% { transform: translateY(-16px); } 100% { transform: translateY(0); } }
+@keyframes zz { from { opacity: 0; transform: translateY(8px); } 30% { opacity: 1; } to { opacity: 0; transform: translateY(-30px); } }
+.cap { position: absolute; top: 36px; left: 0; right: 0; text-align: center; font-size: 25px; font-weight: 700; min-height: 34px; }
+</style>
+</head>
+<body>
+<div class="hdr">Proposition 2 — Le chemin vers la lune · touche l'écran pour rejouer (avec le son)</div>
+<div id="fit"><div id="sc" style="position:absolute;inset:0"></div></div>
+<script>
+'use strict';
+const PH = [
+  { e: '👕', n: 'Pyjama', c: '#b9a7f2' },
+  { e: '📖', n: 'Histoire', c: '#f6c453' },
+  { e: '🍼', n: 'Biberon', c: '#f3e9d2' },
+  { e: '🪥', n: 'Dents', c: '#7fd8c8' },
+  { e: '🤗', n: 'Câlin', c: '#f2a2c0' },
+];
+const NS = 'http://www.w3.org/2000/svg';
+function fit() {
+  const s = Math.min(innerWidth / 320, innerHeight / 570);
+  document.getElementById('fit').style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+}
+addEventListener('resize', fit); fit();
+
+let ac = null, sound = false;
+function ensureAc() { try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); if (ac.state === 'suspended') ac.resume(); } catch (e) {} }
+function tone(f, w, d, p) {
+  if (!sound || !ac) return;
+  const o = ac.createOscillator(), g = ac.createGain();
+  o.type = 'sine'; o.frequency.value = f; o.connect(g); g.connect(ac.destination);
+  const t0 = ac.currentTime + w;
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(p, t0 + 0.04);
+  g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+  o.start(t0); o.stop(t0 + d + 0.05);
+}
+const NOTES = [523.25, 587.33, 659.25, 783.99, 880, 1046.5];
+
+let timers = [];
+const later = (f, ms) => timers.push(setTimeout(f, ms));
+const stopAll = () => { timers.forEach(clearTimeout); timers = []; };
+const sc = document.getElementById('sc');
+
+function base() {
+  sc.innerHTML = '';
+  for (let i = 0; i < 26; i++) {
+    const s = document.createElement('span'); s.className = 'st';
+    const z = 1 + Math.random() * 1.6;
+    s.style.cssText = 'width:' + z + 'px;height:' + z + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (-Math.random() * 3) + 's';
+    sc.appendChild(s);
+  }
+  const cap = document.createElement('div'); cap.className = 'cap'; sc.appendChild(cap);
+  return cap;
+}
+
+function play() {
+  stopAll();
+  const cap = base();
+  const pts = [[64, 482], [232, 424], [78, 352], [236, 280], [96, 210]];
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 320 570');
+  svg.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%';
+  svg.innerHTML = '<polyline points="40,532 64,482 232,424 78,352 236,280 96,210 160,118" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2.5" stroke-dasharray="1 9" stroke-linecap="round"/>';
+  sc.appendChild(svg);
+  const moon = document.createElement('div');
+  moon.style.cssText = 'position:absolute;left:128px;top:86px;width:64px;height:64px;border-radius:50%;background:#f6e7b0;transition:transform .6s';
+  moon.innerHTML = '<span style="position:absolute;left:14px;top:26px;width:11px;height:7px;border-top:2.5px solid #8a6d3b;border-radius:50%"></span>'
+    + '<span style="position:absolute;right:14px;top:26px;width:11px;height:7px;border-top:2.5px solid #8a6d3b;border-radius:50%"></span>'
+    + '<span style="position:absolute;left:26px;top:38px;width:12px;height:8px;border-bottom:2.5px solid #8a6d3b;border-radius:0 0 50% 50%"></span>';
+  sc.appendChild(moon);
+  const stns = pts.map((q, k) => {
+    const d = document.createElement('div');
+    d.style.cssText = 'position:absolute;left:' + (q[0] - 24) + 'px;top:' + (q[1] - 24) + 'px;width:48px;height:48px;border-radius:50%;border:2.5px solid ' + PH[k].c + ';background:rgba(255,255,255,.06);display:grid;place-items:center;font-size:23px;opacity:.4;transition:all .3s';
+    d.textContent = PH[k].e;
+    sc.appendChild(d);
+    return d;
+  });
+  const star = document.createElement('div');
+  star.style.cssText = 'position:absolute;left:28px;top:520px;font-size:24px;transition:left .55s ease-in-out,top .55s ease-in-out';
+  star.textContent = '⭐';
+  sc.appendChild(star);
+  let t = 500;
+  PH.forEach((p, k) => {
+    later(() => {
+      star.style.left = (pts[k][0] - 12) + 'px';
+      star.style.top = (pts[k][1] - 50) + 'px';
+      star.style.animation = 'none'; void star.offsetWidth;
+      star.style.animation = 'hop .55s ease';
+    }, t);
+    later(() => {
+      stns[k].style.opacity = '1';
+      stns[k].style.background = p.c + '33';
+      stns[k].style.transform = 'scale(1.18)';
+      cap.style.color = p.c; cap.textContent = p.n;
+      tone(NOTES[k % NOTES.length], 0, 0.6, 0.11);
+    }, t + 600);
+    later(() => { stns[k].style.transform = 'scale(1)'; }, t + 1200);
+    t += 1600;
+  });
+  later(() => { star.style.left = '150px'; star.style.top = '74px'; }, t);
+  later(() => {
+    moon.style.transform = 'scale(1.1)';
+    cap.style.color = '#f6e7b0'; cap.style.fontSize = '29px'; cap.textContent = 'Au dodo !';
+    tone(783.99, 0, 1.0, 0.12); tone(659.25, 0.4, 1.0, 0.11); tone(587.33, 0.8, 1.0, 0.1); tone(523.25, 1.2, 2.0, 0.1);
+    for (let i = 0; i < 3; i++) {
+      const z = document.createElement('span');
+      z.textContent = 'z';
+      z.style.cssText = 'position:absolute;left:' + (202 + i * 14) + 'px;top:' + (90 - i * 8) + 'px;color:#cdd3ff;font-size:' + (13 + i * 3) + 'px;font-weight:700;animation:zz 2.2s ease-in-out ' + (i * 0.4) + 's infinite';
+      sc.appendChild(z);
+    }
+  }, t + 750);
+  later(play, t + 5200);
+}
+
+document.body.addEventListener('click', () => { sound = true; ensureAc(); play(); });
+play();
+</script>
+</body>
+</html>

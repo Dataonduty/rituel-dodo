@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Proposition 1 — Le train du dodo</title>
+<style>
+html, body { height: 100%; margin: 0; }
+body {
+  background: #0b1026; color: #eef0ff; overflow: hidden;
+  font-family: ui-rounded, -apple-system, system-ui, sans-serif;
+  -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.hdr {
+  position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 5;
+  text-align: center; font-size: 13px; color: #9aa3d0; padding: 10px;
+}
+#fit { position: fixed; left: 50%; top: 50%; width: 320px; height: 570px; transform-origin: center; }
+.st { position: absolute; border-radius: 50%; background: #fff; animation: tw 2.4s ease-in-out infinite alternate; }
+@keyframes tw { from { opacity: .12; } to { opacity: .8; } }
+.cap { position: absolute; top: 60px; left: 0; right: 0; text-align: center; font-size: 25px; font-weight: 700; min-height: 34px; }
+</style>
+</head>
+<body>
+<div class="hdr">Proposition 1 — Le train du dodo · touche l'écran pour rejouer (avec le son)</div>
+<div id="fit"><div id="sc" style="position:absolute;inset:0"></div></div>
+<script>
+'use strict';
+const PH = [
+  { e: '👕', n: 'Pyjama', c: '#b9a7f2' },
+  { e: '📖', n: 'Histoire', c: '#f6c453' },
+  { e: '🍼', n: 'Biberon', c: '#f3e9d2' },
+  { e: '🪥', n: 'Dents', c: '#7fd8c8' },
+  { e: '🤗', n: 'Câlin', c: '#f2a2c0' },
+];
+function fit() {
+  const s = Math.min(innerWidth / 320, innerHeight / 570);
+  document.getElementById('fit').style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+}
+addEventListener('resize', fit); fit();
+
+let ac = null, sound = false;
+function ensureAc() { try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); if (ac.state === 'suspended') ac.resume(); } catch (e) {} }
+function tone(f, w, d, p) {
+  if (!sound || !ac) return;
+  const o = ac.createOscillator(), g = ac.createGain();
+  o.type = 'sine'; o.frequency.value = f; o.connect(g); g.connect(ac.destination);
+  const t0 = ac.currentTime + w;
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(p, t0 + 0.04);
+  g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+  o.start(t0); o.stop(t0 + d + 0.05);
+}
+const NOTES = [523.25, 587.33, 659.25, 783.99, 880, 1046.5];
+
+let timers = [];
+const later = (f, ms) => timers.push(setTimeout(f, ms));
+const stopAll = () => { timers.forEach(clearTimeout); timers = []; };
+const sc = document.getElementById('sc');
+
+function base() {
+  sc.innerHTML = '';
+  for (let i = 0; i < 26; i++) {
+    const s = document.createElement('span'); s.className = 'st';
+    const z = 1 + Math.random() * 1.6;
+    s.style.cssText = 'width:' + z + 'px;height:' + z + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (-Math.random() * 3) + 's';
+    sc.appendChild(s);
+  }
+  const cap = document.createElement('div'); cap.className = 'cap'; sc.appendChild(cap);
+  return cap;
+}
+function crescent(x, y, d) {
+  const m = document.createElement('div');
+  m.style.cssText = 'position:absolute;left:' + x + 'px;top:' + y + 'px;width:' + d + 'px;height:' + d + 'px;transition:transform .6s';
+  m.innerHTML = '<div style="position:absolute;left:0;top:0;width:100%;height:100%;border-radius:50%;background:#f6e7b0"></div>'
+    + '<div style="position:absolute;left:' + (d * 0.24) + 'px;top:' + (-d * 0.16) + 'px;width:100%;height:100%;border-radius:50%;background:#0b1026"></div>';
+  return m;
+}
+
+function play() {
+  stopAll();
+  const cap = base();
+  sc.appendChild(crescent(238, 96, 52));
+  const ground = document.createElement('div');
+  ground.style.cssText = 'position:absolute;left:0;right:0;top:462px;border-top:2px dashed rgba(255,255,255,.22)';
+  sc.appendChild(ground);
+  const tr = document.createElement('div');
+  tr.style.cssText = 'position:absolute;top:392px;left:0;display:flex;align-items:flex-end;gap:7px;transition:transform .7s ease-in-out;transform:translateX(330px)';
+  tr.innerHTML = '<div style="font-size:46px;line-height:1">🚂</div>' + PH.map(p =>
+    '<div class="wg" style="width:50px;height:50px;border-radius:12px;border:2.5px solid ' + p.c + ';background:rgba(255,255,255,.07);display:grid;place-items:center;font-size:25px;transition:transform .3s">' + p.e + '</div>'
+  ).join('');
+  sc.appendChild(tr);
+  const wags = [].slice.call(tr.querySelectorAll('.wg'));
+  const locoW = 53, step = 57;
+  let t = 400;
+  PH.forEach((p, k) => {
+    later(() => { tr.style.transform = 'translateX(' + (160 - (locoW + k * step + 25)) + 'px)'; cap.textContent = ''; }, t);
+    later(() => { wags[k].style.transform = 'scale(1.3)'; cap.style.color = p.c; cap.textContent = p.n; tone(NOTES[k % NOTES.length], 0, 0.6, 0.11); }, t + 760);
+    later(() => { wags[k].style.transform = 'scale(1)'; }, t + 1700);
+    t += 1800;
+  });
+  later(() => { tr.style.transition = 'transform 1.5s ease-in'; tr.style.transform = 'translateX(-580px)'; }, t);
+  later(() => {
+    cap.style.color = '#f6e7b0'; cap.style.fontSize = '29px'; cap.textContent = 'Au dodo ! 🌙';
+    tone(659.25, 0, 1.1, 0.13); tone(783.99, 0.22, 1.3, 0.1);
+  }, t + 1000);
+  later(play, t + 4600);
+}
+
+document.body.addEventListener('click', () => { sound = true; ensureAc(); play(); });
+play();
+</script>
+</body>
+</html>

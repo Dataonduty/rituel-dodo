@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Proposition 3 — Le sablier magique</title>
+<style>
+html, body { height: 100%; margin: 0; }
+body {
+  background: #0b1026; color: #eef0ff; overflow: hidden;
+  font-family: ui-rounded, -apple-system, system-ui, sans-serif;
+  -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.hdr {
+  position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 5;
+  text-align: center; font-size: 13px; color: #9aa3d0; padding: 10px;
+}
+#fit { position: fixed; left: 50%; top: 50%; width: 320px; height: 570px; transform-origin: center; }
+.st { position: absolute; border-radius: 50%; background: #fff; animation: tw 2.4s ease-in-out infinite alternate; }
+@keyframes tw { from { opacity: .12; } to { opacity: .8; } }
+.cap { position: absolute; top: 52px; left: 0; right: 0; text-align: center; font-size: 25px; font-weight: 700; min-height: 34px; }
+</style>
+</head>
+<body>
+<div class="hdr">Proposition 3 — Le sablier magique · touche l'écran pour rejouer (avec le son)</div>
+<div id="fit"><div id="sc" style="position:absolute;inset:0"></div></div>
+<script>
+'use strict';
+const PH = [
+  { e: '👕', n: 'Pyjama', c: '#b9a7f2', min: 5 },
+  { e: '📖', n: 'Histoire', c: '#f6c453', min: 5 },
+  { e: '🍼', n: 'Biberon', c: '#f3e9d2', min: 15 },
+  { e: '🪥', n: 'Dents', c: '#7fd8c8', min: 5 },
+  { e: '🤗', n: 'Câlin', c: '#f2a2c0', min: 5 },
+];
+const NS = 'http://www.w3.org/2000/svg';
+function fit() {
+  const s = Math.min(innerWidth / 320, innerHeight / 570);
+  document.getElementById('fit').style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+}
+addEventListener('resize', fit); fit();
+
+let ac = null, sound = false;
+function ensureAc() { try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); if (ac.state === 'suspended') ac.resume(); } catch (e) {} }
+function tone(f, w, d, p) {
+  if (!sound || !ac) return;
+  const o = ac.createOscillator(), g = ac.createGain();
+  o.type = 'sine'; o.frequency.value = f; o.connect(g); g.connect(ac.destination);
+  const t0 = ac.currentTime + w;
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(p, t0 + 0.04);
+  g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+  o.start(t0); o.stop(t0 + d + 0.05);
+}
+const NOTES = [523.25, 587.33, 659.25, 783.99, 880, 1046.5];
+
+let timers = [];
+const later = (f, ms) => timers.push(setTimeout(f, ms));
+const stopAll = () => { timers.forEach(clearTimeout); timers = []; };
+const sc = document.getElementById('sc');
+
+function base() {
+  sc.innerHTML = '';
+  for (let i = 0; i < 26; i++) {
+    const s = document.createElement('span'); s.className = 'st';
+    const z = 1 + Math.random() * 1.6;
+    s.style.cssText = 'width:' + z + 'px;height:' + z + 'px;left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (-Math.random() * 3) + 's';
+    sc.appendChild(s);
+  }
+  const cap = document.createElement('div'); cap.className = 'cap'; sc.appendChild(cap);
+  return cap;
+}
+
+function play() {
+  stopAll();
+  const cap = base();
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'position:absolute;left:60px;top:140px;width:200px;height:320px;transition:transform .9s cubic-bezier(.55,.06,.35,1.1)';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 200 320');
+  svg.style.cssText = 'width:100%;height:100%';
+  svg.innerHTML = '<defs><clipPath id="ct9"><path d="M40 30 L160 30 Q160 95 105 142 L95 142 Q40 95 40 30 Z"/></clipPath></defs>'
+    + '<rect x="28" y="10" width="144" height="12" rx="6" fill="#8a5a3e"/><rect x="28" y="298" width="144" height="12" rx="6" fill="#8a5a3e"/>'
+    + '<path d="M40 30 L160 30 Q160 95 105 142 L95 142 Q40 95 40 30 Z" fill="rgba(255,255,255,.05)" stroke="rgba(190,210,255,.5)" stroke-width="2.5"/>'
+    + '<path d="M95 178 Q40 225 40 290 L160 290 Q160 225 105 178 Z" fill="rgba(255,255,255,.05)" stroke="rgba(190,210,255,.5)" stroke-width="2.5"/>'
+    + '<path d="M95 142 L95 178 M105 142 L105 178" stroke="rgba(190,210,255,.5)" stroke-width="2.5"/>'
+    + '<g id="lay9" clip-path="url(#ct9)"></g>';
+  wrap.appendChild(svg);
+  sc.appendChild(wrap);
+  const lay = svg.querySelector('#lay9');
+  const tot = PH.reduce((a, p) => a + p.min, 0);
+  const H = 104;
+  let yCur = 142, t = 500;
+  PH.forEach((p, k) => {
+    later(() => {
+      const d = document.createElement('div');
+      d.id = 'fall9'; d.textContent = p.e;
+      d.style.cssText = 'position:absolute;left:0;right:0;top:92px;text-align:center;font-size:34px;opacity:1;transition:transform .75s cubic-bezier(.5,0,1,1),opacity .25s .55s';
+      sc.appendChild(d);
+      cap.style.color = p.c; cap.textContent = p.n;
+      tone(NOTES[k % NOTES.length], 0, 0.6, 0.11);
+      requestAnimationFrame(() => { requestAnimationFrame(() => {
+        d.style.transform = 'translateY(160px) scale(.45)'; d.style.opacity = '0';
+      }); });
+    }, t);
+    later(() => {
+      const h = p.min / tot * H;
+      const r = document.createElementNS(NS, 'rect');
+      r.setAttribute('x', '40'); r.setAttribute('width', '120');
+      r.setAttribute('y', String(yCur - h)); r.setAttribute('height', String(h));
+      r.setAttribute('fill', p.c);
+      lay.appendChild(r);
+      yCur -= h;
+      const old = document.getElementById('fall9');
+      if (old) old.remove();
+    }, t + 820);
+    t += 1400;
+  });
+  later(() => {
+    wrap.style.transform = 'rotate(180deg)';
+    cap.style.color = '#f6e7b0'; cap.style.fontSize = '27px'; cap.textContent = "Et c'est parti !";
+    tone(659.25, 0, 1.1, 0.13); tone(783.99, 0.22, 1.3, 0.1);
+  }, t + 300);
+  later(play, t + 4300);
+}
+
+document.body.addEventListener('click', () => { sound = true; ensureAc(); play(); });
+play();
+</script>
+</body>
+</html>

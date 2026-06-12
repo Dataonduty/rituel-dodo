@@ -552,7 +552,7 @@
   // ---------- Configuration externe ----------
   // À renseigner pour activer le don et la mesure d'audience :
   const KOFI_URL = 'https://ko-fi.com/bedtimeroutine';  // vide = boutons masqués
-  const UMAMI_ID = '';  // Website ID Umami Cloud — vide = mesure désactivée
+  const UMAMI_ID = '07651324-c6f4-4362-a595-5dea41ad7d2e';  // vide = mesure désactivée
 
   const SETTINGS_KEY = 'dodo.settings';
   const RUN_KEY = 'dodo.run';

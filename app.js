@@ -582,6 +582,8 @@
   let settings = loadSettings();
   let run = null;       // { startedAt, totalPaused, pausedAt, skipOffset, phases, soundOn, updatedAt }
   let schedule = null;  // { phases, dur[], cumStart[], total }
+  const openCats = new Set();
+  let blinkCat = null;
   let curIdx = -1;
   let rafId = 0;
   let watchdogId = 0;
@@ -875,6 +877,7 @@
       el.classList.toggle('done', i < curIdx);
       el.classList.toggle('current', i === curIdx);
     });
+    updateTrail();
     const em = $('phaseEmoji');
     em.classList.remove('pop');
     void em.offsetWidth;
@@ -975,15 +978,13 @@
     bot.appendChild(botSandEl);
     bot.appendChild(moundEl);
 
-    const trail = $('trail');
-    trail.innerHTML = '';
-    const n = schedule.phases.length;
-    trail.className = 'trail' + (n > 9 ? ' xdense' : n > 6 ? ' dense' : '');
+    const trailRow = $('trailRow');
+    trailRow.innerHTML = '';
     chipEls = schedule.phases.map((p) => {
       const chip = document.createElement('div');
       chip.className = 'chip';
       chip.textContent = p.emoji;
-      trail.appendChild(chip);
+      trailRow.appendChild(chip);
       return chip;
     });
 
@@ -1000,6 +1001,30 @@
       prog.appendChild(seg);
       return fill;
     });
+  }
+
+  // Fenêtre glissante de la frise : l'étape en cours reste centrée,
+  // les pastilles gardent leur taille pleine quel que soit le nombre d'étapes.
+  function updateTrail() {
+    const vp = $('trail');
+    const row = $('trailRow');
+    const n = chipEls.length;
+    if (!n) return;
+    const vw = vp.clientWidth;
+    const chipW = 56;
+    const gap = 12;
+    const rowW = n * chipW + (n - 1) * gap;
+    let tx;
+    if (rowW <= vw) {
+      tx = (vw - rowW) / 2;
+      vp.classList.remove('slide');
+    } else {
+      const i = Math.max(0, curIdx);
+      tx = vw / 2 - (i * (chipW + gap) + chipW / 2);
+      tx = Math.min(0, Math.max(vw - rowW, tx));
+      vp.classList.add('slide');
+    }
+    row.style.transform = 'translateX(' + tx + 'px)';
   }
 
   function setSandColor(color) {
@@ -1174,6 +1199,13 @@
     document.querySelectorAll('.screen').forEach((s) => {
       s.classList.toggle('active', s.id === 'screen-' + name);
     });
+    if (name === 'home') setTimeout(updateHomeFade, 60);
+  }
+
+  // Fondu en bas de la liste d'accueil tant qu'il reste du contenu à faire défiler
+  function updateHomeFade() {
+    const l = $('homeList');
+    l.classList.toggle('more', l.scrollHeight - l.scrollTop - l.clientHeight > 8);
   }
 
   function totalMinutes() {
@@ -1201,6 +1233,7 @@
       list.appendChild(li);
     });
     $('homeTotal').textContent = t('total').replace('{n}', totalMinutes());
+    updateHomeFade();
   }
 
   function applyLang() {
@@ -1256,11 +1289,34 @@
     section(t('myRitual'));
     enabled.forEach((p, i) => wrap.appendChild(settingsRow(p, i, enabled.length)));
 
+    // Familles du réservoir : repliées par défaut pour garder l'écran court
     [['hyg', 'catHyg'], ['nuit', 'catNight'], ['calme', 'catCalm']].forEach(([cat, key]) => {
       const rest = settings.phases.filter((p) => !p.enabled && (p.cat || 'calme') === cat);
       if (!rest.length) return;
-      section(t(key));
-      rest.forEach((p) => wrap.appendChild(settingsRow(p, -1, 0)));
+      const open = openCats.has(cat);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'sec-btn' + (open ? ' open' : '');
+      const chev = document.createElement('span');
+      chev.className = 'chev';
+      chev.textContent = '▶';
+      const lbl = document.createElement('span');
+      lbl.textContent = t(key);
+      const count = document.createElement('span');
+      count.className = 'count';
+      count.textContent = String(rest.length);
+      btn.append(chev, lbl, count);
+      btn.addEventListener('click', () => {
+        if (openCats.has(cat)) openCats.delete(cat); else openCats.add(cat);
+        renderSettings();
+      });
+      wrap.appendChild(btn);
+      if (blinkCat === cat) {
+        blinkCat = null;
+        btn.classList.add('blink');
+        setTimeout(() => btn.classList.remove('blink'), 2200);
+      }
+      if (open) rest.forEach((p) => wrap.appendChild(settingsRow(p, -1, 0)));
     });
 
     $('soundToggle').checked = settings.soundOn;
@@ -1347,6 +1403,9 @@
       arr.splice(arr.indexOf(p), 1);
       const lastEn = arr.reduce((acc, x, i) => (x.enabled ? i : acc), -1);
       arr.splice(lastEn + 1, 0, p);
+    } else {
+      // L'étape désactivée retourne dans sa famille : on la signale
+      blinkCat = p.cat || 'calme';
     }
     normalizePhases();
     saveSettings();
@@ -1421,6 +1480,11 @@
       track('langue_changee', { langue: settings.lang });
     });
     $('intro').addEventListener('click', () => closeIntro(true));
+    $('homeList').addEventListener('scroll', updateHomeFade);
+    window.addEventListener('resize', () => {
+      if (run) updateTrail();
+      updateHomeFade();
+    });
     $('btnPause').addEventListener('click', pauseToggle);
     $('btnPrev').addEventListener('click', prevPhase);
     $('btnSkip').addEventListener('click', skipPhase);

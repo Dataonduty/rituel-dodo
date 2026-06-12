@@ -88,9 +88,8 @@ body::before {
   display: flex;
 }
 
-/* Les écrans à contenu long défilent dans le cadre de l'app */
-#screen-settings,
-#screen-home {
+/* L'écran réglages défile dans le cadre de l'app */
+#screen-settings {
   overflow-y: auto;
   padding-bottom: 8px;
 }
@@ -179,10 +178,19 @@ button {
   transform: rotate(-15deg);
 }
 
+/* Sur l'accueil, seule la liste défile : le bouton Commencer reste toujours visible */
 .phase-list {
   list-style: none;
-  margin: 18px 0 0;
+  margin: 18px 0 10px;
   padding: 0;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.phase-list.more {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 30px), transparent);
+  mask-image: linear-gradient(180deg, #000 calc(100% - 30px), transparent);
 }
 
 .phase-list li {
@@ -337,11 +345,22 @@ button {
   font-weight: 700;
 }
 
+/* Frise : fenêtre glissante, pastilles toujours en taille pleine */
 .trail {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
+  overflow: hidden;
   padding: 10px 0 8px;
+}
+
+.trail-row {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  transition: transform 0.55s ease;
+}
+
+.trail.slide {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 26px, #000 calc(100% - 26px), transparent);
+  mask-image: linear-gradient(90deg, transparent 0, #000 26px, #000 calc(100% - 26px), transparent);
 }
 
 .progress {
@@ -366,40 +385,6 @@ button {
   bottom: 0;
   left: 0;
   width: 0%;
-}
-
-.trail.dense {
-  gap: 9px;
-}
-
-.trail.dense .chip {
-  width: 44px;
-  height: 44px;
-  font-size: 21px;
-  border-radius: 14px;
-}
-
-.trail.dense .chip.done::after {
-  font-size: 13px;
-  top: -6px;
-  right: -6px;
-}
-
-.trail.xdense {
-  gap: 6px;
-}
-
-.trail.xdense .chip {
-  width: 34px;
-  height: 34px;
-  font-size: 16px;
-  border-radius: 11px;
-}
-
-.trail.xdense .chip.done::after {
-  font-size: 11px;
-  top: -5px;
-  right: -5px;
 }
 
 .chip {
@@ -556,6 +541,51 @@ button {
   color: var(--muted);
   letter-spacing: 0.3px;
   margin: 18px 4px 8px;
+}
+
+/* Familles du réservoir : en-têtes repliables */
+.sec-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: none;
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin: 12px 0 8px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  text-align: left;
+}
+
+.sec-btn .chev {
+  font-size: 10px;
+  transition: transform 0.25s;
+}
+
+.sec-btn.open .chev {
+  transform: rotate(90deg);
+}
+
+.sec-btn .count {
+  margin-left: auto;
+  font-weight: 400;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 2px 9px;
+}
+
+.sec-btn.blink {
+  animation: secBlink 1s ease 2;
+}
+
+@keyframes secBlink {
+  0%, 100% { background: rgba(255, 255, 255, 0.04); }
+  50% { background: rgba(255, 255, 255, 0.2); }
 }
 
 a.btn-ghost {

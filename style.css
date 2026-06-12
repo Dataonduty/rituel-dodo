@@ -18,7 +18,8 @@ html, body {
 
 body {
   margin: 0;
-  background: radial-gradient(120% 90% at 50% -10%, #1c2456 0%, #0b1026 55%, #070b1c 100%);
+  overflow: hidden;
+  background: #070b1c;
   color: var(--text);
   font-family: ui-rounded, -apple-system, "Segoe UI", system-ui, sans-serif;
   user-select: none;
@@ -26,6 +27,17 @@ body {
   -webkit-touch-callout: none;
   overscroll-behavior: none;
   touch-action: manipulation;
+}
+
+/* Dégradé de nuit sur un calque fixe : insensible au scroll
+   (un dégradé sur body se répète en tuiles dès que la page dépasse l'écran) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(120% 90% at 50% -10%, #1c2456 0%, #0b1026 55%, #070b1c 100%);
+  pointer-events: none;
 }
 
 /* ---------- Étoiles ---------- */
@@ -74,6 +86,13 @@ body {
 
 .screen.active {
   display: flex;
+}
+
+/* Les écrans à contenu long défilent dans le cadre de l'app */
+#screen-settings,
+#screen-home {
+  overflow-y: auto;
+  padding-bottom: 8px;
 }
 
 @keyframes fadeIn {

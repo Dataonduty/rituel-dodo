@@ -10,15 +10,52 @@
     biberon: '#f3e9d2',
     dents: '#7fd8c8',
     calin: '#f2a2c0',
+    pot: '#9fd8e8',
+    couche: '#f5d2ad',
+    bain: '#7fb8e8',
+    debarbouillage: '#cde6f5',
+    massage: '#f0c39e',
+    medicament: '#f0a8a8',
+    rangement: '#c9b98e',
+    chambre: '#a8b4e8',
+    veilleuse: '#f6e7a0',
+    doudou: '#d9a96f',
+    eau: '#9fc4f0',
+    animal: '#ffb38a',
+    tetee: '#f3dcc8',
+    berceuse: '#c8a8e8',
+    journee: '#b5d98a',
+    respiration: '#93d9c0',
+    priere: '#e3c7e8',
+    bisous: '#f7b3ba',
   };
   const FALLBACK_COLOR = '#cbd5ff';
 
+  // cat : hyg = Hygiène & soins, nuit = Préparer la nuit, calme = Moments calmes
   const DEFAULT_PHASES = [
-    { id: 'pyjama', emoji: '👕', label: 'Pyjama', minutes: 5, enabled: true },
-    { id: 'histoire', emoji: '📖', label: 'Histoire', minutes: 5, enabled: true },
-    { id: 'biberon', emoji: '🍼', label: 'Biberon', minutes: 15, enabled: true },
-    { id: 'dents', emoji: '🪥', label: 'Dents', minutes: 5, enabled: true },
-    { id: 'calin', emoji: '🤗', label: 'Câlin', minutes: 5, enabled: true },
+    { id: 'pyjama', emoji: '👕', label: 'Pyjama', minutes: 5, enabled: true, cat: 'nuit' },
+    { id: 'histoire', emoji: '📖', label: 'Histoire', minutes: 5, enabled: true, cat: 'calme' },
+    { id: 'biberon', emoji: '🍼', label: 'Biberon', minutes: 15, enabled: true, cat: 'calme' },
+    { id: 'dents', emoji: '🪥', label: 'Dents', minutes: 5, enabled: true, cat: 'hyg' },
+    { id: 'calin', emoji: '🤗', label: 'Câlin', minutes: 5, enabled: true, cat: 'calme' },
+    { id: 'pot', emoji: '🚽', label: 'Pot', minutes: 5, enabled: false, cat: 'hyg' },
+    { id: 'couche', emoji: '👶', label: 'Couche', minutes: 3, enabled: false, cat: 'hyg' },
+    { id: 'bain', emoji: '🛁', label: 'Bain', minutes: 15, enabled: false, cat: 'hyg' },
+    { id: 'debarbouillage', emoji: '🧼', label: 'Débarbouillage', minutes: 3, enabled: false, cat: 'hyg' },
+    { id: 'massage', emoji: '🧴', label: 'Crème / massage', minutes: 5, enabled: false, cat: 'hyg' },
+    { id: 'medicament', emoji: '💊', label: 'Médicament', minutes: 3, enabled: false, cat: 'hyg' },
+    { id: 'rangement', emoji: '🧹', label: 'Ranger les jouets', minutes: 5, enabled: false, cat: 'nuit' },
+    { id: 'chambre', emoji: '🪟', label: 'Préparer la chambre', minutes: 3, enabled: false, cat: 'nuit' },
+    { id: 'veilleuse', emoji: '💡', label: 'Veilleuse', minutes: 2, enabled: false, cat: 'nuit' },
+    { id: 'doudou', emoji: '🧸', label: 'Doudou & tétine', minutes: 3, enabled: false, cat: 'nuit' },
+    { id: 'eau', emoji: '🚰', label: "Verre d'eau", minutes: 2, enabled: false, cat: 'nuit' },
+    { id: 'animal', emoji: '🐠', label: "Nourrir l'animal", minutes: 3, enabled: false, cat: 'nuit' },
+    { id: 'tetee', emoji: '🤱', label: 'Tétée', minutes: 15, enabled: false, cat: 'calme' },
+    { id: 'berceuse', emoji: '🎵', label: 'Berceuse', minutes: 5, enabled: false, cat: 'calme' },
+    { id: 'journee', emoji: '💬', label: 'Raconter sa journée', minutes: 5, enabled: false, cat: 'calme' },
+    { id: 'respiration', emoji: '🧘', label: 'Respiration calme', minutes: 3, enabled: false, cat: 'calme' },
+    { id: 'priere', emoji: '🙏', label: 'Prière', minutes: 5, enabled: false, cat: 'calme' },
+    { id: 'bisous', emoji: '😘', label: 'Bisous à tous', minutes: 3, enabled: false, cat: 'calme' },
   ];
 
   // ---------- Traductions (10 langues les plus parlées) ----------
@@ -34,6 +71,13 @@
       stopConfirm: 'Arrêter le rituel ?', endTitle: 'Au dodo !', endMsg: 'Bonne nuit, fais de beaux rêves ✨',
       finish: 'Terminer', sleep: 'Au dodo !', tapSkip: "Touche l'écran pour passer",
       p_pyjama: 'Pyjama', p_histoire: 'Histoire', p_biberon: 'Biberon', p_dents: 'Dents', p_calin: 'Câlin',
+      myRitual: 'Mon rituel', catHyg: 'Hygiène & soins', catNight: 'Préparer la nuit', catCalm: 'Moments calmes',
+      support: "Soutenir l'app",
+      p_pot: 'Pot', p_couche: 'Couche', p_bain: 'Bain', p_debarbouillage: 'Débarbouillage',
+      p_massage: 'Crème / massage', p_medicament: 'Médicament', p_rangement: 'Ranger les jouets',
+      p_chambre: 'Préparer la chambre', p_veilleuse: 'Veilleuse', p_doudou: 'Doudou & tétine',
+      p_eau: "Verre d'eau", p_animal: "Nourrir l'animal", p_tetee: 'Tétée', p_berceuse: 'Berceuse',
+      p_journee: 'Raconter sa journée', p_respiration: 'Respiration calme', p_priere: 'Prière', p_bisous: 'Bisous à tous',
     } },
     en: { name: 'English', dir: 'ltr', s: {
       appTitle: 'Bedtime!', subtitle: 'The bedtime routine', start: 'Start the routine',
@@ -45,6 +89,13 @@
       stopConfirm: 'Stop the routine?', endTitle: 'Bedtime!', endMsg: 'Good night, sweet dreams ✨',
       finish: 'Done', sleep: 'Bedtime!', tapSkip: 'Tap to skip',
       p_pyjama: 'Pajamas', p_histoire: 'Story', p_biberon: 'Bottle', p_dents: 'Teeth', p_calin: 'Cuddle',
+      myRitual: 'My routine', catHyg: 'Care & hygiene', catNight: 'Getting ready for night', catCalm: 'Quiet moments',
+      support: 'Support the app',
+      p_pot: 'Potty', p_couche: 'Diaper', p_bain: 'Bath', p_debarbouillage: 'Face wash',
+      p_massage: 'Lotion / massage', p_medicament: 'Medicine', p_rangement: 'Tidy up toys',
+      p_chambre: 'Prepare the room', p_veilleuse: 'Night light', p_doudou: 'Teddy & pacifier',
+      p_eau: 'Glass of water', p_animal: 'Feed the pet', p_tetee: 'Nursing', p_berceuse: 'Lullaby',
+      p_journee: 'Talk about the day', p_respiration: 'Calm breathing', p_priere: 'Prayer', p_bisous: 'Kisses for everyone',
     } },
     zh: { name: '中文', dir: 'ltr', s: {
       appTitle: '睡觉啦！', subtitle: '睡前小仪式', start: '开始仪式',
@@ -56,6 +107,13 @@
       stopConfirm: '要停止仪式吗？', endTitle: '睡觉啦！', endMsg: '晚安，做个好梦 ✨',
       finish: '完成', sleep: '睡觉啦！', tapSkip: '点击屏幕跳过',
       p_pyjama: '睡衣', p_histoire: '故事', p_biberon: '奶瓶', p_dents: '刷牙', p_calin: '抱抱',
+      myRitual: '我的仪式', catHyg: '清洁护理', catNight: '准备睡觉', catCalm: '安静时光',
+      support: '支持这个应用',
+      p_pot: '坐便盆', p_couche: '换尿布', p_bain: '洗澡', p_debarbouillage: '洗脸',
+      p_massage: '润肤按摩', p_medicament: '吃药', p_rangement: '收拾玩具',
+      p_chambre: '准备房间', p_veilleuse: '小夜灯', p_doudou: '安抚物和奶嘴',
+      p_eau: '喝点水', p_animal: '喂小动物', p_tetee: '喂奶', p_berceuse: '摇篮曲',
+      p_journee: '聊聊今天', p_respiration: '深呼吸', p_priere: '祈祷', p_bisous: '亲亲大家',
     } },
     hi: { name: 'हिन्दी', dir: 'ltr', s: {
       appTitle: 'सोने का समय!', subtitle: 'सोने से पहले की रस्म', start: 'रस्म शुरू करें',
@@ -67,6 +125,13 @@
       stopConfirm: 'रस्म बंद करें?', endTitle: 'सोने का समय!', endMsg: 'शुभ रात्रि, मीठे सपने ✨',
       finish: 'पूरा हुआ', sleep: 'सोने का समय!', tapSkip: 'छोड़ने के लिए स्क्रीन छुएँ',
       p_pyjama: 'पजामा', p_histoire: 'कहानी', p_biberon: 'दूध की बोतल', p_dents: 'दाँत', p_calin: 'झप्पी',
+      myRitual: 'मेरी रस्म', catHyg: 'सफ़ाई और देखभाल', catNight: 'रात की तैयारी', catCalm: 'शांत पल',
+      support: 'ऐप का समर्थन करें',
+      p_pot: 'पॉटी', p_couche: 'डायपर', p_bain: 'नहाना', p_debarbouillage: 'मुँह धोना',
+      p_massage: 'क्रीम / मालिश', p_medicament: 'दवा', p_rangement: 'खिलौने समेटना',
+      p_chambre: 'कमरा तैयार करना', p_veilleuse: 'नाइट लैंप', p_doudou: 'खिलौना और चुसनी',
+      p_eau: 'पानी का गिलास', p_animal: 'पालतू को खाना', p_tetee: 'स्तनपान', p_berceuse: 'लोरी',
+      p_journee: 'दिन की बातें', p_respiration: 'शांत साँसें', p_priere: 'प्रार्थना', p_bisous: 'सबको पप्पी',
     } },
     es: { name: 'Español', dir: 'ltr', s: {
       appTitle: '¡A dormir!', subtitle: 'La rutina para ir a dormir', start: 'Empezar la rutina',
@@ -78,6 +143,13 @@
       stopConfirm: '¿Detener la rutina?', endTitle: '¡A dormir!', endMsg: 'Buenas noches, dulces sueños ✨',
       finish: 'Terminar', sleep: '¡A dormir!', tapSkip: 'Toca la pantalla para saltar',
       p_pyjama: 'Pijama', p_histoire: 'Cuento', p_biberon: 'Biberón', p_dents: 'Dientes', p_calin: 'Mimos',
+      myRitual: 'Mi rutina', catHyg: 'Higiene y cuidados', catNight: 'Preparar la noche', catCalm: 'Momentos de calma',
+      support: 'Apoyar la app',
+      p_pot: 'Orinal', p_couche: 'Pañal', p_bain: 'Baño', p_debarbouillage: 'Lavarse la cara',
+      p_massage: 'Crema / masaje', p_medicament: 'Medicina', p_rangement: 'Recoger los juguetes',
+      p_chambre: 'Preparar el cuarto', p_veilleuse: 'Luz de noche', p_doudou: 'Peluche y chupete',
+      p_eau: 'Vaso de agua', p_animal: 'Dar de comer a la mascota', p_tetee: 'Lactancia', p_berceuse: 'Canción de cuna',
+      p_journee: 'Contar el día', p_respiration: 'Respiración tranquila', p_priere: 'Oración', p_bisous: 'Besos para todos',
     } },
     ar: { name: 'العربية', dir: 'rtl', s: {
       appTitle: 'وقت النوم!', subtitle: 'روتين النوم', start: 'ابدأ الروتين',
@@ -89,6 +161,13 @@
       stopConfirm: 'هل تريد إنهاء الروتين؟', endTitle: 'وقت النوم!', endMsg: 'تصبح على خير، أحلامًا سعيدة ✨',
       finish: 'تم', sleep: 'وقت النوم!', tapSkip: 'المس الشاشة للتخطي',
       p_pyjama: 'البيجاما', p_histoire: 'قصة', p_biberon: 'الرضّاعة', p_dents: 'الأسنان', p_calin: 'حضن',
+      myRitual: 'روتيني', catHyg: 'النظافة والعناية', catNight: 'الاستعداد للنوم', catCalm: 'لحظات هادئة',
+      support: 'ادعم التطبيق',
+      p_pot: 'النونية', p_couche: 'الحفاض', p_bain: 'الاستحمام', p_debarbouillage: 'غسل الوجه',
+      p_massage: 'كريم / تدليك', p_medicament: 'الدواء', p_rangement: 'ترتيب الألعاب',
+      p_chambre: 'تجهيز الغرفة', p_veilleuse: 'ضوء الليل', p_doudou: 'الدبدوب واللهاية',
+      p_eau: 'كوب ماء', p_animal: 'إطعام الحيوان', p_tetee: 'الرضاعة الطبيعية', p_berceuse: 'تهويدة',
+      p_journee: 'حكاية اليوم', p_respiration: 'تنفس هادئ', p_priere: 'الدعاء', p_bisous: 'قبلات للجميع',
     } },
     bn: { name: 'বাংলা', dir: 'ltr', s: {
       appTitle: 'ঘুমের সময়!', subtitle: 'ঘুমানোর আগের রুটিন', start: 'রুটিন শুরু করুন',
@@ -100,6 +179,13 @@
       stopConfirm: 'রুটিন বন্ধ করবেন?', endTitle: 'ঘুমের সময়!', endMsg: 'শুভ রাত্রি, মিষ্টি স্বপ্ন ✨',
       finish: 'শেষ', sleep: 'ঘুমের সময়!', tapSkip: 'এড়িয়ে যেতে স্ক্রিনে চাপ দিন',
       p_pyjama: 'পায়জামা', p_histoire: 'গল্প', p_biberon: 'দুধের বোতল', p_dents: 'দাঁত', p_calin: 'আদর',
+      myRitual: 'আমার রুটিন', catHyg: 'পরিচ্ছন্নতা ও যত্ন', catNight: 'রাতের প্রস্তুতি', catCalm: 'শান্ত মুহূর্ত',
+      support: 'অ্যাপটিকে সহায়তা করুন',
+      p_pot: 'পটি', p_couche: 'ডায়াপার', p_bain: 'গোসল', p_debarbouillage: 'মুখ ধোয়া',
+      p_massage: 'ক্রিম / মালিশ', p_medicament: 'ওষুধ', p_rangement: 'খেলনা গোছানো',
+      p_chambre: 'ঘর প্রস্তুত করা', p_veilleuse: 'রাতের আলো', p_doudou: 'পুতুল ও চুষি',
+      p_eau: 'এক গ্লাস পানি', p_animal: 'পোষা প্রাণীকে খাওয়ানো', p_tetee: 'বুকের দুধ', p_berceuse: 'ঘুমপাড়ানি গান',
+      p_journee: 'দিনের গল্প', p_respiration: 'শান্ত শ্বাস', p_priere: 'প্রার্থনা', p_bisous: 'সবাইকে চুমু',
     } },
     pt: { name: 'Português', dir: 'ltr', s: {
       appTitle: 'Hora de dormir!', subtitle: 'A rotina de dormir', start: 'Começar a rotina',
@@ -111,6 +197,13 @@
       stopConfirm: 'Parar a rotina?', endTitle: 'Hora de dormir!', endMsg: 'Boa noite, bons sonhos ✨',
       finish: 'Concluir', sleep: 'Hora de dormir!', tapSkip: 'Toque na tela para pular',
       p_pyjama: 'Pijama', p_histoire: 'História', p_biberon: 'Mamadeira', p_dents: 'Dentes', p_calin: 'Carinho',
+      myRitual: 'Minha rotina', catHyg: 'Higiene e cuidados', catNight: 'Preparar a noite', catCalm: 'Momentos de calma',
+      support: 'Apoiar o app',
+      p_pot: 'Peniquinho', p_couche: 'Fralda', p_bain: 'Banho', p_debarbouillage: 'Lavar o rosto',
+      p_massage: 'Creme / massagem', p_medicament: 'Remédio', p_rangement: 'Guardar os brinquedos',
+      p_chambre: 'Preparar o quarto', p_veilleuse: 'Luz noturna', p_doudou: 'Ursinho e chupeta',
+      p_eau: 'Copo de água', p_animal: 'Alimentar o bichinho', p_tetee: 'Amamentação', p_berceuse: 'Canção de ninar',
+      p_journee: 'Contar o dia', p_respiration: 'Respiração calma', p_priere: 'Oração', p_bisous: 'Beijos para todos',
     } },
     ru: { name: 'Русский', dir: 'ltr', s: {
       appTitle: 'Пора спать!', subtitle: 'Вечерний ритуал', start: 'Начать ритуал',
@@ -122,6 +215,13 @@
       stopConfirm: 'Завершить ритуал?', endTitle: 'Пора спать!', endMsg: 'Спокойной ночи, сладких снов ✨',
       finish: 'Готово', sleep: 'Пора спать!', tapSkip: 'Коснитесь экрана, чтобы пропустить',
       p_pyjama: 'Пижама', p_histoire: 'Сказка', p_biberon: 'Бутылочка', p_dents: 'Зубки', p_calin: 'Обнимашки',
+      myRitual: 'Мой ритуал', catHyg: 'Гигиена и уход', catNight: 'Подготовка ко сну', catCalm: 'Спокойные минуты',
+      support: 'Поддержать приложение',
+      p_pot: 'Горшок', p_couche: 'Подгузник', p_bain: 'Купание', p_debarbouillage: 'Умывание',
+      p_massage: 'Крем / массаж', p_medicament: 'Лекарство', p_rangement: 'Убрать игрушки',
+      p_chambre: 'Подготовить комнату', p_veilleuse: 'Ночник', p_doudou: 'Игрушка и соска',
+      p_eau: 'Стакан воды', p_animal: 'Покормить питомца', p_tetee: 'Кормление грудью', p_berceuse: 'Колыбельная',
+      p_journee: 'Рассказ о дне', p_respiration: 'Спокойное дыхание', p_priere: 'Молитва', p_bisous: 'Поцелуи всем',
     } },
     ur: { name: 'اردو', dir: 'rtl', s: {
       appTitle: 'سونے کا وقت!', subtitle: 'سونے کا معمول', start: 'معمول شروع کریں',
@@ -133,6 +233,13 @@
       stopConfirm: 'معمول بند کریں؟', endTitle: 'سونے کا وقت!', endMsg: 'شب بخیر، میٹھے خواب ✨',
       finish: 'مکمل', sleep: 'سونے کا وقت!', tapSkip: 'چھوڑنے کے لیے اسکرین چھوئیں',
       p_pyjama: 'پاجامہ', p_histoire: 'کہانی', p_biberon: 'فیڈر', p_dents: 'دانت', p_calin: 'پیار',
+      myRitual: 'میرا معمول', catHyg: 'صفائی اور دیکھ بھال', catNight: 'رات کی تیاری', catCalm: 'پرسکون لمحے',
+      support: 'ایپ کی مدد کریں',
+      p_pot: 'پاٹی', p_couche: 'ڈائپر', p_bain: 'نہانا', p_debarbouillage: 'منہ دھونا',
+      p_massage: 'کریم / مالش', p_medicament: 'دوا', p_rangement: 'کھلونے سمیٹنا',
+      p_chambre: 'کمرہ تیار کرنا', p_veilleuse: 'رات کی بتی', p_doudou: 'کھلونا اور چوسنی',
+      p_eau: 'پانی کا گلاس', p_animal: 'جانور کو کھانا دینا', p_tetee: 'دودھ پلانا', p_berceuse: 'لوری',
+      p_journee: 'دن کی باتیں', p_respiration: 'پرسکون سانسیں', p_priere: 'دعا', p_bisous: 'سب کو پیار',
     } },
     id: { name: 'Bahasa Indonesia', dir: 'ltr', s: {
       appTitle: 'Waktunya tidur!', subtitle: 'Rutinitas sebelum tidur', start: 'Mulai rutinitas',
@@ -144,6 +251,13 @@
       stopConfirm: 'Hentikan rutinitas?', endTitle: 'Waktunya tidur!', endMsg: 'Selamat tidur, mimpi indah ✨',
       finish: 'Selesai', sleep: 'Waktunya tidur!', tapSkip: 'Ketuk layar untuk melewati',
       p_pyjama: 'Piyama', p_histoire: 'Cerita', p_biberon: 'Botol susu', p_dents: 'Gigi', p_calin: 'Pelukan',
+      myRitual: 'Rutinitasku', catHyg: 'Kebersihan & perawatan', catNight: 'Bersiap untuk malam', catCalm: 'Momen tenang',
+      support: 'Dukung aplikasi ini',
+      p_pot: 'Pispot', p_couche: 'Popok', p_bain: 'Mandi', p_debarbouillage: 'Cuci muka',
+      p_massage: 'Krim / pijat', p_medicament: 'Obat', p_rangement: 'Membereskan mainan',
+      p_chambre: 'Menyiapkan kamar', p_veilleuse: 'Lampu tidur', p_doudou: 'Boneka & empeng',
+      p_eau: 'Segelas air', p_animal: 'Memberi makan hewan', p_tetee: 'Menyusui', p_berceuse: 'Nina bobo',
+      p_journee: 'Cerita hari ini', p_respiration: 'Napas tenang', p_priere: 'Doa', p_bisous: 'Cium semua',
     } },
     de: { name: 'Deutsch', dir: 'ltr', s: {
       appTitle: 'Schlafenszeit!', subtitle: 'Das Abendritual', start: 'Ritual starten',
@@ -155,6 +269,13 @@
       stopConfirm: 'Ritual beenden?', endTitle: 'Schlafenszeit!', endMsg: 'Gute Nacht, träum süß ✨',
       finish: 'Fertig', sleep: 'Schlafenszeit!', tapSkip: 'Zum Überspringen tippen',
       p_pyjama: 'Schlafanzug', p_histoire: 'Geschichte', p_biberon: 'Fläschchen', p_dents: 'Zähne', p_calin: 'Kuscheln',
+      myRitual: 'Mein Ritual', catHyg: 'Pflege & Hygiene', catNight: 'Die Nacht vorbereiten', catCalm: 'Ruhige Momente',
+      support: 'App unterstützen',
+      p_pot: 'Töpfchen', p_couche: 'Windel', p_bain: 'Baden', p_debarbouillage: 'Gesicht waschen',
+      p_massage: 'Creme / Massage', p_medicament: 'Medizin', p_rangement: 'Spielzeug aufräumen',
+      p_chambre: 'Zimmer vorbereiten', p_veilleuse: 'Nachtlicht', p_doudou: 'Kuscheltier & Schnuller',
+      p_eau: 'Glas Wasser', p_animal: 'Haustier füttern', p_tetee: 'Stillen', p_berceuse: 'Schlaflied',
+      p_journee: 'Vom Tag erzählen', p_respiration: 'Ruhiges Atmen', p_priere: 'Gebet', p_bisous: 'Küsschen für alle',
     } },
     ja: { name: '日本語', dir: 'ltr', s: {
       appTitle: 'ねんねの時間！', subtitle: 'おやすみ前のルーティン', start: 'ルーティンをはじめる',
@@ -166,6 +287,13 @@
       stopConfirm: 'ルーティンを終了しますか？', endTitle: 'ねんねの時間！', endMsg: 'おやすみなさい、いい夢を ✨',
       finish: '完了', sleep: 'ねんね！', tapSkip: '画面をタップでスキップ',
       p_pyjama: 'パジャマ', p_histoire: 'えほん', p_biberon: 'ミルク', p_dents: 'はみがき', p_calin: 'ぎゅー',
+      myRitual: 'わたしのルーティン', catHyg: 'せいけつ・ケア', catNight: 'ねるじゅんび', catCalm: 'しずかな時間',
+      support: 'アプリを応援する',
+      p_pot: 'おまる', p_couche: 'おむつ', p_bain: 'おふろ', p_debarbouillage: '顔を洗う',
+      p_massage: 'クリーム・マッサージ', p_medicament: 'おくすり', p_rangement: 'おもちゃのおかたづけ',
+      p_chambre: 'お部屋のじゅんび', p_veilleuse: 'ナイトライト', p_doudou: 'ぬいぐるみとおしゃぶり',
+      p_eau: 'お水をひとくち', p_animal: 'ペットのごはん', p_tetee: '授乳', p_berceuse: '子守唄',
+      p_journee: '今日のおはなし', p_respiration: 'しずかな呼吸', p_priere: 'お祈り', p_bisous: 'みんなにチュー',
     } },
     sw: { name: 'Kiswahili', dir: 'ltr', s: {
       appTitle: 'Wakati wa kulala!', subtitle: 'Utaratibu wa kulala', start: 'Anza utaratibu',
@@ -177,6 +305,13 @@
       stopConfirm: 'Usimamishe utaratibu?', endTitle: 'Wakati wa kulala!', endMsg: 'Usiku mwema, ndoto njema ✨',
       finish: 'Maliza', sleep: 'Wakati wa kulala!', tapSkip: 'Gusa skrini kuruka',
       p_pyjama: 'Pajama', p_histoire: 'Hadithi', p_biberon: 'Chupa ya maziwa', p_dents: 'Meno', p_calin: 'Kumbatio',
+      myRitual: 'Utaratibu wangu', catHyg: 'Usafi na utunzaji', catNight: 'Kujiandaa kwa usiku', catCalm: 'Nyakati za utulivu',
+      support: 'Unga mkono programu',
+      p_pot: 'Choo cha mtoto', p_couche: 'Nepi', p_bain: 'Kuoga', p_debarbouillage: 'Kunawa uso',
+      p_massage: 'Krimu / masaji', p_medicament: 'Dawa', p_rangement: 'Kupanga vinyago',
+      p_chambre: 'Kuandaa chumba', p_veilleuse: 'Taa ya usiku', p_doudou: 'Mdoli na chuchu',
+      p_eau: 'Glasi ya maji', p_animal: 'Kulisha mnyama', p_tetee: 'Kunyonyesha', p_berceuse: 'Wimbo wa kulala',
+      p_journee: 'Hadithi ya siku', p_respiration: 'Kupumua kwa utulivu', p_priere: 'Sala', p_bisous: 'Busu kwa wote',
     } },
     mr: { name: 'मराठी', dir: 'ltr', s: {
       appTitle: 'झोपेची वेळ!', subtitle: 'झोपण्यापूर्वीची दिनचर्या', start: 'दिनचर्या सुरू करा',
@@ -188,6 +323,13 @@
       stopConfirm: 'दिनचर्या थांबवायची?', endTitle: 'झोपेची वेळ!', endMsg: 'शुभ रात्री, गोड स्वप्ने ✨',
       finish: 'झाले', sleep: 'झोपेची वेळ!', tapSkip: 'वगळण्यासाठी स्क्रीनला स्पर्श करा',
       p_pyjama: 'पायजमा', p_histoire: 'गोष्ट', p_biberon: 'दुधाची बाटली', p_dents: 'दात', p_calin: 'मिठी',
+      myRitual: 'माझी दिनचर्या', catHyg: 'स्वच्छता आणि काळजी', catNight: 'रात्रीची तयारी', catCalm: 'शांत क्षण',
+      support: 'अ‍ॅपला पाठिंबा द्या',
+      p_pot: 'पॉटी', p_couche: 'डायपर', p_bain: 'आंघोळ', p_debarbouillage: 'तोंड धुणे',
+      p_massage: 'क्रीम / मालिश', p_medicament: 'औषध', p_rangement: 'खेळणी आवरणे',
+      p_chambre: 'खोली तयार करणे', p_veilleuse: 'रात्रीचा दिवा', p_doudou: 'बाहुली आणि चोखणी',
+      p_eau: 'पाण्याचा ग्लास', p_animal: 'पाळीव प्राण्याला खाऊ', p_tetee: 'स्तनपान', p_berceuse: 'अंगाई',
+      p_journee: 'दिवसाच्या गप्पा', p_respiration: 'शांत श्वास', p_priere: 'प्रार्थना', p_bisous: 'सर्वांना पापी',
     } },
     te: { name: 'తెలుగు', dir: 'ltr', s: {
       appTitle: 'నిద్ర వేళ!', subtitle: 'నిద్రకు ముందు దినచర్య', start: 'దినచర్య ప్రారంభించండి',
@@ -199,6 +341,13 @@
       stopConfirm: 'దినచర్యను ఆపాలా?', endTitle: 'నిద్ర వేళ!', endMsg: 'శుభరాత్రి, తీపి కలలు ✨',
       finish: 'అయిపోయింది', sleep: 'నిద్ర వేళ!', tapSkip: 'దాటవేయడానికి స్క్రీన్‌ను తాకండి',
       p_pyjama: 'పైజామా', p_histoire: 'కథ', p_biberon: 'పాల సీసా', p_dents: 'పళ్ళు', p_calin: 'కౌగిలి',
+      myRitual: 'నా దినచర్య', catHyg: 'శుభ్రత & సంరక్షణ', catNight: 'రాత్రికి సిద్ధం', catCalm: 'ప్రశాంత క్షణాలు',
+      support: 'యాప్‌కు మద్దతు ఇవ్వండి',
+      p_pot: 'పాటీ', p_couche: 'డైపర్', p_bain: 'స్నానం', p_debarbouillage: 'ముఖం కడుక్కోవడం',
+      p_massage: 'క్రీమ్ / మసాజ్', p_medicament: 'మందు', p_rangement: 'బొమ్మలు సర్దడం',
+      p_chambre: 'గది సిద్ధం చేయడం', p_veilleuse: 'రాత్రి దీపం', p_doudou: 'బొమ్మ & పీక',
+      p_eau: 'గ్లాసు నీళ్ళు', p_animal: 'పెంపుడు జంతువుకు ఆహారం', p_tetee: 'పాలివ్వడం', p_berceuse: 'జోల పాట',
+      p_journee: 'రోజు కబుర్లు', p_respiration: 'ప్రశాంత శ్వాస', p_priere: 'ప్రార్థన', p_bisous: 'అందరికీ ముద్దులు',
     } },
     tr: { name: 'Türkçe', dir: 'ltr', s: {
       appTitle: 'Uyku vakti!', subtitle: 'Uyku öncesi rutini', start: 'Rutini başlat',
@@ -210,6 +359,13 @@
       stopConfirm: 'Rutin bitirilsin mi?', endTitle: 'Uyku vakti!', endMsg: 'İyi geceler, tatlı rüyalar ✨',
       finish: 'Bitti', sleep: 'Uyku vakti!', tapSkip: 'Atlamak için ekrana dokun',
       p_pyjama: 'Pijama', p_histoire: 'Masal', p_biberon: 'Biberon', p_dents: 'Dişler', p_calin: 'Sarılma',
+      myRitual: 'Benim ritüelim', catHyg: 'Temizlik ve bakım', catNight: 'Geceye hazırlık', catCalm: 'Sakin anlar',
+      support: 'Uygulamayı destekle',
+      p_pot: 'Lazımlık', p_couche: 'Bez', p_bain: 'Banyo', p_debarbouillage: 'Yüz yıkama',
+      p_massage: 'Krem / masaj', p_medicament: 'İlaç', p_rangement: 'Oyuncakları toplama',
+      p_chambre: 'Odayı hazırlama', p_veilleuse: 'Gece lambası', p_doudou: 'Oyuncak ve emzik',
+      p_eau: 'Bir bardak su', p_animal: 'Evcil hayvanı besleme', p_tetee: 'Emzirme', p_berceuse: 'Ninni',
+      p_journee: 'Günü anlatma', p_respiration: 'Sakin nefes', p_priere: 'Dua', p_bisous: 'Herkese öpücük',
     } },
     ta: { name: 'தமிழ்', dir: 'ltr', s: {
       appTitle: 'தூங்கும் நேரம்!', subtitle: 'தூக்கத்திற்கு முந்தைய வழக்கம்', start: 'வழக்கத்தைத் தொடங்கு',
@@ -221,6 +377,13 @@
       stopConfirm: 'வழக்கத்தை நிறுத்தவா?', endTitle: 'தூங்கும் நேரம்!', endMsg: 'இனிய இரவு, இனிய கனவுகள் ✨',
       finish: 'முடிந்தது', sleep: 'தூங்கும் நேரம்!', tapSkip: 'தவிர்க்க திரையைத் தொடவும்',
       p_pyjama: 'பைஜாமா', p_histoire: 'கதை', p_biberon: 'பால் புட்டி', p_dents: 'பற்கள்', p_calin: 'அணைப்பு',
+      myRitual: 'என் வழக்கம்', catHyg: 'சுத்தம் & பராமரிப்பு', catNight: 'இரவுக்குத் தயாராதல்', catCalm: 'அமைதியான நேரம்',
+      support: 'ஆப்பை ஆதரிக்கவும்',
+      p_pot: 'குழந்தை கழிப்பறை', p_couche: 'டயப்பர்', p_bain: 'குளியல்', p_debarbouillage: 'முகம் கழுவுதல்',
+      p_massage: 'கிரீம் / மசாஜ்', p_medicament: 'மருந்து', p_rangement: 'பொம்மைகளை அடுக்குதல்',
+      p_chambre: 'அறையைத் தயார் செய்தல்', p_veilleuse: 'இரவு விளக்கு', p_doudou: 'பொம்மை & சூப்பி',
+      p_eau: 'ஒரு டம்ளர் தண்ணீர்', p_animal: 'செல்லப்பிராணிக்கு உணவு', p_tetee: 'தாய்ப்பால்', p_berceuse: 'தாலாட்டு',
+      p_journee: 'இன்றைய கதை', p_respiration: 'அமைதியான மூச்சு', p_priere: 'பிரார்த்தனை', p_bisous: 'எல்லோருக்கும் முத்தம்',
     } },
     vi: { name: 'Tiếng Việt', dir: 'ltr', s: {
       appTitle: 'Đến giờ đi ngủ!', subtitle: 'Thói quen trước khi ngủ', start: 'Bắt đầu thói quen',
@@ -232,6 +395,13 @@
       stopConfirm: 'Dừng thói quen?', endTitle: 'Đến giờ đi ngủ!', endMsg: 'Chúc bé ngủ ngon, mơ đẹp ✨',
       finish: 'Xong', sleep: 'Đi ngủ thôi!', tapSkip: 'Chạm màn hình để bỏ qua',
       p_pyjama: 'Đồ ngủ', p_histoire: 'Truyện', p_biberon: 'Bình sữa', p_dents: 'Đánh răng', p_calin: 'Ôm',
+      myRitual: 'Nghi thức của bé', catHyg: 'Vệ sinh & chăm sóc', catNight: 'Chuẩn bị đi ngủ', catCalm: 'Khoảnh khắc yên bình',
+      support: 'Ủng hộ ứng dụng',
+      p_pot: 'Ngồi bô', p_couche: 'Thay tã', p_bain: 'Tắm', p_debarbouillage: 'Rửa mặt',
+      p_massage: 'Kem / mát-xa', p_medicament: 'Uống thuốc', p_rangement: 'Dọn đồ chơi',
+      p_chambre: 'Chuẩn bị phòng', p_veilleuse: 'Đèn ngủ', p_doudou: 'Gấu bông & ti giả',
+      p_eau: 'Cốc nước', p_animal: 'Cho thú cưng ăn', p_tetee: 'Bú mẹ', p_berceuse: 'Hát ru',
+      p_journee: 'Kể chuyện trong ngày', p_respiration: 'Hít thở nhẹ nhàng', p_priere: 'Cầu nguyện', p_bisous: 'Hôn cả nhà',
     } },
     ko: { name: '한국어', dir: 'ltr', s: {
       appTitle: '잘 시간이야!', subtitle: '잠자기 전 루틴', start: '루틴 시작',
@@ -243,6 +413,13 @@
       stopConfirm: '루틴을 종료할까요?', endTitle: '잘 시간이야!', endMsg: '잘 자, 좋은 꿈 꿔 ✨',
       finish: '완료', sleep: '코 자자!', tapSkip: '화면을 누르면 건너뛰어요',
       p_pyjama: '잠옷', p_histoire: '동화', p_biberon: '젖병', p_dents: '양치', p_calin: '안아주기',
+      myRitual: '나의 루틴', catHyg: '청결과 돌봄', catNight: '잠잘 준비', catCalm: '조용한 시간',
+      support: '앱 응원하기',
+      p_pot: '아기 변기', p_couche: '기저귀', p_bain: '목욕', p_debarbouillage: '세수',
+      p_massage: '로션 / 마사지', p_medicament: '약 먹기', p_rangement: '장난감 정리',
+      p_chambre: '방 준비하기', p_veilleuse: '수면등', p_doudou: '인형과 쪽쪽이',
+      p_eau: '물 한 잔', p_animal: '반려동물 밥 주기', p_tetee: '수유', p_berceuse: '자장가',
+      p_journee: '오늘 이야기', p_respiration: '차분한 숨쉬기', p_priere: '기도', p_bisous: '모두에게 뽀뽀',
     } },
     tl: { name: 'Filipino', dir: 'ltr', s: {
       appTitle: 'Tulog na!', subtitle: 'Rutina bago matulog', start: 'Simulan ang rutina',
@@ -254,6 +431,13 @@
       stopConfirm: 'Itigil ang rutina?', endTitle: 'Tulog na!', endMsg: 'Magandang gabi, matamis na panaginip ✨',
       finish: 'Tapos na', sleep: 'Tulog na!', tapSkip: 'I-tap ang screen para laktawan',
       p_pyjama: 'Pajama', p_histoire: 'Kuwento', p_biberon: 'Bote ng gatas', p_dents: 'Ngipin', p_calin: 'Yakap',
+      myRitual: 'Ang routine ko', catHyg: 'Kalinisan at pag-aalaga', catNight: 'Paghahanda sa gabi', catCalm: 'Tahimik na sandali',
+      support: 'Suportahan ang app',
+      p_pot: 'Arinola', p_couche: 'Lampin', p_bain: 'Paliligo', p_debarbouillage: 'Paghilamos',
+      p_massage: 'Cream / masahe', p_medicament: 'Gamot', p_rangement: 'Pag-iimis ng laruan',
+      p_chambre: 'Paghahanda ng kwarto', p_veilleuse: 'Ilaw pangtulog', p_doudou: 'Teddy at chupon',
+      p_eau: 'Baso ng tubig', p_animal: 'Pagpapakain sa alaga', p_tetee: 'Pagpapasuso', p_berceuse: 'Oyayi',
+      p_journee: 'Kwento ng araw', p_respiration: 'Mahinahong paghinga', p_priere: 'Dasal', p_bisous: 'Halik sa lahat',
     } },
     fa: { name: 'فارسی', dir: 'rtl', s: {
       appTitle: 'وقت خوابه!', subtitle: 'روتین قبل از خواب', start: 'شروع روتین',
@@ -265,6 +449,13 @@
       stopConfirm: 'روتین تمام شود؟', endTitle: 'وقت خوابه!', endMsg: 'شب بخیر، خواب‌های شیرین ✨',
       finish: 'تمام', sleep: 'وقت خوابه!', tapSkip: 'برای رد شدن صفحه را لمس کنید',
       p_pyjama: 'پیژامه', p_histoire: 'قصه', p_biberon: 'شیشه شیر', p_dents: 'دندان‌ها', p_calin: 'بغل',
+      myRitual: 'روتین من', catHyg: 'بهداشت و مراقبت', catNight: 'آماده شدن برای شب', catCalm: 'لحظه‌های آرام',
+      support: 'حمایت از برنامه',
+      p_pot: 'توالت کودک', p_couche: 'پوشک', p_bain: 'حمام', p_debarbouillage: 'شستن صورت',
+      p_massage: 'کرم / ماساژ', p_medicament: 'دارو', p_rangement: 'جمع کردن اسباب‌بازی‌ها',
+      p_chambre: 'آماده کردن اتاق', p_veilleuse: 'چراغ خواب', p_doudou: 'عروسک و پستانک',
+      p_eau: 'یک لیوان آب', p_animal: 'غذا دادن به حیوان خانگی', p_tetee: 'شیر مادر', p_berceuse: 'لالایی',
+      p_journee: 'تعریف روز', p_respiration: 'نفس آرام', p_priere: 'دعا', p_bisous: 'بوس برای همه',
     } },
     it: { name: 'Italiano', dir: 'ltr', s: {
       appTitle: 'A nanna!', subtitle: 'La routine della nanna', start: 'Inizia la routine',
@@ -276,6 +467,13 @@
       stopConfirm: 'Terminare la routine?', endTitle: 'A nanna!', endMsg: 'Buonanotte, sogni d\'oro ✨',
       finish: 'Fine', sleep: 'A nanna!', tapSkip: 'Tocca lo schermo per saltare',
       p_pyjama: 'Pigiama', p_histoire: 'Favola', p_biberon: 'Biberon', p_dents: 'Dentini', p_calin: 'Coccole',
+      myRitual: 'Il mio rituale', catHyg: 'Igiene e cura', catNight: 'Prepararsi alla notte', catCalm: 'Momenti di calma',
+      support: "Sostieni l'app",
+      p_pot: 'Vasino', p_couche: 'Pannolino', p_bain: 'Bagnetto', p_debarbouillage: 'Lavare il viso',
+      p_massage: 'Crema / massaggio', p_medicament: 'Medicina', p_rangement: 'Riordinare i giochi',
+      p_chambre: 'Preparare la cameretta', p_veilleuse: 'Lucina notturna', p_doudou: 'Peluche e ciuccio',
+      p_eau: "Bicchiere d'acqua", p_animal: "Dare da mangiare all'animale", p_tetee: 'Allattamento', p_berceuse: 'Ninna nanna',
+      p_journee: 'Raccontare la giornata', p_respiration: 'Respiro calmo', p_priere: 'Preghiera', p_bisous: 'Baci a tutti',
     } },
     th: { name: 'ไทย', dir: 'ltr', s: {
       appTitle: 'ได้เวลานอนแล้ว!', subtitle: 'กิจวัตรก่อนนอน', start: 'เริ่มกิจวัตร',
@@ -287,6 +485,13 @@
       stopConfirm: 'หยุดกิจวัตรไหม?', endTitle: 'ได้เวลานอนแล้ว!', endMsg: 'ฝันดีนะ หลับฝันหวาน ✨',
       finish: 'เสร็จแล้ว', sleep: 'นอนกันเถอะ!', tapSkip: 'แตะหน้าจอเพื่อข้าม',
       p_pyjama: 'ชุดนอน', p_histoire: 'นิทาน', p_biberon: 'ขวดนม', p_dents: 'แปรงฟัน', p_calin: 'กอด',
+      myRitual: 'กิจวัตรของฉัน', catHyg: 'ความสะอาดและการดูแล', catNight: 'เตรียมตัวเข้านอน', catCalm: 'ช่วงเวลาสงบ',
+      support: 'สนับสนุนแอป',
+      p_pot: 'กระโถน', p_couche: 'ผ้าอ้อม', p_bain: 'อาบน้ำ', p_debarbouillage: 'ล้างหน้า',
+      p_massage: 'ครีม / นวด', p_medicament: 'กินยา', p_rangement: 'เก็บของเล่น',
+      p_chambre: 'จัดห้องนอน', p_veilleuse: 'ไฟกลางคืน', p_doudou: 'ตุ๊กตาและจุกนม',
+      p_eau: 'น้ำหนึ่งแก้ว', p_animal: 'ให้อาหารสัตว์เลี้ยง', p_tetee: 'ให้นมแม่', p_berceuse: 'เพลงกล่อม',
+      p_journee: 'เล่าเรื่องวันนี้', p_respiration: 'หายใจช้า ๆ', p_priere: 'สวดมนต์', p_bisous: 'หอมแก้มทุกคน',
     } },
     pa: { name: 'ਪੰਜਾਬੀ', dir: 'ltr', s: {
       appTitle: 'ਸੌਣ ਦਾ ਵੇਲਾ!', subtitle: 'ਸੌਣ ਤੋਂ ਪਹਿਲਾਂ ਦੀ ਰੁਟੀਨ', start: 'ਰੁਟੀਨ ਸ਼ੁਰੂ ਕਰੋ',
@@ -298,6 +503,13 @@
       stopConfirm: 'ਰੁਟੀਨ ਬੰਦ ਕਰੀਏ?', endTitle: 'ਸੌਣ ਦਾ ਵੇਲਾ!', endMsg: 'ਸ਼ੁਭ ਰਾਤ, ਮਿੱਠੇ ਸੁਪਨੇ ✨',
       finish: 'ਹੋ ਗਿਆ', sleep: 'ਸੌਣ ਦਾ ਵੇਲਾ!', tapSkip: 'ਛੱਡਣ ਲਈ ਸਕ੍ਰੀਨ ਛੂਹੋ',
       p_pyjama: 'ਪਜਾਮਾ', p_histoire: 'ਕਹਾਣੀ', p_biberon: 'ਦੁੱਧ ਦੀ ਬੋਤਲ', p_dents: 'ਦੰਦ', p_calin: 'ਜੱਫੀ',
+      myRitual: 'ਮੇਰੀ ਰੁਟੀਨ', catHyg: 'ਸਫ਼ਾਈ ਤੇ ਦੇਖਭਾਲ', catNight: 'ਰਾਤ ਦੀ ਤਿਆਰੀ', catCalm: 'ਸ਼ਾਂਤ ਪਲ',
+      support: 'ਐਪ ਦੀ ਮਦਦ ਕਰੋ',
+      p_pot: 'ਪਾਟੀ', p_couche: 'ਡਾਇਪਰ', p_bain: 'ਨਹਾਉਣਾ', p_debarbouillage: 'ਮੂੰਹ ਧੋਣਾ',
+      p_massage: 'ਕਰੀਮ / ਮਾਲਸ਼', p_medicament: 'ਦਵਾਈ', p_rangement: 'ਖਿਡੌਣੇ ਸਮੇਟਣਾ',
+      p_chambre: 'ਕਮਰਾ ਤਿਆਰ ਕਰਨਾ', p_veilleuse: 'ਰਾਤ ਦੀ ਬੱਤੀ', p_doudou: 'ਖਿਡੌਣਾ ਤੇ ਚੁਸਨੀ',
+      p_eau: 'ਪਾਣੀ ਦਾ ਗਲਾਸ', p_animal: 'ਜਾਨਵਰ ਨੂੰ ਖਾਣਾ', p_tetee: 'ਦੁੱਧ ਚੁੰਘਾਉਣਾ', p_berceuse: 'ਲੋਰੀ',
+      p_journee: 'ਦਿਨ ਦੀਆਂ ਗੱਲਾਂ', p_respiration: 'ਸ਼ਾਂਤ ਸਾਹ', p_priere: 'ਅਰਦਾਸ', p_bisous: 'ਸਾਰਿਆਂ ਨੂੰ ਪਿਆਰ',
     } },
     pl: { name: 'Polski', dir: 'ltr', s: {
       appTitle: 'Pora spać!', subtitle: 'Wieczorny rytuał', start: 'Rozpocznij rytuał',
@@ -309,6 +521,13 @@
       stopConfirm: 'Zakończyć rytuał?', endTitle: 'Pora spać!', endMsg: 'Dobranoc, kolorowych snów ✨',
       finish: 'Gotowe', sleep: 'Pora spać!', tapSkip: 'Dotknij ekranu, aby pominąć',
       p_pyjama: 'Piżama', p_histoire: 'Bajka', p_biberon: 'Butelka', p_dents: 'Ząbki', p_calin: 'Przytulanie',
+      myRitual: 'Mój rytuał', catHyg: 'Higiena i pielęgnacja', catNight: 'Przygotowanie do nocy', catCalm: 'Spokojne chwile',
+      support: 'Wesprzyj aplikację',
+      p_pot: 'Nocnik', p_couche: 'Pieluszka', p_bain: 'Kąpiel', p_debarbouillage: 'Mycie buzi',
+      p_massage: 'Krem / masaż', p_medicament: 'Lekarstwo', p_rangement: 'Sprzątanie zabawek',
+      p_chambre: 'Przygotowanie pokoju', p_veilleuse: 'Lampka nocna', p_doudou: 'Przytulanka i smoczek',
+      p_eau: 'Szklanka wody', p_animal: 'Karmienie zwierzaka', p_tetee: 'Karmienie piersią', p_berceuse: 'Kołysanka',
+      p_journee: 'Opowieść o dniu', p_respiration: 'Spokojny oddech', p_priere: 'Modlitwa', p_bisous: 'Buziaki dla wszystkich',
     } },
     uk: { name: 'Українська', dir: 'ltr', s: {
       appTitle: 'Час спати!', subtitle: 'Вечірній ритуал', start: 'Почати ритуал',
@@ -320,8 +539,20 @@
       stopConfirm: 'Завершити ритуал?', endTitle: 'Час спати!', endMsg: 'На добраніч, солодких снів ✨',
       finish: 'Готово', sleep: 'Час спати!', tapSkip: 'Торкніться екрана, щоб пропустити',
       p_pyjama: 'Піжама', p_histoire: 'Казка', p_biberon: 'Пляшечка', p_dents: 'Зубки', p_calin: 'Обійми',
+      myRitual: 'Мій ритуал', catHyg: 'Гігієна та догляд', catNight: 'Підготовка до ночі', catCalm: 'Спокійні хвилини',
+      support: 'Підтримати застосунок',
+      p_pot: 'Горщик', p_couche: 'Підгузок', p_bain: 'Купання', p_debarbouillage: 'Вмивання',
+      p_massage: 'Крем / масаж', p_medicament: 'Ліки', p_rangement: 'Прибрати іграшки',
+      p_chambre: 'Підготувати кімнату', p_veilleuse: 'Нічник', p_doudou: 'Іграшка та пустушка',
+      p_eau: 'Склянка води', p_animal: 'Погодувати улюбленця', p_tetee: 'Грудне годування', p_berceuse: 'Колискова',
+      p_journee: 'Розповідь про день', p_respiration: 'Спокійне дихання', p_priere: 'Молитва', p_bisous: 'Поцілунки всім',
     } },
   };
+
+  // ---------- Configuration externe ----------
+  // À renseigner pour activer le don et la mesure d'audience :
+  const KOFI_URL = '';  // ex. 'https://ko-fi.com/tonpseudo' — vide = boutons masqués
+  const UMAMI_ID = '';  // Website ID Umami Cloud — vide = mesure désactivée
 
   const SETTINGS_KEY = 'dodo.settings';
   const RUN_KEY = 'dodo.run';
@@ -531,12 +762,13 @@
     showStep();
   }
 
-  function closeIntro() {
+  function closeIntro(skipped) {
     clearTimeout(introTimer);
     const done = introDone;
     introDone = null;
     const ov = $('intro');
     if (ov.hidden) return;
+    if (done) track(skipped === true ? 'intro_passee' : 'intro_jouee');
     ov.classList.add('out');
     setTimeout(() => { ov.hidden = true; ov.classList.remove('out'); }, 240);
     if (done) done();
@@ -564,6 +796,12 @@
     syncPauseUi();
     acquireWakeLock();
     startLoop();
+    track('rituel_demarre', {
+      etapes: schedule.phases.length,
+      duree_min: Math.round(schedule.total / 60000),
+      langue: settings.lang,
+      mode: isStandalone() ? 'app' : 'navigateur',
+    });
   }
 
   function resumeFromStorage() {
@@ -677,6 +915,7 @@
     const end = schedule.cumStart[curIdx] + schedule.dur[curIdx];
     run.skipOffset += Math.max(0, end - v);
     saveRun();
+    track('etape_passee', { etape: schedule.phases[curIdx].id });
   }
 
   function prevPhase() {
@@ -685,6 +924,7 @@
     const targetIdx = Math.max(0, curIdx - 1);
     run.skipOffset -= v - schedule.cumStart[targetIdx];
     saveRun();
+    track('etape_precedente', { etape: schedule.phases[curIdx].id });
     if (targetIdx === curIdx) {
       // Déjà sur la première étape : on la redémarre
       chime();
@@ -694,12 +934,14 @@
 
   function stopRitual() {
     if (!confirm(t('stopConfirm'))) return;
+    const etape = curIdx >= 0 && schedule && schedule.phases[curIdx] ? schedule.phases[curIdx].id : '';
     stopLoop();
     cancelFlip();
     releaseWakeLock();
     clearRun();
     renderHome();
     showScreen('home');
+    track('rituel_arrete', { etape });
   }
 
   function finishRitual() {
@@ -709,6 +951,7 @@
     lullaby();
     clearRun();
     showScreen('end');
+    track('rituel_termine');
   }
 
   // ---------- Rendu du sablier ----------
@@ -734,6 +977,8 @@
 
     const trail = $('trail');
     trail.innerHTML = '';
+    const n = schedule.phases.length;
+    trail.className = 'trail' + (n > 9 ? ' xdense' : n > 6 ? ' dense' : '');
     chipEls = schedule.phases.map((p) => {
       const chip = document.createElement('div');
       chip.className = 'chip';
@@ -897,6 +1142,32 @@
     if (document.visibilityState === 'visible' && run && !run.pausedAt) acquireWakeLock();
   });
 
+  // ---------- Mesure d'audience anonyme (Umami, sans cookie) ----------
+
+  function analyticsEnabled() {
+    return !!UMAMI_ID && !['localhost', '127.0.0.1'].includes(location.hostname);
+  }
+
+  function injectUmami() {
+    if (!analyticsEnabled()) return;
+    const s = document.createElement('script');
+    s.defer = true;
+    s.src = 'https://cloud.umami.is/script.js';
+    s.setAttribute('data-website-id', UMAMI_ID);
+    document.head.appendChild(s);
+  }
+
+  function track(name, props) {
+    try {
+      if (window.umami && typeof window.umami.track === 'function') window.umami.track(name, props || {});
+    } catch {}
+  }
+
+  function isStandalone() {
+    return (window.matchMedia && matchMedia('(display-mode: standalone)').matches)
+      || window.navigator.standalone === true;
+  }
+
   // ---------- Écrans ----------
 
   function showScreen(name) {
@@ -951,6 +1222,8 @@
     $('endMsg').textContent = t('endMsg');
     $('btnEndHome').textContent = t('finish');
     $('pauseOverlay').textContent = '⏸ ' + t('pause');
+    $('kofiSettings').textContent = '☕ ' + t('support');
+    $('kofiEnd').textContent = '☕ ' + t('support');
     $('btnPrev').title = t('prevStep');
     $('btnSkip').title = t('nextStep');
     $('btnStop').title = t('stop');
@@ -961,43 +1234,76 @@
 
   // ---------- Réglages ----------
 
+  function normalizePhases() {
+    const en = settings.phases.filter((p) => p.enabled);
+    const dis = settings.phases.filter((p) => !p.enabled);
+    settings.phases = en.concat(dis);
+  }
+
   function renderSettings() {
+    normalizePhases();
     const wrap = $('settingsList');
     wrap.innerHTML = '';
-    settings.phases.forEach((p, i) => {
-      const row = document.createElement('div');
-      row.className = 'srow' + (p.enabled ? '' : ' off');
 
-      const updown = document.createElement('div');
-      updown.className = 'updown';
-      const up = miniBtn('▲', i === 0, () => movePhase(i, -1));
-      const down = miniBtn('▼', i === settings.phases.length - 1, () => movePhase(i, 1));
-      updown.append(up, down);
+    const section = (label) => {
+      const h = document.createElement('h3');
+      h.className = 'sec';
+      h.textContent = label;
+      wrap.appendChild(h);
+    };
 
-      const name = document.createElement('span');
-      name.className = 'name';
-      name.textContent = p.emoji + '  ' + phaseLabel(p);
+    const enabled = settings.phases.filter((p) => p.enabled);
+    section(t('myRitual'));
+    enabled.forEach((p, i) => wrap.appendChild(settingsRow(p, i, enabled.length)));
 
-      const dur = document.createElement('div');
-      dur.className = 'dur';
-      const minus = miniBtn('−', p.minutes <= 1, () => changeMinutes(i, -1));
-      const val = document.createElement('b');
-      val.textContent = p.minutes + ' ' + t('minUnit');
-      const plus = miniBtn('+', p.minutes >= 60, () => changeMinutes(i, 1));
-      dur.append(minus, val, plus);
-
-      const toggle = document.createElement('input');
-      toggle.type = 'checkbox';
-      toggle.className = 'switch';
-      toggle.checked = p.enabled;
-      toggle.addEventListener('change', () => togglePhase(i, toggle));
-
-      row.append(updown, name, dur, toggle);
-      wrap.appendChild(row);
+    [['hyg', 'catHyg'], ['nuit', 'catNight'], ['calme', 'catCalm']].forEach(([cat, key]) => {
+      const rest = settings.phases.filter((p) => !p.enabled && (p.cat || 'calme') === cat);
+      if (!rest.length) return;
+      section(t(key));
+      rest.forEach((p) => wrap.appendChild(settingsRow(p, -1, 0)));
     });
+
     $('soundToggle').checked = settings.soundOn;
     $('introToggle').checked = settings.introOn;
     $('settingsTotal').textContent = t('total').replace('{n}', totalMinutes());
+  }
+
+  function settingsRow(p, idx, nEnabled) {
+    const row = document.createElement('div');
+    row.className = 'srow' + (p.enabled ? '' : ' off');
+
+    if (p.enabled) {
+      const updown = document.createElement('div');
+      updown.className = 'updown';
+      updown.append(
+        miniBtn('▲', idx === 0, () => movePhase(p, -1)),
+        miniBtn('▼', idx === nEnabled - 1, () => movePhase(p, 1))
+      );
+      row.appendChild(updown);
+    }
+
+    const name = document.createElement('span');
+    name.className = 'name';
+    name.textContent = p.emoji + '  ' + phaseLabel(p);
+
+    const dur = document.createElement('div');
+    dur.className = 'dur';
+    const val = document.createElement('b');
+    val.textContent = p.minutes + ' ' + t('minUnit');
+    dur.append(
+      miniBtn('−', p.minutes <= 1, () => changeMinutes(p, -1)),
+      val,
+      miniBtn('+', p.minutes >= 60, () => changeMinutes(p, 1))
+    );
+
+    const toggle = document.createElement('input');
+    toggle.type = 'checkbox';
+    toggle.className = 'switch';
+    toggle.checked = p.enabled;
+    toggle.addEventListener('change', () => togglePhase(p, toggle));
+
+    row.append(name, dur, toggle);
+    return row;
   }
 
   function miniBtn(label, disabled, onTap) {
@@ -1009,31 +1315,40 @@
     return b;
   }
 
-  function movePhase(i, dir) {
-    const j = i + dir;
-    if (j < 0 || j >= settings.phases.length) return;
+  function movePhase(p, dir) {
+    normalizePhases();
     const arr = settings.phases;
+    const i = arr.indexOf(p);
+    const j = i + dir;
+    if (i < 0 || j < 0 || j >= arr.length || !arr[j].enabled) return;
     [arr[i], arr[j]] = [arr[j], arr[i]];
     saveSettings();
     renderSettings();
     renderHome();
   }
 
-  function changeMinutes(i, delta) {
-    settings.phases[i].minutes = clampMin(settings.phases[i].minutes + delta);
+  function changeMinutes(p, delta) {
+    p.minutes = clampMin(p.minutes + delta);
     saveSettings();
     renderSettings();
     renderHome();
   }
 
-  function togglePhase(i, input) {
-    const p = settings.phases[i];
+  function togglePhase(p, input) {
     if (p.enabled && settings.phases.filter((x) => x.enabled).length === 1) {
       input.checked = true;
       toast(t('needOneStep'));
       return;
     }
     p.enabled = !p.enabled;
+    if (p.enabled) {
+      // L'étape activée rejoint la fin de « Mon rituel »
+      const arr = settings.phases;
+      arr.splice(arr.indexOf(p), 1);
+      const lastEn = arr.reduce((acc, x, i) => (x.enabled ? i : acc), -1);
+      arr.splice(lastEn + 1, 0, p);
+    }
+    normalizePhases();
     saveSettings();
     renderSettings();
     renderHome();
@@ -1103,8 +1418,9 @@
       settings.lang = I18N[sel.value] ? sel.value : 'fr';
       saveSettings();
       applyLang();
+      track('langue_changee', { langue: settings.lang });
     });
-    $('intro').addEventListener('click', closeIntro);
+    $('intro').addEventListener('click', () => closeIntro(true));
     $('btnPause').addEventListener('click', pauseToggle);
     $('btnPrev').addEventListener('click', prevPhase);
     $('btnSkip').addEventListener('click', skipPhase);
@@ -1118,6 +1434,25 @@
     if ('serviceWorker' in navigator && !['localhost', '127.0.0.1'].includes(location.hostname)) {
       navigator.serviceWorker.register('./sw.js').catch(() => {});
     }
+
+    injectUmami();
+    try {
+      if (analyticsEnabled() && isStandalone() && !localStorage.getItem('dodo.appLaunched')) {
+        localStorage.setItem('dodo.appLaunched', '1');
+        setTimeout(() => track('app_installee'), 3000);
+      }
+    } catch {}
+
+    const kofiS = $('kofiSettings');
+    const kofiE = $('kofiEnd');
+    if (KOFI_URL) {
+      kofiS.href = KOFI_URL;
+      kofiE.href = KOFI_URL;
+      kofiS.hidden = false;
+      kofiE.hidden = false;
+    }
+    kofiS.addEventListener('click', () => track('don_clic', { source: 'reglages' }));
+    kofiE.addEventListener('click', () => track('don_clic', { source: 'fin' }));
 
     if (SPEED !== 1) {
       // Hook de test : permet de forcer un tick quand les timers sont étranglés

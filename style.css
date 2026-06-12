@@ -349,6 +349,40 @@ button {
   width: 0%;
 }
 
+.trail.dense {
+  gap: 9px;
+}
+
+.trail.dense .chip {
+  width: 44px;
+  height: 44px;
+  font-size: 21px;
+  border-radius: 14px;
+}
+
+.trail.dense .chip.done::after {
+  font-size: 13px;
+  top: -6px;
+  right: -6px;
+}
+
+.trail.xdense {
+  gap: 6px;
+}
+
+.trail.xdense .chip {
+  width: 34px;
+  height: 34px;
+  font-size: 16px;
+  border-radius: 11px;
+}
+
+.trail.xdense .chip.done::after {
+  font-size: 11px;
+  top: -5px;
+  right: -5px;
+}
+
 .chip {
   position: relative;
   width: 56px;
@@ -495,6 +529,35 @@ button {
 
 .sound-row {
   margin-top: 18px;
+}
+
+.sec {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+  margin: 18px 4px 8px;
+}
+
+a.btn-ghost {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.kofi-btn {
+  margin-top: 10px;
+}
+
+.kofi-line {
+  display: block;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 14px;
+  padding: 8px;
 }
 
 .switch {

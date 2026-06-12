@@ -109,22 +109,30 @@
         <button id="btnBack" class="btn-ghost btn-back">←&nbsp;Retour</button>
         <h2 id="settingsTitle">Réglages</h2>
       </header>
-      <div id="settingsList"></div>
-      <label class="srow sound-row">
-        <span class="name">🔔&nbsp; <span id="lblSounds">Sons</span></span>
-        <input type="checkbox" id="soundToggle" class="switch">
-      </label>
-      <label class="srow">
-        <span class="name">🎬&nbsp; <span id="lblIntro">Animation de départ</span></span>
-        <input type="checkbox" id="introToggle" class="switch">
-      </label>
-      <label class="srow">
-        <span class="name">🌐&nbsp; <span id="lblLang">Langue</span></span>
-        <select id="langSelect" class="select"></select>
-      </label>
-      <p id="settingsTotal" class="total-line"></p>
-      <button id="btnDefaults" class="btn-ghost">Valeurs par défaut</button>
-      <a id="kofiSettings" class="btn-ghost kofi-btn" target="_blank" rel="noopener" hidden>☕ Soutenir l'app</a>
+      <div class="tabs2">
+        <button id="tabSteps" class="tab2 on" type="button">Étapes</button>
+        <button id="tabApp" class="tab2" type="button">Application</button>
+      </div>
+      <div id="paneSteps" class="pane">
+        <div id="settingsList"></div>
+        <p id="settingsTotal" class="total-line"></p>
+        <button id="btnDefaults" class="btn-ghost">Valeurs par défaut</button>
+      </div>
+      <div id="paneApp" class="pane" hidden>
+        <label class="srow sound-row">
+          <span class="name">🔔&nbsp; <span id="lblSounds">Sons</span></span>
+          <input type="checkbox" id="soundToggle" class="switch">
+        </label>
+        <label class="srow">
+          <span class="name">🎬&nbsp; <span id="lblIntro">Animation de départ</span></span>
+          <input type="checkbox" id="introToggle" class="switch">
+        </label>
+        <label class="srow">
+          <span class="name">🌐&nbsp; <span id="lblLang">Langue</span></span>
+          <select id="langSelect" class="select"></select>
+        </label>
+        <a id="kofiSettings" class="btn-ghost kofi-btn" target="_blank" rel="noopener" hidden>☕ Soutenir l'app</a>
+      </div>
     </section>
 
     <!-- ÉCRAN FIN -->

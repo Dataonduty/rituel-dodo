@@ -464,6 +464,37 @@ button {
   padding: 9px 14px;
 }
 
+/* Onglets Étapes / Application */
+.tabs2 {
+  display: flex;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 5px;
+  margin: 0 0 8px;
+}
+
+.tab2 {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 9px;
+  border-radius: 10px;
+}
+
+.tab2.on {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text);
+}
+
+.pane[hidden] {
+  display: none;
+}
+
 .srow {
   display: flex;
   align-items: center;

@@ -78,6 +78,7 @@
       p_chambre: 'Préparer la chambre', p_veilleuse: 'Veilleuse', p_doudou: 'Doudou & tétine',
       p_eau: "Verre d'eau", p_animal: "Nourrir l'animal", p_tetee: 'Tétée', p_berceuse: 'Berceuse',
       p_journee: 'Raconter sa journée', p_respiration: 'Respiration calme', p_priere: 'Prière', p_bisous: 'Bisous à tous',
+      tabSteps: 'Étapes', tabApp: 'Application',
     } },
     en: { name: 'English', dir: 'ltr', s: {
       appTitle: 'Bedtime!', subtitle: 'The bedtime routine', start: 'Start the routine',
@@ -96,6 +97,7 @@
       p_chambre: 'Prepare the room', p_veilleuse: 'Night light', p_doudou: 'Teddy & pacifier',
       p_eau: 'Glass of water', p_animal: 'Feed the pet', p_tetee: 'Nursing', p_berceuse: 'Lullaby',
       p_journee: 'Talk about the day', p_respiration: 'Calm breathing', p_priere: 'Prayer', p_bisous: 'Kisses for everyone',
+      tabSteps: 'Steps', tabApp: 'App',
     } },
     zh: { name: '中文', dir: 'ltr', s: {
       appTitle: '睡觉啦！', subtitle: '睡前小仪式', start: '开始仪式',
@@ -114,6 +116,7 @@
       p_chambre: '准备房间', p_veilleuse: '小夜灯', p_doudou: '安抚物和奶嘴',
       p_eau: '喝点水', p_animal: '喂小动物', p_tetee: '喂奶', p_berceuse: '摇篮曲',
       p_journee: '聊聊今天', p_respiration: '深呼吸', p_priere: '祈祷', p_bisous: '亲亲大家',
+      tabSteps: '步骤', tabApp: '应用',
     } },
     hi: { name: 'हिन्दी', dir: 'ltr', s: {
       appTitle: 'सोने का समय!', subtitle: 'सोने से पहले की रस्म', start: 'रस्म शुरू करें',
@@ -132,6 +135,7 @@
       p_chambre: 'कमरा तैयार करना', p_veilleuse: 'नाइट लैंप', p_doudou: 'खिलौना और चुसनी',
       p_eau: 'पानी का गिलास', p_animal: 'पालतू को खाना', p_tetee: 'स्तनपान', p_berceuse: 'लोरी',
       p_journee: 'दिन की बातें', p_respiration: 'शांत साँसें', p_priere: 'प्रार्थना', p_bisous: 'सबको पप्पी',
+      tabSteps: 'चरण', tabApp: 'ऐप',
     } },
     es: { name: 'Español', dir: 'ltr', s: {
       appTitle: '¡A dormir!', subtitle: 'La rutina para ir a dormir', start: 'Empezar la rutina',
@@ -150,6 +154,7 @@
       p_chambre: 'Preparar el cuarto', p_veilleuse: 'Luz de noche', p_doudou: 'Peluche y chupete',
       p_eau: 'Vaso de agua', p_animal: 'Dar de comer a la mascota', p_tetee: 'Lactancia', p_berceuse: 'Canción de cuna',
       p_journee: 'Contar el día', p_respiration: 'Respiración tranquila', p_priere: 'Oración', p_bisous: 'Besos para todos',
+      tabSteps: 'Etapas', tabApp: 'App',
     } },
     ar: { name: 'العربية', dir: 'rtl', s: {
       appTitle: 'وقت النوم!', subtitle: 'روتين النوم', start: 'ابدأ الروتين',
@@ -168,6 +173,7 @@
       p_chambre: 'تجهيز الغرفة', p_veilleuse: 'ضوء الليل', p_doudou: 'الدبدوب واللهاية',
       p_eau: 'كوب ماء', p_animal: 'إطعام الحيوان', p_tetee: 'الرضاعة الطبيعية', p_berceuse: 'تهويدة',
       p_journee: 'حكاية اليوم', p_respiration: 'تنفس هادئ', p_priere: 'الدعاء', p_bisous: 'قبلات للجميع',
+      tabSteps: 'الخطوات', tabApp: 'التطبيق',
     } },
     bn: { name: 'বাংলা', dir: 'ltr', s: {
       appTitle: 'ঘুমের সময়!', subtitle: 'ঘুমানোর আগের রুটিন', start: 'রুটিন শুরু করুন',
@@ -186,6 +192,7 @@
       p_chambre: 'ঘর প্রস্তুত করা', p_veilleuse: 'রাতের আলো', p_doudou: 'পুতুল ও চুষি',
       p_eau: 'এক গ্লাস পানি', p_animal: 'পোষা প্রাণীকে খাওয়ানো', p_tetee: 'বুকের দুধ', p_berceuse: 'ঘুমপাড়ানি গান',
       p_journee: 'দিনের গল্প', p_respiration: 'শান্ত শ্বাস', p_priere: 'প্রার্থনা', p_bisous: 'সবাইকে চুমু',
+      tabSteps: 'ধাপ', tabApp: 'অ্যাপ',
     } },
     pt: { name: 'Português', dir: 'ltr', s: {
       appTitle: 'Hora de dormir!', subtitle: 'A rotina de dormir', start: 'Começar a rotina',
@@ -204,6 +211,7 @@
       p_chambre: 'Preparar o quarto', p_veilleuse: 'Luz noturna', p_doudou: 'Ursinho e chupeta',
       p_eau: 'Copo de água', p_animal: 'Alimentar o bichinho', p_tetee: 'Amamentação', p_berceuse: 'Canção de ninar',
       p_journee: 'Contar o dia', p_respiration: 'Respiração calma', p_priere: 'Oração', p_bisous: 'Beijos para todos',
+      tabSteps: 'Etapas', tabApp: 'App',
     } },
     ru: { name: 'Русский', dir: 'ltr', s: {
       appTitle: 'Пора спать!', subtitle: 'Вечерний ритуал', start: 'Начать ритуал',
@@ -222,6 +230,7 @@
       p_chambre: 'Подготовить комнату', p_veilleuse: 'Ночник', p_doudou: 'Игрушка и соска',
       p_eau: 'Стакан воды', p_animal: 'Покормить питомца', p_tetee: 'Кормление грудью', p_berceuse: 'Колыбельная',
       p_journee: 'Рассказ о дне', p_respiration: 'Спокойное дыхание', p_priere: 'Молитва', p_bisous: 'Поцелуи всем',
+      tabSteps: 'Этапы', tabApp: 'Приложение',
     } },
     ur: { name: 'اردو', dir: 'rtl', s: {
       appTitle: 'سونے کا وقت!', subtitle: 'سونے کا معمول', start: 'معمول شروع کریں',
@@ -240,6 +249,7 @@
       p_chambre: 'کمرہ تیار کرنا', p_veilleuse: 'رات کی بتی', p_doudou: 'کھلونا اور چوسنی',
       p_eau: 'پانی کا گلاس', p_animal: 'جانور کو کھانا دینا', p_tetee: 'دودھ پلانا', p_berceuse: 'لوری',
       p_journee: 'دن کی باتیں', p_respiration: 'پرسکون سانسیں', p_priere: 'دعا', p_bisous: 'سب کو پیار',
+      tabSteps: 'مراحل', tabApp: 'ایپ',
     } },
     id: { name: 'Bahasa Indonesia', dir: 'ltr', s: {
       appTitle: 'Waktunya tidur!', subtitle: 'Rutinitas sebelum tidur', start: 'Mulai rutinitas',
@@ -258,6 +268,7 @@
       p_chambre: 'Menyiapkan kamar', p_veilleuse: 'Lampu tidur', p_doudou: 'Boneka & empeng',
       p_eau: 'Segelas air', p_animal: 'Memberi makan hewan', p_tetee: 'Menyusui', p_berceuse: 'Nina bobo',
       p_journee: 'Cerita hari ini', p_respiration: 'Napas tenang', p_priere: 'Doa', p_bisous: 'Cium semua',
+      tabSteps: 'Langkah', tabApp: 'Aplikasi',
     } },
     de: { name: 'Deutsch', dir: 'ltr', s: {
       appTitle: 'Schlafenszeit!', subtitle: 'Das Abendritual', start: 'Ritual starten',
@@ -276,6 +287,7 @@
       p_chambre: 'Zimmer vorbereiten', p_veilleuse: 'Nachtlicht', p_doudou: 'Kuscheltier & Schnuller',
       p_eau: 'Glas Wasser', p_animal: 'Haustier füttern', p_tetee: 'Stillen', p_berceuse: 'Schlaflied',
       p_journee: 'Vom Tag erzählen', p_respiration: 'Ruhiges Atmen', p_priere: 'Gebet', p_bisous: 'Küsschen für alle',
+      tabSteps: 'Schritte', tabApp: 'App',
     } },
     ja: { name: '日本語', dir: 'ltr', s: {
       appTitle: 'ねんねの時間！', subtitle: 'おやすみ前のルーティン', start: 'ルーティンをはじめる',
@@ -294,6 +306,7 @@
       p_chambre: 'お部屋のじゅんび', p_veilleuse: 'ナイトライト', p_doudou: 'ぬいぐるみとおしゃぶり',
       p_eau: 'お水をひとくち', p_animal: 'ペットのごはん', p_tetee: '授乳', p_berceuse: '子守唄',
       p_journee: '今日のおはなし', p_respiration: 'しずかな呼吸', p_priere: 'お祈り', p_bisous: 'みんなにチュー',
+      tabSteps: 'ステップ', tabApp: 'アプリ',
     } },
     sw: { name: 'Kiswahili', dir: 'ltr', s: {
       appTitle: 'Wakati wa kulala!', subtitle: 'Utaratibu wa kulala', start: 'Anza utaratibu',
@@ -312,6 +325,7 @@
       p_chambre: 'Kuandaa chumba', p_veilleuse: 'Taa ya usiku', p_doudou: 'Mdoli na chuchu',
       p_eau: 'Glasi ya maji', p_animal: 'Kulisha mnyama', p_tetee: 'Kunyonyesha', p_berceuse: 'Wimbo wa kulala',
       p_journee: 'Hadithi ya siku', p_respiration: 'Kupumua kwa utulivu', p_priere: 'Sala', p_bisous: 'Busu kwa wote',
+      tabSteps: 'Hatua', tabApp: 'Programu',
     } },
     mr: { name: 'मराठी', dir: 'ltr', s: {
       appTitle: 'झोपेची वेळ!', subtitle: 'झोपण्यापूर्वीची दिनचर्या', start: 'दिनचर्या सुरू करा',
@@ -330,6 +344,7 @@
       p_chambre: 'खोली तयार करणे', p_veilleuse: 'रात्रीचा दिवा', p_doudou: 'बाहुली आणि चोखणी',
       p_eau: 'पाण्याचा ग्लास', p_animal: 'पाळीव प्राण्याला खाऊ', p_tetee: 'स्तनपान', p_berceuse: 'अंगाई',
       p_journee: 'दिवसाच्या गप्पा', p_respiration: 'शांत श्वास', p_priere: 'प्रार्थना', p_bisous: 'सर्वांना पापी',
+      tabSteps: 'टप्पे', tabApp: 'अ‍ॅप',
     } },
     te: { name: 'తెలుగు', dir: 'ltr', s: {
       appTitle: 'నిద్ర వేళ!', subtitle: 'నిద్రకు ముందు దినచర్య', start: 'దినచర్య ప్రారంభించండి',
@@ -348,6 +363,7 @@
       p_chambre: 'గది సిద్ధం చేయడం', p_veilleuse: 'రాత్రి దీపం', p_doudou: 'బొమ్మ & పీక',
       p_eau: 'గ్లాసు నీళ్ళు', p_animal: 'పెంపుడు జంతువుకు ఆహారం', p_tetee: 'పాలివ్వడం', p_berceuse: 'జోల పాట',
       p_journee: 'రోజు కబుర్లు', p_respiration: 'ప్రశాంత శ్వాస', p_priere: 'ప్రార్థన', p_bisous: 'అందరికీ ముద్దులు',
+      tabSteps: 'దశలు', tabApp: 'యాప్',
     } },
     tr: { name: 'Türkçe', dir: 'ltr', s: {
       appTitle: 'Uyku vakti!', subtitle: 'Uyku öncesi rutini', start: 'Rutini başlat',
@@ -366,6 +382,7 @@
       p_chambre: 'Odayı hazırlama', p_veilleuse: 'Gece lambası', p_doudou: 'Oyuncak ve emzik',
       p_eau: 'Bir bardak su', p_animal: 'Evcil hayvanı besleme', p_tetee: 'Emzirme', p_berceuse: 'Ninni',
       p_journee: 'Günü anlatma', p_respiration: 'Sakin nefes', p_priere: 'Dua', p_bisous: 'Herkese öpücük',
+      tabSteps: 'Adımlar', tabApp: 'Uygulama',
     } },
     ta: { name: 'தமிழ்', dir: 'ltr', s: {
       appTitle: 'தூங்கும் நேரம்!', subtitle: 'தூக்கத்திற்கு முந்தைய வழக்கம்', start: 'வழக்கத்தைத் தொடங்கு',
@@ -384,6 +401,7 @@
       p_chambre: 'அறையைத் தயார் செய்தல்', p_veilleuse: 'இரவு விளக்கு', p_doudou: 'பொம்மை & சூப்பி',
       p_eau: 'ஒரு டம்ளர் தண்ணீர்', p_animal: 'செல்லப்பிராணிக்கு உணவு', p_tetee: 'தாய்ப்பால்', p_berceuse: 'தாலாட்டு',
       p_journee: 'இன்றைய கதை', p_respiration: 'அமைதியான மூச்சு', p_priere: 'பிரார்த்தனை', p_bisous: 'எல்லோருக்கும் முத்தம்',
+      tabSteps: 'படிகள்', tabApp: 'செயலி',
     } },
     vi: { name: 'Tiếng Việt', dir: 'ltr', s: {
       appTitle: 'Đến giờ đi ngủ!', subtitle: 'Thói quen trước khi ngủ', start: 'Bắt đầu thói quen',
@@ -402,6 +420,7 @@
       p_chambre: 'Chuẩn bị phòng', p_veilleuse: 'Đèn ngủ', p_doudou: 'Gấu bông & ti giả',
       p_eau: 'Cốc nước', p_animal: 'Cho thú cưng ăn', p_tetee: 'Bú mẹ', p_berceuse: 'Hát ru',
       p_journee: 'Kể chuyện trong ngày', p_respiration: 'Hít thở nhẹ nhàng', p_priere: 'Cầu nguyện', p_bisous: 'Hôn cả nhà',
+      tabSteps: 'Các bước', tabApp: 'Ứng dụng',
     } },
     ko: { name: '한국어', dir: 'ltr', s: {
       appTitle: '잘 시간이야!', subtitle: '잠자기 전 루틴', start: '루틴 시작',
@@ -420,6 +439,7 @@
       p_chambre: '방 준비하기', p_veilleuse: '수면등', p_doudou: '인형과 쪽쪽이',
       p_eau: '물 한 잔', p_animal: '반려동물 밥 주기', p_tetee: '수유', p_berceuse: '자장가',
       p_journee: '오늘 이야기', p_respiration: '차분한 숨쉬기', p_priere: '기도', p_bisous: '모두에게 뽀뽀',
+      tabSteps: '단계', tabApp: '앱',
     } },
     tl: { name: 'Filipino', dir: 'ltr', s: {
       appTitle: 'Tulog na!', subtitle: 'Rutina bago matulog', start: 'Simulan ang rutina',
@@ -438,6 +458,7 @@
       p_chambre: 'Paghahanda ng kwarto', p_veilleuse: 'Ilaw pangtulog', p_doudou: 'Teddy at chupon',
       p_eau: 'Baso ng tubig', p_animal: 'Pagpapakain sa alaga', p_tetee: 'Pagpapasuso', p_berceuse: 'Oyayi',
       p_journee: 'Kwento ng araw', p_respiration: 'Mahinahong paghinga', p_priere: 'Dasal', p_bisous: 'Halik sa lahat',
+      tabSteps: 'Mga hakbang', tabApp: 'App',
     } },
     fa: { name: 'فارسی', dir: 'rtl', s: {
       appTitle: 'وقت خوابه!', subtitle: 'روتین قبل از خواب', start: 'شروع روتین',
@@ -456,6 +477,7 @@
       p_chambre: 'آماده کردن اتاق', p_veilleuse: 'چراغ خواب', p_doudou: 'عروسک و پستانک',
       p_eau: 'یک لیوان آب', p_animal: 'غذا دادن به حیوان خانگی', p_tetee: 'شیر مادر', p_berceuse: 'لالایی',
       p_journee: 'تعریف روز', p_respiration: 'نفس آرام', p_priere: 'دعا', p_bisous: 'بوس برای همه',
+      tabSteps: 'مراحل', tabApp: 'برنامه',
     } },
     it: { name: 'Italiano', dir: 'ltr', s: {
       appTitle: 'A nanna!', subtitle: 'La routine della nanna', start: 'Inizia la routine',
@@ -474,6 +496,7 @@
       p_chambre: 'Preparare la cameretta', p_veilleuse: 'Lucina notturna', p_doudou: 'Peluche e ciuccio',
       p_eau: "Bicchiere d'acqua", p_animal: "Dare da mangiare all'animale", p_tetee: 'Allattamento', p_berceuse: 'Ninna nanna',
       p_journee: 'Raccontare la giornata', p_respiration: 'Respiro calmo', p_priere: 'Preghiera', p_bisous: 'Baci a tutti',
+      tabSteps: 'Tappe', tabApp: 'App',
     } },
     th: { name: 'ไทย', dir: 'ltr', s: {
       appTitle: 'ได้เวลานอนแล้ว!', subtitle: 'กิจวัตรก่อนนอน', start: 'เริ่มกิจวัตร',
@@ -492,6 +515,7 @@
       p_chambre: 'จัดห้องนอน', p_veilleuse: 'ไฟกลางคืน', p_doudou: 'ตุ๊กตาและจุกนม',
       p_eau: 'น้ำหนึ่งแก้ว', p_animal: 'ให้อาหารสัตว์เลี้ยง', p_tetee: 'ให้นมแม่', p_berceuse: 'เพลงกล่อม',
       p_journee: 'เล่าเรื่องวันนี้', p_respiration: 'หายใจช้า ๆ', p_priere: 'สวดมนต์', p_bisous: 'หอมแก้มทุกคน',
+      tabSteps: 'ขั้นตอน', tabApp: 'แอป',
     } },
     pa: { name: 'ਪੰਜਾਬੀ', dir: 'ltr', s: {
       appTitle: 'ਸੌਣ ਦਾ ਵੇਲਾ!', subtitle: 'ਸੌਣ ਤੋਂ ਪਹਿਲਾਂ ਦੀ ਰੁਟੀਨ', start: 'ਰੁਟੀਨ ਸ਼ੁਰੂ ਕਰੋ',
@@ -510,6 +534,7 @@
       p_chambre: 'ਕਮਰਾ ਤਿਆਰ ਕਰਨਾ', p_veilleuse: 'ਰਾਤ ਦੀ ਬੱਤੀ', p_doudou: 'ਖਿਡੌਣਾ ਤੇ ਚੁਸਨੀ',
       p_eau: 'ਪਾਣੀ ਦਾ ਗਲਾਸ', p_animal: 'ਜਾਨਵਰ ਨੂੰ ਖਾਣਾ', p_tetee: 'ਦੁੱਧ ਚੁੰਘਾਉਣਾ', p_berceuse: 'ਲੋਰੀ',
       p_journee: 'ਦਿਨ ਦੀਆਂ ਗੱਲਾਂ', p_respiration: 'ਸ਼ਾਂਤ ਸਾਹ', p_priere: 'ਅਰਦਾਸ', p_bisous: 'ਸਾਰਿਆਂ ਨੂੰ ਪਿਆਰ',
+      tabSteps: 'ਕਦਮ', tabApp: 'ਐਪ',
     } },
     pl: { name: 'Polski', dir: 'ltr', s: {
       appTitle: 'Pora spać!', subtitle: 'Wieczorny rytuał', start: 'Rozpocznij rytuał',
@@ -528,6 +553,7 @@
       p_chambre: 'Przygotowanie pokoju', p_veilleuse: 'Lampka nocna', p_doudou: 'Przytulanka i smoczek',
       p_eau: 'Szklanka wody', p_animal: 'Karmienie zwierzaka', p_tetee: 'Karmienie piersią', p_berceuse: 'Kołysanka',
       p_journee: 'Opowieść o dniu', p_respiration: 'Spokojny oddech', p_priere: 'Modlitwa', p_bisous: 'Buziaki dla wszystkich',
+      tabSteps: 'Etapy', tabApp: 'Aplikacja',
     } },
     uk: { name: 'Українська', dir: 'ltr', s: {
       appTitle: 'Час спати!', subtitle: 'Вечірній ритуал', start: 'Почати ритуал',
@@ -546,6 +572,7 @@
       p_chambre: 'Підготувати кімнату', p_veilleuse: 'Нічник', p_doudou: 'Іграшка та пустушка',
       p_eau: 'Склянка води', p_animal: 'Погодувати улюбленця', p_tetee: 'Грудне годування', p_berceuse: 'Колискова',
       p_journee: 'Розповідь про день', p_respiration: 'Спокійне дихання', p_priere: 'Молитва', p_bisous: 'Поцілунки всім',
+      tabSteps: 'Етапи', tabApp: 'Застосунок',
     } },
   };
 
@@ -1195,6 +1222,13 @@
 
   // ---------- Écrans ----------
 
+  function showTab(which) {
+    $('tabSteps').classList.toggle('on', which === 'steps');
+    $('tabApp').classList.toggle('on', which === 'app');
+    $('paneSteps').hidden = which !== 'steps';
+    $('paneApp').hidden = which !== 'app';
+  }
+
   function showScreen(name) {
     document.querySelectorAll('.screen').forEach((s) => {
       s.classList.toggle('active', s.id === 'screen-' + name);
@@ -1251,6 +1285,8 @@
     $('lblIntro').textContent = t('introAnim');
     $('lblLang').textContent = t('language');
     $('btnDefaults').textContent = t('defaults');
+    $('tabSteps').textContent = t('tabSteps');
+    $('tabApp').textContent = t('tabApp');
     $('endTitle').textContent = t('endTitle');
     $('endMsg').textContent = t('endMsg');
     $('btnEndHome').textContent = t('finish');
@@ -1448,11 +1484,14 @@
     makeStars();
 
     $('btnStart').addEventListener('click', startRitual);
-    $('btnSettings').addEventListener('click', () => { renderSettings(); showScreen('settings'); });
+    $('btnSettings').addEventListener('click', () => { renderSettings(); showTab('steps'); showScreen('settings'); });
+    $('tabSteps').addEventListener('click', () => showTab('steps'));
+    $('tabApp').addEventListener('click', () => showTab('app'));
     $('btnBack').addEventListener('click', () => { renderHome(); showScreen('home'); });
     $('btnDefaults').addEventListener('click', () => {
       if (!confirm(t('defaultsConfirm'))) return;
-      settings = { phases: DEFAULT_PHASES.map((p) => ({ ...p })), soundOn: true, introOn: true, lang: settings.lang };
+      // Ne réinitialise que les étapes : langue, sons et animation sont conservés
+      settings.phases = DEFAULT_PHASES.map((p) => ({ ...p }));
       saveSettings();
       renderSettings();
       renderHome();

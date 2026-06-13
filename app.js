@@ -1530,6 +1530,10 @@
     $('btnStop').addEventListener('click', stopRitual);
     $('btnEndHome').addEventListener('click', () => { renderHome(); showScreen('home'); });
 
+    // Forçage de langue par URL (?lang=en), utile pour les captures du store
+    const urlLang = new URLSearchParams(location.search).get('lang');
+    if (urlLang && I18N[urlLang]) settings.lang = urlLang;
+
     applyLang();
 
     if (!resumeFromStorage()) showScreen('home');

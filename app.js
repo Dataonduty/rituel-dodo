@@ -1354,12 +1354,31 @@
     hint.hidden = !showHint;
   }
 
-  // Planifie / annule le rappel quotidien. Effectif uniquement dans la build native (Capacitor) ;
-  // sur le web c'est un no-op (le toggle est mémorisé, la notif se branchera côté natif).
-  function syncReminder() {
-    if (!isNativeApp()) return;
-    // À implémenter avec @capacitor/local-notifications lors du lot natif :
-    //   rappel quotidien à reminderTime(settings.bedtime) si settings.reminderOn, sinon annulation.
+  // Planifie / annule le rappel quotidien (coucher − 15 min). Effectif uniquement dans la build
+  // native (Capacitor expose le plugin sur window.Capacitor.Plugins) ; no-op sur le web.
+  // canRequest : demander la permission si besoin (true au clic utilisateur, false au démarrage).
+  const REMINDER_ID = 1;
+  async function syncReminder(canRequest) {
+    const LN = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.LocalNotifications;
+    if (!isNativeApp() || !LN) return;
+    try {
+      // Toujours repartir d'un rappel propre
+      try { await LN.cancel({ notifications: [{ id: REMINDER_ID }] }); } catch {}
+      if (!settings.reminderOn || !validBedtime(settings.bedtime)) return;
+      let perm = await LN.checkPermissions();
+      if (perm.display !== 'granted') {
+        if (!canRequest) return;
+        perm = await LN.requestPermissions();
+        if (perm.display !== 'granted') return;
+      }
+      const [h, m] = reminderTime(settings.bedtime).split(':').map(Number);
+      await LN.schedule({ notifications: [{
+        id: REMINDER_ID,
+        title: t('appTitle'),
+        body: t('start'),
+        schedule: { on: { hour: h, minute: m }, allowWhileIdle: true },
+      }] });
+    } catch {}
   }
 
   function applyLang() {
@@ -1606,13 +1625,13 @@
       settings.bedtime = e.target.value;
       saveSettings();
       renderBedtime();
-      syncReminder();
+      syncReminder(true);
     });
     $('reminderToggle').addEventListener('change', (e) => {
       settings.reminderOn = e.target.checked;
       saveSettings();
       renderBedtime();
-      syncReminder();
+      syncReminder(true);
       track('rappel_coucher', { actif: settings.reminderOn });
     });
     const sel = $('langSelect');
@@ -1626,6 +1645,7 @@
       settings.lang = I18N[sel.value] ? sel.value : 'fr';
       saveSettings();
       applyLang();
+      syncReminder(false);
       track('langue_changee', { langue: settings.lang });
     });
     $('intro').addEventListener('click', () => closeIntro(true));
@@ -1645,6 +1665,7 @@
     if (urlLang && I18N[urlLang]) settings.lang = urlLang;
 
     applyLang();
+    syncReminder(false);
 
     if (!resumeFromStorage()) showScreen('home');
 
